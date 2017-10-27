@@ -1,0 +1,4 @@
+Source/packages
+Source/.vs
+Source/*.*/bin
+Source/*.*/obj
