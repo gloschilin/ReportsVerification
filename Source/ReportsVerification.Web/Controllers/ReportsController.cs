@@ -7,28 +7,14 @@ using System.Web;
 using System.Web.Http;
 using System.Xml.Linq;
 using ReportsVerification.Web.DataObjects;
+using ReportsVerification.Web.Models;
 using ReportsVerification.Web.Repositories;
+using ReportsVerification.Web.Repositories.Interfaces;
 using ReportsVerification.Web.Utills;
 using ReportsVerification.Web.Utills.Interfaces;
 
 namespace ReportsVerification.Web.Controllers
 {
-    /// <summary>
-    /// Тип запроса на получение отчетов
-    /// </summary>
-    public enum ReportRequestType
-    {
-        /// <summary>
-        /// Существующие (загруженные)
-        /// </summary>
-        Exists,
-
-        /// <summary>
-        /// Недостающие
-        /// </summary>
-        Missing
-    }
-
     /// <summary>
     /// Обработка файлов отчета
     /// </summary>

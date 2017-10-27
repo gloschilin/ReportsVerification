@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using ReportsVerification.Web.DataObjects;
 
-namespace ReportsVerification.Web.Repositories
+namespace ReportsVerification.Web.Repositories.Interfaces
 {
     public interface IReportRepository
     {

@@ -2,8 +2,9 @@ using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
+using ReportsVerification.Web.Utills.Interfaces;
 
-namespace ReportsVerification.Web.Utills.Interfaces
+namespace ReportsVerification.Web.Utills
 {
     public class RequestFileReader : IRequestFileReader
     {
