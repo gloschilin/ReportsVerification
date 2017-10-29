@@ -22,6 +22,28 @@ namespace ReportsVerification.Web.DataObjects
         /// </summary>
         private XDocument Content { get; }
 
+        public static bool TryParse(Type xsdReportType, XDocument reportContent, out IXsdReport xsdReport)
+        {
+            xsdReport = null;
+
+            if (reportContent == null)
+            {
+                return false;
+            }
+
+            try
+            {
+                var serializer = new XmlSerializer(xsdReportType);
+                var rdr = new StringReader(reportContent.ToString());
+                xsdReport = serializer.Deserialize(rdr) as IXsdReport;
+                return xsdReport != null;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         private IXsdReport _xsdReport;
 
         public IXsdReport XsdReport
@@ -33,17 +55,13 @@ namespace ReportsVerification.Web.DataObjects
                     return _xsdReport;
                 }
 
-                var serializer = new XmlSerializer(XsdReportType());
-                var rdr = new StringReader(Content.ToString());
-                _xsdReport = serializer.Deserialize(rdr) as IXsdReport;
-
-                if (_xsdReport == null)
+                if (TryParse(XsdReportType(), Content, out _xsdReport))
                 {
-                    throw new ApplicationException(
-                        "Созданный тип отчета не является реализацией интерфейса IXsdReport");
+                    return _xsdReport;
                 }
 
-                return _xsdReport;
+                throw new ApplicationException(
+                   "Созданный тип отчета не является реализацией интерфейса IXsdReport");
             }
         }
 

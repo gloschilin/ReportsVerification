@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.Mappers.Interfaces;
 using ReportsVerification.Web.Models;
 using ReportsVerification.Web.Repositories.Interfaces;
-using ReportsVerification.Web.Utills.Interfaces;
 
 namespace ReportsVerification.Web.Controllers
 {

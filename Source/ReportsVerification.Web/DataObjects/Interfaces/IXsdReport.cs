@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace ReportsVerification.Web.DataObjects.Interfaces
+﻿namespace ReportsVerification.Web.DataObjects.Interfaces
 {
     public interface IXsdReport
     {
