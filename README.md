@@ -5,4 +5,4 @@
 
 [ТЗ по сверке отчетов.docx](Documentation/ТЗ%20по%20сверке%20отчетов.docx)
 
-[Документация по API сервиса](Documentation/api.md)
+[Документация по API сервиса](Documentation/Api.md)
