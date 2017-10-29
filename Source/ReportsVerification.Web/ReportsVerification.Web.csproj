@@ -45,6 +45,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -107,6 +123,10 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.WebApi, Version=5.2.3.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.WebAPI.5.2.3\lib\net45\Unity.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -119,7 +139,74 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Builders\AccountingStatementInfoBuilder.cs" />
+    <Compile Include="Builders\AccountingStatementSimplifiedTaxationInfoBuilder.cs" />
+    <Compile Include="Builders\CalculationAdvancePaymentInfoBuilder.cs" />
+    <Compile Include="Builders\CalculationContributionsInfoBuilder.cs" />
+    <Compile Include="Builders\CommonConcreteInfoBuilder.cs" />
+    <Compile Include="Builders\DeclarationOnIncomeTaxInfoBuilder.cs" />
+    <Compile Include="Builders\DeclarationOnLandTaxInfoBuilder.cs" />
+    <Compile Include="Builders\DeclarationOnPropertyTaxInfoBuilder.cs" />
+    <Compile Include="Builders\EnvdInfoBuilder.cs" />
+    <Compile Include="Builders\Interfaces\IConcreteReportInfoBuilder.cs" />
+    <Compile Include="Builders\Ndfl2InfoBuilder.cs" />
+    <Compile Include="Builders\Ndfl6InfoBuilder.cs" />
+    <Compile Include="Builders\NdsInfoBuilder.cs" />
+    <Compile Include="Builders\ReportInfoBuilder.cs" />
+    <Compile Include="Builders\SzvMInfoBuilder.cs" />
+    <Compile Include="Builders\TransportDeclarationInfoBuilder.cs" />
+    <Compile Include="Builders\UsnInfoBuilder.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\AccountingStatement.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\AccountingStatementSimplifiedTaxation.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\CalculationAdvancePayment.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\CalculationContributions.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\DeclarationOnIncomeTax.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\DeclarationOnLandTax.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\DeclarationOnPropertyTax.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\Envd.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\Ndfl2.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\Ndfl6.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\Nds.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\SzvM.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\TransportDeclaration.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\Usn.cs" />
+    <Compile Include="DataObjects\Interfaces\IXsdReport.cs" />
+    <Compile Include="DataObjects\Xsd\2-НДФЛ.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\6-НДФЛ.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\Extentions\XsdReportsExtentions.cs" />
+    <Compile Include="DataObjects\Xsd\Бухгалтерская отчетность.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\Бухгалтерская отчетностьУрощенка.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\Декларация по ЕНВД.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\Декларация по земельному налогу.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\Декларация по налогу на имущество.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\Декларация по налогу на прибыль.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\Декларация по НДС.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\Декларация по УСН.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\Расчет по авансовому платежу по налогу на имущество организаций.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\Расчет по взносам.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\СЗВ-М.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\Транспортная декларация.Designer.cs" />
+    <Compile Include="Factories\AccountingStatementFactory.cs" />
+    <Compile Include="Factories\AccountingStatementSimplifiedTaxationFactory.cs" />
+    <Compile Include="Factories\CalculationAdvancePaymentFactory.cs" />
+    <Compile Include="Factories\CalculationContributionsFactory.cs" />
+    <Compile Include="Factories\DeclarationOnIncomeTaxFactory.cs" />
+    <Compile Include="Factories\DeclarationOnLandTaxFactory.cs" />
+    <Compile Include="Factories\DeclarationOnPropertyTaxFactory.cs" />
+    <Compile Include="Factories\EnvdFactory.cs" />
+    <Compile Include="Factories\Interfaces\IConcreteReportFactory.cs" />
+    <Compile Include="Factories\Interfaces\IReportFactory.cs" />
+    <Compile Include="Factories\Ndfl2Factory.cs" />
+    <Compile Include="Factories\Ndfl6Factory.cs" />
+    <Compile Include="Factories\NdsFactory.cs" />
+    <Compile Include="Factories\ReportFactory.cs" />
+    <Compile Include="Factories\SzvMFactory.cs" />
+    <Compile Include="Factories\TransportDeclarationFactory.cs" />
+    <Compile Include="Factories\UsnFactory.cs" />
+    <Compile Include="Installers\BuildersInstaller.cs" />
+    <Compile Include="Installers\FactoriesInstaller.cs" />
     <Compile Include="Models\ReportRequestType.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
@@ -136,8 +223,9 @@
     <Compile Include="Repositories\Interfaces\IReportRepository.cs" />
     <Compile Include="Repositories\Interfaces\ISessionRepository.cs" />
     <Compile Include="Utills\AppLog.cs" />
-    <Compile Include="Utills\Interfaces\IContentHandler.cs" />
-    <Compile Include="Utills\Interfaces\IMapper.cs" />
+    <Compile Include="Builders\Interfaces\IReportInfoBuilder.cs" />
+    <Compile Include="Mappers\Interfaces\IMapper.cs" />
+    <Compile Include="Utills\DefaultLifeTimeManagerContainerExtention.cs" />
     <Compile Include="Utills\Interfaces\IRequestFileReader.cs" />
     <Compile Include="Utills\RequestFileReader.cs" />
   </ItemGroup>
@@ -156,6 +244,50 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataObjects\Xsd\Source\2-НДФЛ.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\6-НДФЛ.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\Бухгалтерская отчетность.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\Бухгалтерская отчетностьУрощенка.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\Декларация по ЕНВД.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\Декларация по земельному налогу.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\Декларация по налогу на имущество.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\Декларация по налогу на прибыль.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\Декларация по НДС.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\Декларация по УСН.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\Расчет по авансовому платежу по налогу на имущество организаций.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\Расчет по взносам.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\СЗВ-М.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\Транспортная декларация.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

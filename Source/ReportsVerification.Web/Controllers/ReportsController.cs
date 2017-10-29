@@ -6,9 +6,10 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Xml.Linq;
+using ReportsVerification.Web.Builders.Interfaces;
 using ReportsVerification.Web.DataObjects;
+using ReportsVerification.Web.Factories.Interfaces;
 using ReportsVerification.Web.Models;
-using ReportsVerification.Web.Repositories;
 using ReportsVerification.Web.Repositories.Interfaces;
 using ReportsVerification.Web.Utills;
 using ReportsVerification.Web.Utills.Interfaces;
@@ -21,17 +22,20 @@ namespace ReportsVerification.Web.Controllers
     public class ReportsController : ApiController
     {
         private readonly IRequestFileReader _requestFileReader;
-        private readonly IContentHandler _contentHandler;
+        private readonly IReportInfoBuilder _reportInfoBuilder;
         private readonly IReportRepository _reportRepository;
+        private readonly IReportFactory _reportFactory;
 
         public ReportsController(
             IRequestFileReader requestFileReader, 
-            IContentHandler contentHandler,
-            IReportRepository reportRepository)
+            IReportInfoBuilder reportInfoBuilder,
+            IReportRepository reportRepository,
+            IReportFactory reportFactory)
         {
             _requestFileReader = requestFileReader;
-            _contentHandler = contentHandler;
+            _reportInfoBuilder = reportInfoBuilder;
             _reportRepository = reportRepository;
+            _reportFactory = reportFactory;
         }
 
         /// <summary>
@@ -82,12 +86,7 @@ namespace ReportsVerification.Web.Controllers
         /// <returns></returns>
         private IEnumerable<ReportInfo> GetExistsReports(Guid sessionId, IEnumerable<Report> exisisReports)
         {
-            var result = exisisReports.Select(report =>
-            {
-                ReportInfo reportInfo;
-                _contentHandler.Handle(report.Content, out reportInfo);
-                return reportInfo;
-            });
+            var result = exisisReports.Select(report => report.GetReportInfo(_reportInfoBuilder));
             return result.ToList();
         }
 
@@ -110,16 +109,16 @@ namespace ReportsVerification.Web.Controllers
                     "Ошибка при чтении файла. Контект файла не является XML");
             }
 
-            ReportInfo reportInfo;
-            if (!_contentHandler.Handle(xmlContent, out reportInfo))
+            try
             {
-                const string message = "Неудалось обработать файл. Неизвестный тип отчета";
-                AppLog.Error(message);
-                throw new HttpException((int)HttpStatusCode.BadRequest, message);
+                var report = _reportFactory.GetReport(xmlContent);
+                _reportRepository.Save(sessionId, report);
             }
-
-            var report = new Report(xmlContent);
-            _reportRepository.Save(sessionId, report);
+            catch (Exception ex)
+            {
+                AppLog.Error($"Ошибка при создании экспемпляра отечта => {ex.Message}");
+                throw new HttpException((int)HttpStatusCode.BadRequest, ex.Message);
+            }
         }
     }
 }

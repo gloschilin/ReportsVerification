@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ReportsVerification.Web.DataObjects;
+using ReportsVerification.Web.Mappers.Interfaces;
 using ReportsVerification.Web.Models;
 using ReportsVerification.Web.Repositories.Interfaces;
 using ReportsVerification.Web.Utills.Interfaces;
