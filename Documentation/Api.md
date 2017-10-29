@@ -18,19 +18,19 @@ interface ISessionInfo
 ```
 Перед началом загрузки документов и их проверкой необходимо получить идентификатор сессии. 
 ```json
-POST: /api/session
+POST: /api/sessions
 BODY: { "userId" : "int" }
 RESPONSE: ISessionInfo
 ```
 
 Для получения информации по сессии:
 ```
-GET: /api/session/{sessionId}
+GET: /api/sessions/{sessionId}
 RESPONSE: ISessionInfo
 ```
 Обновление данных сессии происходит ответе на контрольные вопросы пользвоателем
 ```
-PUT: /api/session/{sessionId}
+PUT: /api/sessions/{sessionId}
 BODY: ISessionInfo
 RESPONSE ISessionInfo
 ```
@@ -41,7 +41,7 @@ RESPONSE ISessionInfo
 
 Загрузка файлов XML отчетов:
 ```
-POST: /api/{sessionId}/reports
+POST: /api/sessions/{sessionId}/reports
 BODY: XML файла отчета
 RESPONSE OK: 201
 RESPONSE Error: 400, в теле овтета сообщение о выданном исключении при загрузке файла
@@ -145,13 +145,13 @@ TransportDeclaration
 
 Загруженные отчеты:
 ```
-GET: /api/{sessionId}/reports?type=Exists
+GET: /api/sessions/{sessionId}/reports?type=Exists
 RESPONSE: IReportInfo[]
 ```
 
 Перечень недостающих отчетов (рекомендации к загрузке):
 ```
-GET: /api/{sessionId}/reports?type=Missing
+GET: /api/sessions/{sessionId}/reports?type=Missing
 RESPONSE: IReportInfo[]
 ```
 
