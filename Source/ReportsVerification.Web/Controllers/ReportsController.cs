@@ -44,8 +44,8 @@ namespace ReportsVerification.Web.Controllers
         /// <param name="sessionId"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("~/api/reports")]
-        public HttpResponseMessage Upload([FromUri]Guid sessionId)
+        [Route("~/api/sessions/{sessionId}/reports")]
+        public HttpResponseMessage Upload(Guid sessionId)
         {
             if (_requestFileReader.Read(Request, content => HandleFileContent(sessionId, content)))
             {
@@ -60,15 +60,15 @@ namespace ReportsVerification.Web.Controllers
         /// Получить загруженные отечты пользвателем
         /// </summary>
         /// <param name="sessionId"></param>
-        /// <param name="reportRequestType"></param>
+        /// <param name="type"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("~/api/reports")]
-        public IEnumerable<ReportInfo> GetReports([FromUri]Guid sessionId, ReportRequestType reportRequestType)
+        [Route("~/api/sessions/{sessionId}/reports")]
+        public IEnumerable<ReportInfo> GetReports(Guid sessionId, ReportRequestType type)
         {
             var exisisReports = _reportRepository.GetList(sessionId);
 
-            return reportRequestType == ReportRequestType.Exists 
+            return type == ReportRequestType.Exists 
                 ? GetExistsReports(sessionId, exisisReports) 
                 : GetMissingReports(sessionId, exisisReports);
         }

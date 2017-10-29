@@ -25,19 +25,18 @@ namespace ReportsVerification.Web.Controllers
             _modelMapper = modelMapper;
         }
 
-        [Route("~/api/session")]
+        [Route("~/api/sessions")]
         [HttpPost]
-        public SessionInfoModel Save()
+        public SessionInfoModel Save(SessionInfoModel model)
         {
             var id = Guid.NewGuid();
-            var info = new SessionInfo(id);
+            var info = new SessionInfo(id, model.UserId);
             _sessionRepository.Save(info);
-            var model = new SessionInfoModel();
             _modelMapper.Map(info, model);
             return model;
         }
 
-        [Route("~/api/session/{sessionId}")]
+        [Route("~/api/sessions/{sessionId}")]
         [HttpPut]
         public SessionInfoModel Update([FromUri]Guid sessionId, [FromBody]SessionInfoModel model)
         {
@@ -46,7 +45,7 @@ namespace ReportsVerification.Web.Controllers
             return model;
         }
 
-        [Route("~/api/session/{sessionId}")]
+        [Route("~/api/sessions/{sessionId}")]
         public SessionInfoModel Get(Guid sessionId)
         {
             var info = _sessionRepository.Get(sessionId);
