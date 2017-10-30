@@ -83,5 +83,10 @@ namespace ReportsVerification.Web.DataObjects
 
             throw new ApplicationException("Неизвестный тип обрабатываемого отчета");
         }
+
+        public XDocument GetContent()
+        {
+            return Content;
+        }
     }
 }

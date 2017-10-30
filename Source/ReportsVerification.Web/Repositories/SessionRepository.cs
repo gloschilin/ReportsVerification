@@ -8,57 +8,16 @@ using ReportsVerification.Web.Repositories.Interfaces;
 
 namespace ReportsVerification.Web.Repositories
 {
-    internal class SessionMapper: IEntityMapper<SessionInfo, Session, ReportsVertification>, IMapper<Session, SessionInfo>
-    {
-        public void Map(Session source, SessionInfo destination)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Map(SessionInfo source, Session destination, ReportsVertification context)
-        {
-            destination.Id = source.Id;
-            destination.UserId = source.ActionUserId;
-            destination.DateCreate = DateTime.Now;
-            destination.RegionId = source.RegionId;
-
-            if (source.Category.HasValue)
-            {
-                var categoryEntity = context.Categories.FirstOrDefault(e => e.Alias == source.Category.ToString());
-                if (categoryEntity == null)
-                {
-                    throw new ApplicationException("Неизвестный тип категории");
-                }
-                destination.CategoryId = categoryEntity.Id;
-            }
-            else
-            {
-                destination.CategoryId = null;
-            }
-
-            if (source.Mode.HasValue)
-            {
-                var modeEntity = context.Modes.FirstOrDefault(e => e.Alias == source.Mode.ToString());
-                if (modeEntity == null)
-                {
-                    throw new ApplicationException("Неизвестный режим пользователя");
-                }
-
-                destination.ModeId = modeEntity.Id;
-            }
-        }
-    }
-
     /// <summary>
     /// Репозиторий данных сессий
     /// </summary>
     public class SessionRepository: ISessionRepository
     {
-        private readonly IMapper<SessionInfo, Session> _toEntityMapper;
+        private readonly IEntityMapper<SessionInfo, Session, ReportsVertification> _toEntityMapper;
         private readonly IMapper<Session, SessionInfo> _fromEntityMapper;
 
         public SessionRepository(
-            IMapper<SessionInfo, Session> toEntityMapper, 
+            IEntityMapper<SessionInfo, Session, ReportsVertification> toEntityMapper,
             IMapper<Session, SessionInfo> fromEntityMapper)
         {
             _toEntityMapper = toEntityMapper;
@@ -70,7 +29,7 @@ namespace ReportsVerification.Web.Repositories
             using (var context = new ReportsVertification())
             {
                 var dbEntity = context.Sessions.FirstOrDefault(e => e.Id == sessionInfo.Id) ?? new Session();
-                _toEntityMapper.Map(sessionInfo, dbEntity);
+                _toEntityMapper.Map(sessionInfo, dbEntity, context);
                 context.SaveChanges();
             }
         }

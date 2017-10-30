@@ -14,6 +14,12 @@ namespace ReportsVerification.Web.Repositories.EF
     
     public partial class Session
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Session()
+        {
+            this.Reports = new HashSet<Report>();
+        }
+    
         public System.Guid Id { get; set; }
         public int UserId { get; set; }
         public Nullable<System.Guid> RegionId { get; set; }
@@ -24,5 +30,7 @@ namespace ReportsVerification.Web.Repositories.EF
         public virtual Category Category { get; set; }
         public virtual Mode Mode { get; set; }
         public virtual Region Region { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Report> Reports { get; set; }
     }
 }
