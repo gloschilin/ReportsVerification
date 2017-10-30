@@ -159,6 +159,9 @@
     <Compile Include="Builders\SzvMInfoBuilder.cs" />
     <Compile Include="Builders\TransportDeclarationInfoBuilder.cs" />
     <Compile Include="Builders\UsnInfoBuilder.cs" />
+    <Compile Include="DataObjects\Catalogs\Deduction.cs" />
+    <Compile Include="DataObjects\Catalogs\Mrot.cs" />
+    <Compile Include="DataObjects\Catalogs\Region.cs" />
     <Compile Include="DataObjects\CodeGenerationItems\Enums.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -259,6 +262,7 @@
     <Compile Include="Repositories\EF\Session.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\Interfaces\ICatalogRepository.cs" />
     <Compile Include="Repositories\Interfaces\IReportRepository.cs" />
     <Compile Include="Repositories\Interfaces\ISessionRepository.cs" />
     <Compile Include="Utills\AppLog.cs" />
