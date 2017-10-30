@@ -143,6 +143,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityHttpControllerActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Utills\Attributes\ControllerSettingsAttribute.cs" />
     <Compile Include="Builders\AccountingStatementInfoBuilder.cs" />
     <Compile Include="Builders\AccountingStatementSimplifiedTaxationInfoBuilder.cs" />
     <Compile Include="Builders\CalculationAdvancePaymentInfoBuilder.cs" />
@@ -160,6 +161,7 @@
     <Compile Include="Builders\SzvMInfoBuilder.cs" />
     <Compile Include="Builders\TransportDeclarationInfoBuilder.cs" />
     <Compile Include="Builders\UsnInfoBuilder.cs" />
+    <Compile Include="Utills\Converters\Json2DateFormatConverter.cs" />
     <Compile Include="DataObjects\Catalogs\Deduction.cs" />
     <Compile Include="DataObjects\Catalogs\Mrot.cs" />
     <Compile Include="DataObjects\Catalogs\Region.cs" />

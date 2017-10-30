@@ -1,15 +1,19 @@
 ﻿using System;
+using System.Net;
+using System.Web;
 using System.Web.Http;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.Mappers.Interfaces;
 using ReportsVerification.Web.Models;
 using ReportsVerification.Web.Repositories.Interfaces;
+using ReportsVerification.Web.Utills.Attributes;
 
 namespace ReportsVerification.Web.Controllers
 {
     /// <summary>
     /// Контроллер для обработки данных сессии
     /// </summary>
+    [ControllerSettings(allowCamelCase: true)]
     public class SessionController : ApiController
     {
         private readonly ISessionRepository _sessionRepository;
@@ -25,9 +29,8 @@ namespace ReportsVerification.Web.Controllers
             _modelMapper = modelMapper;
         }
 
-        [Route("~/api/sessions")]
-        [HttpPost]
-        public SessionInfoModel Save(SessionInfoModel model)
+        [Route("~/api/sessions"), HttpPost]
+        public SessionInfoModel AddNewSession(SessionInfoModel model)
         {
             var id = Guid.NewGuid();
             var info = new SessionInfo(id, model.UserId);
@@ -36,16 +39,29 @@ namespace ReportsVerification.Web.Controllers
             return model;
         }
 
-        [Route("~/api/sessions/{sessionId}")]
-        [HttpPut]
-        public SessionInfoModel Update([FromUri]Guid sessionId, [FromBody]SessionInfoModel model)
+        [Route("~/api/sessions/{sessionId}"), HttpPut]
+        public SessionInfoModel UpdateSession(Guid sessionId, SessionInfoModel model)
         {
-            var session = _sessionRepository.Get(sessionId);
+            if (model.Id != sessionId)
+            {
+                throw new HttpException((int)HttpStatusCode.BadRequest,
+                    "Значения идентификатора сессии в заголовке и теле запроса не совпадают");
+            }
+
+            var session = _sessionRepository.Get(model.Id);
+
+            if (session.ActionUserId != model.UserId)
+            {
+                throw new HttpException((int)HttpStatusCode.BadRequest, 
+                    "Неверное значение дентификатора пользователя");
+            }
+
             _dataMapper.Map(model, session);
+            _sessionRepository.Save(session);
             return model;
         }
 
-        [Route("~/api/sessions/{sessionId}")]
+        [Route("~/api/sessions/{sessionId}"), HttpGet]
         public SessionInfoModel Get(Guid sessionId)
         {
             var info = _sessionRepository.Get(sessionId);

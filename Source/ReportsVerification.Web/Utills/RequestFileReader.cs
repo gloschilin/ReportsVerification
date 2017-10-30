@@ -1,7 +1,8 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Threading;
+using System.Text;
 using ReportsVerification.Web.Utills.Interfaces;
 
 namespace ReportsVerification.Web.Utills
@@ -17,9 +18,14 @@ namespace ReportsVerification.Web.Utills
 
             var provider = new MultipartMemoryStreamProvider();
             request.Content.ReadAsMultipartAsync(provider);
-            foreach (var content in provider.Contents.Select(file => file.ReadAsStringAsync().Result))
+            foreach (var stream in provider.Contents.Select(file => file.ReadAsStreamAsync().Result))
             {
-                ThreadPool.QueueUserWorkItem(state => contentHandler(content));
+                stream.Position = 0;
+                using (var reader = new StreamReader(stream, Encoding.GetEncoding("windows-1251")))
+                {
+                    var content = reader.ReadToEnd();
+                    contentHandler(content);
+                }   
             }
 
             return true;

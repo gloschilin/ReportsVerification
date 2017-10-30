@@ -86,13 +86,13 @@
         </Association>
         <Association Name="FK_Mrot_Regions">
           <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
-          <End Role="Mrot" Type="Self.Mrot" Multiplicity="0..1" />
+          <End Role="Mrot" Type="Self.Mrot" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Regions">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Mrot">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="RegionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -212,16 +212,6 @@
           <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Sessions" Relationship="Self.FK_Sessions_Modes" FromRole="Modes" ToRole="Sessions" />
         </EntityType>
-        <EntityType Name="Mrot">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="RegionId" Type="Guid" Nullable="false" />
-          <Property Name="Value" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="BeginDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Region" Relationship="Self.FK_Mrot_Regions" FromRole="Mrot" ToRole="Regions" />
-        </EntityType>
         <EntityType Name="Region">
           <Key>
             <PropertyRef Name="Id" />
@@ -229,8 +219,8 @@
           <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Deductions" Relationship="Self.FK_Deductions_Regions" FromRole="Regions" ToRole="Deductions" />
-          <NavigationProperty Name="Mrot" Relationship="Self.FK_Mrot_Regions" FromRole="Regions" ToRole="Mrot" />
           <NavigationProperty Name="Sessions" Relationship="Self.FK_Sessions_Regions" FromRole="Regions" ToRole="Sessions" />
+          <NavigationProperty Name="Mrots" Relationship="VertificationsModel.FK_Mrot_Regions" FromRole="Region" ToRole="Mrot" />
         </EntityType>
         <EntityType Name="Session">
           <Key>
@@ -283,18 +273,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Mrot_Regions">
-          <End Role="Regions" Type="Self.Region" Multiplicity="1" />
-          <End Role="Mrot" Type="Self.Mrot" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Regions">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Mrot">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Sessions_Regions">
           <End Role="Regions" Type="Self.Region" Multiplicity="0..1" />
           <End Role="Sessions" Type="Self.Session" Multiplicity="*" />
@@ -311,7 +289,6 @@
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Deductions" EntityType="Self.Deduction" />
           <EntitySet Name="Modes" EntityType="Self.Mode" />
-          <EntitySet Name="Mrots" EntityType="Self.Mrot" />
           <EntitySet Name="Regions" EntityType="Self.Region" />
           <EntitySet Name="Sessions" EntityType="Self.Session" />
           <AssociationSet Name="FK_Sessions_Categories" Association="Self.FK_Sessions_Categories">
@@ -326,10 +303,6 @@
             <End Role="Modes" EntitySet="Modes" />
             <End Role="Sessions" EntitySet="Sessions" />
           </AssociationSet>
-          <AssociationSet Name="FK_Mrot_Regions" Association="Self.FK_Mrot_Regions">
-            <End Role="Regions" EntitySet="Regions" />
-            <End Role="Mrot" EntitySet="Mrots" />
-          </AssociationSet>
           <AssociationSet Name="FK_Sessions_Regions" Association="Self.FK_Sessions_Regions">
             <End Role="Regions" EntitySet="Regions" />
             <End Role="Sessions" EntitySet="Sessions" />
@@ -338,6 +311,11 @@
           <AssociationSet Name="FK_Reports_Sessions" Association="VertificationsModel.FK_Reports_Sessions">
             <End Role="Session" EntitySet="Sessions" />
             <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+          <EntitySet Name="Mrots" EntityType="VertificationsModel.Mrot" />
+          <AssociationSet Name="FK_Mrot_Regions" Association="VertificationsModel.FK_Mrot_Regions">
+            <End Role="Region" EntitySet="Regions" />
+            <End Role="Mrot" EntitySet="Mrots" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Report">
@@ -362,6 +340,28 @@
             </Principal>
             <Dependent Role="Report">
               <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Mrot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="RegionId" Type="Guid" Nullable="false" />
+          <Property Name="Value" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="BeginDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Region" Relationship="VertificationsModel.FK_Mrot_Regions" FromRole="Mrot" ToRole="Region" />
+        </EntityType>
+        <Association Name="FK_Mrot_Regions">
+          <End Type="VertificationsModel.Region" Role="Region" Multiplicity="1" />
+          <End Type="VertificationsModel.Mrot" Role="Mrot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mrot">
+              <PropertyRef Name="RegionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -402,16 +402,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Mrots">
-            <EntityTypeMapping TypeName="VertificationsModel.Mrot">
-              <MappingFragment StoreEntitySet="Mrot">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
-                <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Regions">
             <EntityTypeMapping TypeName="VertificationsModel.Region">
               <MappingFragment StoreEntitySet="Regions">
@@ -441,6 +431,16 @@
                 <ScalarProperty Name="Month" ColumnName="Month" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mrots">
+            <EntityTypeMapping TypeName="VertificationsModel.Mrot">
+              <MappingFragment StoreEntitySet="Mrot">
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

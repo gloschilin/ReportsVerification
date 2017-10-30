@@ -8,16 +8,16 @@
         <EntityTypeShape EntityType="VertificationsModel.Category" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VertificationsModel.Deduction" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="VertificationsModel.Mode" Width="1.5" PointX="3.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="VertificationsModel.Mrot" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="VertificationsModel.Region" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="VertificationsModel.Session" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
         <AssociationConnector Association="VertificationsModel.FK_Sessions_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="VertificationsModel.FK_Deductions_Regions" ManuallyRouted="false" />
         <AssociationConnector Association="VertificationsModel.FK_Sessions_Modes" ManuallyRouted="false" />
-        <AssociationConnector Association="VertificationsModel.FK_Mrot_Regions" ManuallyRouted="false" />
         <AssociationConnector Association="VertificationsModel.FK_Sessions_Regions" ManuallyRouted="false" />
         <EntityTypeShape EntityType="VertificationsModel.Report" Width="1.5" PointX="8.25" PointY="5.75" />
         <AssociationConnector Association="VertificationsModel.FK_Reports_Sessions" />
+        <EntityTypeShape EntityType="VertificationsModel.Mrot" Width="1.5" PointX="3" PointY="7.875" />
+        <AssociationConnector Association="VertificationsModel.FK_Mrot_Regions" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

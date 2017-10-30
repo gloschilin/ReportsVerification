@@ -35,13 +35,17 @@ namespace ReportsVerification.Web.Repositories
                     .Where(e=>e.SessionId == sessionId)
                     .FirstOrDefault(e => e.Alias == report.ToString() 
                                          && e.Month == info.ReportMonth.Month 
-                                         && e.Year == info.ReportMonth.Year) 
-                                         ?? new EF.Report
-                                         {
-                                             Id = Guid.NewGuid(),
-                                             SessionId = sessionId
-                                         };
-
+                                         && e.Year == info.ReportMonth.Year) ;
+                if (entity == null)
+                {
+                    entity = new EF.Report
+                    {
+                        Id = Guid.NewGuid(),
+                        SessionId = sessionId
+                    };
+                    context.Reports.Add(entity);
+                }
+                
                 _toEntityMapper.Map(report, entity);
                 context.SaveChanges();
             }

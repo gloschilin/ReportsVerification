@@ -12,6 +12,7 @@ using ReportsVerification.Web.Factories.Interfaces;
 using ReportsVerification.Web.Models;
 using ReportsVerification.Web.Repositories.Interfaces;
 using ReportsVerification.Web.Utills;
+using ReportsVerification.Web.Utills.Attributes;
 using ReportsVerification.Web.Utills.Interfaces;
 
 namespace ReportsVerification.Web.Controllers
@@ -19,6 +20,7 @@ namespace ReportsVerification.Web.Controllers
     /// <summary>
     /// Обработка файлов отчета
     /// </summary>
+    [ControllerSettings(allowCamelCase: true)]
     public class ReportsController : ApiController
     {
         private readonly IRequestFileReader _requestFileReader;
@@ -43,15 +45,21 @@ namespace ReportsVerification.Web.Controllers
         /// </summary>
         /// <param name="sessionId"></param>
         /// <returns></returns>
-        [HttpPost]
-        [Route("~/api/sessions/{sessionId}/reports")]
+        [Route("~/api/sessions/{sessionId}/reports"), HttpPost]
         public HttpResponseMessage Upload(Guid sessionId)
         {
-            if (_requestFileReader.Read(Request, content => HandleFileContent(sessionId, content)))
+            try
             {
-                return new HttpResponseMessage(HttpStatusCode.Created);
+                if (_requestFileReader.Read(Request, content => HandleFileContent(sessionId, content)))
+                {
+                    return new HttpResponseMessage(HttpStatusCode.Created);
+                }
             }
-
+            catch (Exception ex)
+            {
+                throw new HttpException((int)HttpStatusCode.BadRequest, ex.Message);
+            }
+            
             AppLog.Error("Неудалось получить XML из загружаемого файла");
             throw new HttpException((int)HttpStatusCode.BadRequest, "Не удалось загрузить файлы");
         }
@@ -62,8 +70,7 @@ namespace ReportsVerification.Web.Controllers
         /// <param name="sessionId"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        [HttpGet]
-        [Route("~/api/sessions/{sessionId}/reports")]
+        [Route("~/api/sessions/{sessionId}/reports"), HttpGet]
         public IEnumerable<ReportInfo> GetReports(Guid sessionId, ReportRequestType type)
         {
             var exisisReports = _reportRepository.GetList(sessionId);

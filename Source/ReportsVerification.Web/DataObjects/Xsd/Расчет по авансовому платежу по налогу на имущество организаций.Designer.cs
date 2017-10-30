@@ -108,11 +108,11 @@ namespace ReportsVerification.Web.DataObjects.Xsd.CalculationAdvancePayment
         
         private List<ФайлДокументСумНалПУ> _имущАв;
         
-        private ФайлДокументКНД _кНД;
+        private string _кНД;
         
         private string _датаДок;
         
-        private ФайлДокументПериод _период;
+        private string _период;
         
         private string _отчетГод;
         
@@ -168,7 +168,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.CalculationAdvancePayment
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументКНД КНД
+        public string КНД
         {
             get
             {
@@ -194,7 +194,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.CalculationAdvancePayment
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПериод Период
+        public string Период
         {
             get
             {
@@ -1562,47 +1562,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.CalculationAdvancePayment
         Item13,
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументКНД
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1152028")]
-        Item1152028,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПериод
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("21")]
-        Item21,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("17")]
-        Item17,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("18")]
-        Item18,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("51")]
-        Item51,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("47")]
-        Item47,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("48")]
-        Item48,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]

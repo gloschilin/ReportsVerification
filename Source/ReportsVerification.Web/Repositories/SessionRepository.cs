@@ -28,7 +28,12 @@ namespace ReportsVerification.Web.Repositories
         {
             using (var context = new ReportsVertification())
             {
-                var dbEntity = context.Sessions.FirstOrDefault(e => e.Id == sessionInfo.Id) ?? new Session();
+                var dbEntity = context.Sessions.FirstOrDefault(e => e.Id == sessionInfo.Id);
+                if (dbEntity == null)
+                {
+                    dbEntity = new Session();
+                    context.Sessions.Add(dbEntity);
+                }
                 _toEntityMapper.Map(sessionInfo, dbEntity, context);
                 context.SaveChanges();
             }

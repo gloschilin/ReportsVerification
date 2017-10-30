@@ -615,7 +615,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Ndfl2
         
         private List<ФайлДокументСведДох> _сведДох;
         
-        private ФайлДокументКНД _кНД;
+        private string _кНД;
         
         private string _датаДок;
         
@@ -688,7 +688,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Ndfl2
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументКНД КНД
+        public string КНД
         {
             get
             {
@@ -1693,17 +1693,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Ndfl2
                 this._налНеУдерж = value;
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументКНД
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1151078")]
-        Item1151078,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]

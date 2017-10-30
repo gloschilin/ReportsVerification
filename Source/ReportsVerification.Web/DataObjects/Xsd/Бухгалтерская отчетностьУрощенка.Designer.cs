@@ -122,11 +122,11 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         
         private ФайлДокументЗаявСХПр _заявСХПр;
         
-        private ФайлДокументКНД _кНД;
+        private string _кНД;
         
         private string _датаДок;
         
-        private ФайлДокументПериод _период;
+        private string _период;
         
         private string _отчетГод;
         
@@ -272,7 +272,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументКНД КНД
+        public string КНД
         {
             get
             {
@@ -298,7 +298,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПериод Период
+        public string Период
         {
             get
             {
@@ -4753,36 +4753,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
                 this._наимФайлЗСХП = value;
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументКНД
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0710096")]
-        Item0710096,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПериод
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("34")]
-        Item34,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("90")]
-        Item90,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("94")]
-        Item94,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]

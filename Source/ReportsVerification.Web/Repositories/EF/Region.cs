@@ -19,6 +19,7 @@ namespace ReportsVerification.Web.Repositories.EF
         {
             this.Deductions = new HashSet<Deduction>();
             this.Sessions = new HashSet<Session>();
+            this.Mrots = new HashSet<Mrot>();
         }
     
         public System.Guid Id { get; set; }
@@ -26,8 +27,9 @@ namespace ReportsVerification.Web.Repositories.EF
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deduction> Deductions { get; set; }
-        public virtual Mrot Mrot { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Session> Sessions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Mrot> Mrots { get; set; }
     }
 }

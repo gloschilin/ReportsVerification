@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using ReportsVerification.Web.Builders.Interfaces;
@@ -22,6 +23,16 @@ namespace ReportsVerification.Web.DataObjects
         /// </summary>
         private XDocument Content { get; }
 
+        private static Stream GenerateStreamFromString(string s)
+        {
+            var stream = new MemoryStream();
+            var writer = new StreamWriter(stream, Encoding.GetEncoding("windows-1251"));
+            writer.Write(s);
+            writer.Flush();
+            stream.Position = 0;
+            return stream;
+        }
+
         public static bool TryParse(Type xsdReportType, XDocument reportContent, out IXsdReport xsdReport)
         {
             xsdReport = null;
@@ -34,9 +45,12 @@ namespace ReportsVerification.Web.DataObjects
             try
             {
                 var serializer = new XmlSerializer(xsdReportType);
-                var rdr = new StringReader(reportContent.ToString());
-                xsdReport = serializer.Deserialize(rdr) as IXsdReport;
-                return xsdReport != null;
+                var stream = GenerateStreamFromString(reportContent.ToString());
+                using (stream)
+                {
+                    xsdReport = serializer.Deserialize(stream) as IXsdReport;
+                    return xsdReport != null;
+                }
             }
             catch
             {

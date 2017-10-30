@@ -108,11 +108,11 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Ndfl6
         
         private ФайлДокументНДФЛ6 _нДФЛ6;
         
-        private ФайлДокументКНД _кНД;
+        private string _кНД;
         
         private string _датаДок;
         
-        private ФайлДокументПериод _период;
+        private string _период;
         
         private string _отчетГод;
         
@@ -167,7 +167,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Ndfl6
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументКНД КНД
+        public string КНД
         {
             get
             {
@@ -193,7 +193,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Ndfl6
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПериод Период
+        public string Период
         {
             get
             {
@@ -926,55 +926,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Ndfl6
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументКНД
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1151099")]
-        Item1151099,
-    }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПериод
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("21")]
-        Item21,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("31")]
-        Item31,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("33")]
-        Item33,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("34")]
-        Item34,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("51")]
-        Item51,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("52")]
-        Item52,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("53")]
-        Item53,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("90")]
-        Item90,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]

@@ -28,9 +28,9 @@ namespace ReportsVerification.Web.Repositories.EF
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Deduction> Deductions { get; set; }
         public virtual DbSet<Mode> Modes { get; set; }
-        public virtual DbSet<Mrot> Mrots { get; set; }
         public virtual DbSet<Region> Regions { get; set; }
         public virtual DbSet<Session> Sessions { get; set; }
         public virtual DbSet<Report> Reports { get; set; }
+        public virtual DbSet<Mrot> Mrots { get; set; }
     }
 }

@@ -10,17 +10,34 @@ namespace ReportsVerification.Web.Builders
 
         protected override string GetCompanyName(Файл xmlFileContent)
         {
-            throw new NotImplementedException();
+            if (!Allow(xmlFileContent))
+            {
+                throw new ApplicationException("Неверный билдер для отчета");
+            }
+
+            var item = xmlFileContent.Документ.СвНП.НПЮЛ;
+            return GetCompanyName(item);
+        }
+
+        private static string GetCompanyName(ФайлДокументСвНПНПЮЛ ul)
+        {
+            return $"{ul.НаимОрг}";
         }
 
         protected override DateOfMonth GetReportMonth(Файл xmlFileContent)
         {
-            throw new NotImplementedException();
+            if (!Allow(xmlFileContent))
+            {
+                throw new ApplicationException("Неверный билдер для отчета");
+            }
+
+            return DateOfMonth.FromPeriod(int.Parse(xmlFileContent.Документ.ОтчетГод),
+                xmlFileContent.Документ.Период);
         }
 
         protected override bool Allow(Файл xmlReport)
         {
-            throw new NotImplementedException();
+            return xmlReport != null && xmlReport.Документ?.КНД == "1152028";
         }
     }
 }
