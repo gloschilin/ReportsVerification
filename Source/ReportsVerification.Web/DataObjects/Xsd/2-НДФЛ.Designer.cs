@@ -623,7 +623,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Ndfl2
         
         private string _отчетГод;
         
-        private ФайлДокументПризнак _признак;
+        private string _признак;
         
         private string _номКорр;
         
@@ -740,7 +740,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Ndfl2
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПризнак Признак
+        public string Признак
         {
             get
             {
@@ -1693,21 +1693,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Ndfl2
                 this._налНеУдерж = value;
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПризнак
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2")]
-        Item2,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]

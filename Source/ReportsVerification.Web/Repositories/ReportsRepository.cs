@@ -33,7 +33,7 @@ namespace ReportsVerification.Web.Repositories
             {
                 var entity = context.Reports
                     .Where(e=>e.SessionId == sessionId)
-                    .FirstOrDefault(e => e.Alias == report.ToString() 
+                    .FirstOrDefault(e => e.Alias == info.Type.ToString() 
                                          && e.Month == info.ReportMonth.Month 
                                          && e.Year == info.ReportMonth.Year) ;
                 if (entity == null)

@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<?F4FORM version="0.92"?>
+<xsd:schema
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://fz122.fss.ru"
+xmlns="http://fz122.fss.ru"
+elementFormDefault="qualified"
+>
+  <!-- Описание глобального элемента F4REPORT -->
+  <xsd:element name="F4REPORT" type="F4ReportType"/>
+  <xsd:annotation>
+    <xsd:documentation>Корневой элемент</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="F4ReportType">
+    <xsd:sequence>
+      <xsd:element name="TITLE" type="TitleType"/>
+      <xsd:element name="F4INFO" type="F4infoType"/>
+      <xsd:element name="F4DECODE" type="F4decodeType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="F4DOGOV" type="F4DogovType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Описание элемента TITLE -->
+  <xsd:complexType name="TitleType">
+    <xsd:annotation>
+      <xsd:documentation>Титул</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="REG_NUM" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="KPS_NUM" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <!--<xsd:pattern value="\d{4}[1,2,3,4]"/>-->
+          <xsd:maxLength value="5"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="YEAR_NUM" type="xsd:gYear" use="required"/>
+    <xsd:attribute name="QUART_NUM" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:enumeration value="03"/>
+          <xsd:enumeration value="06"/>
+          <xsd:enumeration value="09"/>
+          <xsd:enumeration value="3"/>
+          <xsd:enumeration value="6"/>
+          <xsd:enumeration value="9"/>
+          <xsd:enumeration value="12"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>    
+    <xsd:attribute name="NumCorr" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="3"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="NumDot" use="optional" default="0">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="2"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="LIKV" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:enumeration value="0"/>
+          <xsd:enumeration value="1"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="NAME" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="255"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="INN" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="12"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="KPP" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="9"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="OGRN" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="15"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="PHONE" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="15"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="CADDR" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="128"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="EMAIL" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="OKVED" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="8"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="T1R1C2" type="NumType" use="required"/>
+    <xsd:attribute name="T1R4C2" type="NumType" use="optional"/>
+    <xsd:attribute name="T1R6C2" type="NumType" use="optional"/>
+    <xsd:attribute name="Upoln" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:enumeration value="1"/>
+          <xsd:enumeration value="2"/>
+          <xsd:enumeration value="3"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="CEO" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="64"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="CRE_DATE" type="xsd:date" use="optional"/>
+    <xsd:attribute name="UpolnDoc" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="64"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <!-- Описание элемента F4INFO -->
+  <xsd:complexType name="F4infoType">
+    <xsd:annotation>
+      <xsd:documentation>Раздел 1</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="PAYM_ORDER" type="PaymOrderType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="NC" type="SumType" use="optional"/>
+    <xsd:attribute name="NC1" type="SumType" use="optional"/>
+    <xsd:attribute name="NC2" type="SumType" use="optional"/>
+    <xsd:attribute name="NC3" type="SumType" use="optional"/>
+    <xsd:attribute name="T1R3C2" type="SumType" use="optional"/>
+    <xsd:attribute name="C1" type="SumType" use="optional"/>
+    <xsd:attribute name="C2" type="SumType" use="optional"/>
+    <xsd:attribute name="C3" type="SumType" use="optional"/>
+    <xsd:attribute name="T1R5C2" type="SumType" use="optional"/>
+    <xsd:attribute name="I1" type="SumType" use="optional"/>
+    <xsd:attribute name="I2" type="SumType" use="optional"/>
+    <xsd:attribute name="I3" type="SumType" use="optional"/>
+    <xsd:attribute name="RATE_MIS" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="3"/>
+          <xsd:fractionDigits value="1"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="RATE_DEC" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="2"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="RATE_INC" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="2"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="INC_DATE" type="xsd:date" use="optional"/>
+    <xsd:attribute name="IS_INV" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:enumeration value="0"/>
+          <xsd:enumeration value="1"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="IS_BUDJET" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:enumeration value="0"/>
+          <xsd:enumeration value="1"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="T7R1C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R3C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R5C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R6C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R7C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R9C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R13C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R11C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R16C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R17C61" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R18C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R39C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R19C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R40C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R21C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R23C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R24C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R25C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R27C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R29C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R30C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R31C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R38C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R34C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T7R35C1" type="SumType" use="optional"/>
+    <xsd:attribute name="T6R3C1" type="NumType" use="optional"/>
+    <xsd:attribute name="T6R3C2" type="SumType" use="optional"/>
+    <xsd:attribute name="T6R13C1" type="NumType" use="optional"/>
+    <xsd:attribute name="T6R13C2" type="SumType" use="optional"/>
+    <xsd:attribute name="T6R4C1" type="NumType" use="optional"/>
+    <xsd:attribute name="T6R4C2" type="SumType" use="optional"/>
+    <xsd:attribute name="T6R8C1" type="NumType" use="optional"/>
+    <xsd:attribute name="T6R8C2" type="SumType" use="optional"/>
+    <xsd:attribute name="T6R14C1" type="NumType" use="optional"/>
+    <xsd:attribute name="T6R14C2" type="SumType" use="optional"/>
+    <xsd:attribute name="T6R9C1" type="NumType" use="optional"/>
+    <xsd:attribute name="T6R9C2" type="SumType" use="optional"/>
+    <xsd:attribute name="T6R5C1" type="NumType" use="optional"/>
+    <xsd:attribute name="T6R5C2" type="SumType" use="optional"/>
+    <xsd:attribute name="T6R6C1" type="NumType" use="optional"/>
+    <xsd:attribute name="T6R6C2" type="SumType" use="optional"/>
+    <xsd:attribute name="T6R10C2" type="SumType" use="optional"/>
+    <xsd:attribute name="T6R11C2" type="SumType" use="optional"/>
+    <xsd:attribute name="M1" type="NumType" use="optional"/>
+    <xsd:attribute name="M2" type="NumType" use="optional"/>
+    <xsd:attribute name="M3" type="NumType" use="optional"/>
+    <xsd:attribute name="M5" type="NumType" use="optional"/>
+    <xsd:attribute name="ATT_C1" type="NumType" use="optional"/>
+    <xsd:attribute name="ATT_C2" type="NumType" use="optional"/>
+    <xsd:attribute name="ATT_CL3" type="NumType" use="optional"/>
+    <xsd:attribute name="ATT_CL4" type="NumType" use="optional"/>
+    <xsd:attribute name="MED_C1" type="NumType" use="optional"/>
+    <xsd:attribute name="MED_C2" type="NumType" use="optional"/>
+  </xsd:complexType>
+  <!-- Описание элемента F4DECODE -->
+  <xsd:complexType name="F4decodeType">
+    <xsd:annotation>
+      <xsd:documentation>Самостоятельные классификационные единицы / источники финансирования</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="OKVED" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="8"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="ID_RISC" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="2"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="RATE_MIS" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="3"/>
+          <xsd:fractionDigits value="1"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="RATE_DEC" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="2"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="RATE_INC" use="optional">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="2"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="FOT" type="SumType" use="optional"/>
+    <xsd:attribute name="C1" type="SumType" use="optional"/>
+    <xsd:attribute name="C2" type="SumType" use="optional"/>
+    <xsd:attribute name="C3" type="SumType" use="optional"/>
+    <xsd:attribute name="FOTINV" type="SumType" use="optional"/>
+    <xsd:attribute name="I1" type="SumType" use="optional"/>
+    <xsd:attribute name="I2" type="SumType" use="optional"/>
+    <xsd:attribute name="I3" type="SumType" use="optional"/>
+    <xsd:attribute name="NC" type="SumType" use="optional"/>
+    <xsd:attribute name="RECKON" type="SumType" use="optional"/>
+  </xsd:complexType>
+  <!-- Тип для описания Сведения, необходимые для исчисления страховых взносов страхователями-->
+  <xsd:complexType name="F4DogovType">
+    <xsd:annotation>
+      <xsd:documentation>Сведения, необходимые для исчисления страховых взносов страхователями</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="REG_NUM_P" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="INN_P" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="12"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="OKVED_P" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="8"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="WRK_P" type="NumType" use="required"/>
+    <xsd:attribute name="FOT_P" type="SumType" use="optional"/>
+    <xsd:attribute name="FOTINV_P" type="SumType" use="optional"/>
+    <xsd:attribute name="C1" type="SumType" use="optional"/>
+    <xsd:attribute name="I1" type="SumType" use="optional"/>
+    <xsd:attribute name="C2" type="SumType" use="optional"/>
+    <xsd:attribute name="I2" type="SumType" use="optional"/>
+    <xsd:attribute name="C3" type="SumType" use="optional"/>
+    <xsd:attribute name="I3" type="SumType" use="optional"/>
+    <xsd:attribute name="RATE_MIS_P" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="3"/>
+          <xsd:fractionDigits value="1"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="MIS_ALL_P" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="4"/>
+          <xsd:fractionDigits value="2"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <!-- Тип для описания платежного поручения -->
+  <xsd:complexType name="PaymOrderType">
+    <xsd:annotation>
+      <xsd:documentation>Платежное поручение</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="NUM" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="DT" type="xsd:date" use="required"/>
+    <xsd:attribute name="SUM" type="SumType" use="required"/>
+  </xsd:complexType>
+  <!-- Тип для описания допустимого вещественного числа -->
+  <xsd:simpleType name="SumType">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:totalDigits value="16"/>
+      <xsd:fractionDigits value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <!-- Тип для описания допустимого целого числа -->
+  <xsd:simpleType name="NumType">
+    <xsd:restriction base="xsd:integer">
+      <xsd:totalDigits value="6"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

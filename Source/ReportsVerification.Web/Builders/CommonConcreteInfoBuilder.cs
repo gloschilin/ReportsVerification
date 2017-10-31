@@ -19,13 +19,11 @@ namespace ReportsVerification.Web.Builders
                 return false;
             }
 
-            reportInfo = new ReportInfo(ReportType, GetReportMonth(xsdReport), GetCompanyName(xsdReport));
+            reportInfo = GetReportInfoInternal(xsdReport);
             return true;
         }
 
-        protected abstract string GetCompanyName(TXsdReport xmlFileContent);
-
-        protected abstract DateOfMonth GetReportMonth(TXsdReport xmlFileContent);
+        protected abstract ReportInfo GetReportInfoInternal(TXsdReport xsdReport);
 
         protected abstract bool Allow(TXsdReport xmlReport);
 

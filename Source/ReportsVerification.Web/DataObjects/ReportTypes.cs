@@ -73,6 +73,11 @@
         /// <summary>
         /// Транспортная декларация
         /// </summary>
-        TransportDeclaration
+        TransportDeclaration,
+
+        /// <summary>
+        /// 4 ФСС
+        /// </summary>
+        Fss4
     }
 }

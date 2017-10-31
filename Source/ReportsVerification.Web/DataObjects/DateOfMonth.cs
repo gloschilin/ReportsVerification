@@ -48,5 +48,24 @@ namespace ReportsVerification.Web.DataObjects
 
             return new DateOfMonth(year, month);
         }
+
+        public static DateOfMonth ByFssDate(int year, string fss4Quarter)
+        {
+            int month;
+
+            switch (fss4Quarter)
+            {
+                case "3":
+                case "6":
+                case "9":
+                case "12":
+                    month = int.Parse(fss4Quarter) - 2;
+                    break;
+                default:
+                    throw new ApplicationException($"Необработанное значение квартала для отчета 4 ФСС = {fss4Quarter}");
+            }
+
+            return new DateOfMonth(year, month);
+        }
     }
 }

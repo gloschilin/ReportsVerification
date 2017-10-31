@@ -143,6 +143,11 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityHttpControllerActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Builders\Fss4Builder.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\Fss4.cs" />
+    <Compile Include="DataObjects\Ndfl2ReportInfo.cs" />
+    <Compile Include="DataObjects\Xsd\f4form_2017.Designer.cs" />
+    <Compile Include="Factories\Fss4Factory.cs" />
     <Compile Include="Utills\Attributes\ControllerSettingsAttribute.cs" />
     <Compile Include="Builders\AccountingStatementInfoBuilder.cs" />
     <Compile Include="Builders\AccountingStatementSimplifiedTaxationInfoBuilder.cs" />
@@ -322,6 +327,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="DataObjects\Xsd\Source\6-НДФЛ.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\f4form_2017.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="DataObjects\Xsd\Source\Бухгалтерская отчетность.xsd">

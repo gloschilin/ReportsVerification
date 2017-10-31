@@ -7,7 +7,7 @@ namespace ReportsVerification.Web.Builders
     public class DeclarationOnIncomeTaxInfoBuilder : CommonConcreteInfoBuilder<Файл>
     {
         protected override ReportTypes ReportType => ReportTypes.DeclarationOnIncomeTax;
-        protected override string GetCompanyName(Файл xmlFileContent)
+        protected string GetCompanyName(Файл xmlFileContent)
         {
             if (!Allow(xmlFileContent))
             {
@@ -24,7 +24,7 @@ namespace ReportsVerification.Web.Builders
             return $"{ul.НаимОрг}";
         }
 
-        protected override DateOfMonth GetReportMonth(Файл xmlFileContent)
+        protected DateOfMonth GetReportMonth(Файл xmlFileContent)
         {
             if (!Allow(xmlFileContent))
             {
@@ -33,6 +33,11 @@ namespace ReportsVerification.Web.Builders
 
             return DateOfMonth.FromPeriod(int.Parse(xmlFileContent.Документ.ОтчетГод),
                 xmlFileContent.Документ.Период);
+        }
+
+        protected override ReportInfo GetReportInfoInternal(Файл xsdReport)
+        {
+            return new ReportInfo(ReportType, GetReportMonth(xsdReport), GetCompanyName(xsdReport));
         }
 
         protected override bool Allow(Файл xmlReport)

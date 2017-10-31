@@ -25,6 +25,7 @@ namespace ReportsVerification.Web.Installers
             Container.RegisterType<IConcreteReportFactory, SzvMFactory>("SzvMFactory");
             Container.RegisterType<IConcreteReportFactory, TransportDeclarationFactory>("TransportDeclarationFactory");
             Container.RegisterType<IConcreteReportFactory, UsnFactory>("UsnFactory");
+            Container.RegisterType<IConcreteReportFactory, Fss4Factory>("Fss4Factory");
         }
     }
 }

@@ -8,12 +8,17 @@ namespace ReportsVerification.Web.Builders
     public class SzvMInfoBuilder : CommonConcreteInfoBuilder<Файл>
     {
         protected override ReportTypes ReportType => ReportTypes.SzvM;
-        protected override string GetCompanyName(Файл xmlFileContent)
+        protected string GetCompanyName(Файл xmlFileContent)
         {
             throw new NotImplementedException();
         }
 
-        protected override DateOfMonth GetReportMonth(Файл xmlFileContent)
+        protected DateOfMonth GetReportMonth(Файл xmlFileContent)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override ReportInfo GetReportInfoInternal(Файл xsdReport)
         {
             throw new NotImplementedException();
         }

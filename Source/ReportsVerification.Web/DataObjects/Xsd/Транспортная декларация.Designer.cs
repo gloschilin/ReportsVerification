@@ -108,7 +108,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.TransportDeclaration
         
         private ФайлДокументТрНалНД _трНалНД;
         
-        private ФайлДокументКНД _кНД;
+        private string _кНД;
         
         private string _датаДок;
         
@@ -167,7 +167,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.TransportDeclaration
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументКНД КНД
+        public string КНД
         {
             get
             {
@@ -1407,16 +1407,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.TransportDeclaration
         Item40200,
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументКНД
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1152004")]
-        Item1152004,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]

@@ -44,13 +44,22 @@ namespace ReportsVerification.Web.DataObjects
 
             try
             {
+                //var serializer = new XmlSerializer(xsdReportType);
+                //var stream = GenerateStreamFromString(reportContent.ToString());
+                //using (stream)
+                //{
+                //    xsdReport = serializer.Deserialize(stream) as IXsdReport;
+                //    return xsdReport != null;
+                //}
+
                 var serializer = new XmlSerializer(xsdReportType);
-                var stream = GenerateStreamFromString(reportContent.ToString());
-                using (stream)
+
+                using (var reader = new StringReader(reportContent.ToString()))
                 {
-                    xsdReport = serializer.Deserialize(stream) as IXsdReport;
-                    return xsdReport != null;
+                    xsdReport = serializer.Deserialize(reader) as IXsdReport;
                 }
+                return true;
+
             }
             catch
             {

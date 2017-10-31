@@ -11,6 +11,7 @@ namespace ReportsVerification.Web.Installers
         {
             Container.RegisterType<IReportInfoBuilder, ReportInfoBuilder>();
             Container.RegisterType<IEnumerable<IConcreteReportInfoBuilder>, IConcreteReportInfoBuilder[]>();
+            Container.RegisterType<IConcreteReportInfoBuilder, Ndfl6InfoBuilder>("Ndfl6InfoBuilder");
             Container.RegisterType<IConcreteReportInfoBuilder, AccountingStatementInfoBuilder>("AccountingStatementInfoBuilder");
             Container.RegisterType<IConcreteReportInfoBuilder, AccountingStatementSimplifiedTaxationInfoBuilder>("AccountingStatementSimplifiedTaxationInfoBuilder");
             Container.RegisterType<IConcreteReportInfoBuilder, CalculationAdvancePaymentInfoBuilder>("CalculationAdvancePaymentInfoBuilder");
@@ -20,11 +21,11 @@ namespace ReportsVerification.Web.Installers
             Container.RegisterType<IConcreteReportInfoBuilder, DeclarationOnPropertyTaxInfoBuilder>("DeclarationOnPropertyTaxInfoBuilder");
             Container.RegisterType<IConcreteReportInfoBuilder, EnvdInfoBuilder>("EnvdInfoBuilder");
             Container.RegisterType<IConcreteReportInfoBuilder, Ndfl2InfoBuilder>("Ndfl2InfoBuilder");
-            Container.RegisterType<IConcreteReportInfoBuilder, Ndfl6InfoBuilder>("Ndfl6InfoBuilder");
-            Container.RegisterType<IConcreteReportInfoBuilder, NdsInfoBuilder>("NdsInfoBuilder");
             Container.RegisterType<IConcreteReportInfoBuilder, SzvMInfoBuilder>("SzvMInfoBuilder");
             Container.RegisterType<IConcreteReportInfoBuilder, TransportDeclarationInfoBuilder>("TransportDeclarationInfoBuilder");
             Container.RegisterType<IConcreteReportInfoBuilder, UsnInfoBuilder>("UsnInfoBuilder");
+            Container.RegisterType<IConcreteReportInfoBuilder, Fss4Builder>("Fss4Builder");
+            //Container.RegisterType<IConcreteReportInfoBuilder, NdsInfoBuilder>("NdsInfoBuilder");
         }
     }
 }
