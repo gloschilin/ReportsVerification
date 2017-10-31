@@ -1,4 +1,6 @@
-﻿namespace ReportsVerification.Web.DataObjects
+﻿using ReportsVerification.Web.DataObjects.DateOfMonthType;
+
+namespace ReportsVerification.Web.DataObjects
 {
     /// <summary>
     /// Базовая информация отчета

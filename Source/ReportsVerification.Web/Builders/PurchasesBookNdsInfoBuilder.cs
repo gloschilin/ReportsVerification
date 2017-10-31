@@ -1,5 +1,6 @@
 ﻿using System;
 using ReportsVerification.Web.DataObjects;
+using ReportsVerification.Web.DataObjects.DateOfMonthType;
 using ReportsVerification.Web.DataObjects.Xsd.PurchasesBookNds;
 
 namespace ReportsVerification.Web.Builders

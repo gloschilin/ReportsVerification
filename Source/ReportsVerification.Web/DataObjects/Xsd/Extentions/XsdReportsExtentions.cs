@@ -91,13 +91,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.CalculationContributions
     }
 }
 
-namespace ReportsVerification.Web.DataObjects.Xsd.SzvM
-{
-    public partial class Файл : IXsdReport
-    {
-    }
-}
-
 namespace ReportsVerification.Web.DataObjects.Xsd.TransportDeclaration
 {
     public partial class Файл : IXsdReport

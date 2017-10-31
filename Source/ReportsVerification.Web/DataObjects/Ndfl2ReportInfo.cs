@@ -1,4 +1,6 @@
-﻿namespace ReportsVerification.Web.DataObjects
+﻿using ReportsVerification.Web.DataObjects.DateOfMonthType;
+
+namespace ReportsVerification.Web.DataObjects
 {
     public class Ndfl2ReportInfo : ReportInfo
     {

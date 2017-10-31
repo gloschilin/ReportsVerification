@@ -11,7 +11,7 @@ namespace ReportsVerification.Web.DataObjects.ConcreteReprots
 
         protected override Type XsdReportType()
         {
-            return typeof(Xsd.CalculationContributions.Файл);
+            return typeof(Xsd.Szvm.ЭДПФР);
         }
 
         public override ReportTypes ReportType => ReportTypes.SzvM;

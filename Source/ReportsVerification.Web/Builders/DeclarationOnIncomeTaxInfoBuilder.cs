@@ -1,5 +1,6 @@
 ﻿using System;
 using ReportsVerification.Web.DataObjects;
+using ReportsVerification.Web.DataObjects.DateOfMonthType;
 using ReportsVerification.Web.DataObjects.Xsd.DeclarationOnIncomeTax;
 
 namespace ReportsVerification.Web.Builders
@@ -31,8 +32,8 @@ namespace ReportsVerification.Web.Builders
                 throw new ApplicationException("Неверный билдер для отчета");
             }
 
-            return DateOfMonth.FromPeriod(int.Parse(xmlFileContent.Документ.ОтчетГод),
-                xmlFileContent.Документ.Период);
+            return DateOfMonth.ReadFromPeriod(int.Parse(xmlFileContent.Документ.ОтчетГод),
+                int.Parse(xmlFileContent.Документ.Период));
         }
 
         protected override ReportInfo GetReportInfoInternal(Файл xsdReport)

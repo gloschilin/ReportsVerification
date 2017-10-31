@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using ReportsVerification.Web.DataObjects;
+using ReportsVerification.Web.DataObjects.DateOfMonthType;
 using ReportsVerification.Web.DataObjects.Xsd.Ndfl2;
 
 namespace ReportsVerification.Web.Builders

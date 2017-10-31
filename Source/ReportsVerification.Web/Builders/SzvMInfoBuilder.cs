@@ -1,31 +1,25 @@
-﻿using System;
-using System.Xml.Linq;
-using ReportsVerification.Web.DataObjects;
-using ReportsVerification.Web.DataObjects.Xsd.SzvM;
+﻿using ReportsVerification.Web.DataObjects;
+using ReportsVerification.Web.DataObjects.DateOfMonthType;
+using ReportsVerification.Web.DataObjects.Xsd.Szvm;
 
 namespace ReportsVerification.Web.Builders
 {
-    public class SzvMInfoBuilder : CommonConcreteInfoBuilder<Файл>
+    public class SzvMInfoBuilder : CommonConcreteInfoBuilder<ЭДПФР>
     {
         protected override ReportTypes ReportType => ReportTypes.SzvM;
-        protected string GetCompanyName(Файл xmlFileContent)
+        protected override ReportInfo GetReportInfoInternal(ЭДПФР xsdReport)
         {
-            throw new NotImplementedException();
+            var name = xsdReport.СЗВМ.Страхователь.НаименованиеКраткое;
+            var month = new DateOfMonth(
+                    int.Parse(xsdReport.СЗВМ.ОтчетныйПериод.Месяц),
+                    int.Parse(xsdReport.СЗВМ.ОтчетныйПериод.КалендарныйГод)
+                );
+            return new ReportInfo(ReportType, month, name);
         }
 
-        protected DateOfMonth GetReportMonth(Файл xmlFileContent)
+        protected override bool Allow(ЭДПФР xmlReport)
         {
-            throw new NotImplementedException();
-        }
-
-        protected override ReportInfo GetReportInfoInternal(Файл xsdReport)
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override bool Allow(Файл xmlReport)
-        {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
