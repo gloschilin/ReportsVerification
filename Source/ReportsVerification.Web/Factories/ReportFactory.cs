@@ -38,7 +38,9 @@ namespace ReportsVerification.Web.Factories
                     $"Не найдена фабрика для создания указанного типа отчета  {reportInfo.Type}");
             }
 
-            return factory.GetReport(xmlContent);
+            var report = factory.GetReport(xmlContent);
+            report.SetInfo(reportInfo);
+            return report;
         }
     }
 }

@@ -36,7 +36,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.SalesBookNds
         
         private string _версПрог;
         
-        private ФайлВерсФорм _версФорм;
+        private string _версФорм;
         #endregion
         
         public Файл()
@@ -83,7 +83,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.SalesBookNds
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлВерсФорм ВерсФорм
+        public string ВерсФорм
         {
             get
             {
@@ -111,7 +111,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.SalesBookNds
         
         private string _номКорр;
         
-        private ФайлДокументПризнСвед9 _признСвед9;
+        private string _признСвед9;
         #endregion
         
         public ФайлДокумент()
@@ -158,7 +158,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.SalesBookNds
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПризнСвед9 ПризнСвед9
+        public string ПризнСвед9
         {
             get
             {
@@ -301,7 +301,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.SalesBookNds
     {
         
         #region Private fields
-        private List<ФайлДокументКнигаПродКнПродСтрКодВидОпер> _кодВидОпер;
+        private List<string> _кодВидОпер;
         
         private List<string> _регНомТД;
         
@@ -354,11 +354,11 @@ namespace ReportsVerification.Web.DataObjects.Xsd.SalesBookNds
             this._свПокуп = new List<СвУчСдТип>();
             this._докПдтвОпл = new List<ФайлДокументКнигаПродКнПродСтрДокПдтвОпл>();
             this._регНомТД = new List<string>();
-            this._кодВидОпер = new List<ФайлДокументКнигаПродКнПродСтрКодВидОпер>();
+            this._кодВидОпер = new List<string>();
         }
         
         [System.Xml.Serialization.XmlElementAttribute("КодВидОпер")]
-        public List<ФайлДокументКнигаПродКнПродСтрКодВидОпер> КодВидОпер
+        public List<string> КодВидОпер
         {
             get
             {
@@ -658,73 +658,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.SalesBookNds
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументКнигаПродКнПродСтрКодВидОпер
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("01")]
-        Item01,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("02")]
-        Item02,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("06")]
-        Item06,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("10")]
-        Item10,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("13")]
-        Item13,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("14")]
-        Item14,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("15")]
-        Item15,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("18")]
-        Item18,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("21")]
-        Item21,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("26")]
-        Item26,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("27")]
-        Item27,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("28")]
-        Item28,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("29")]
-        Item29,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("30")]
-        Item30,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("31")]
-        Item31,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
@@ -857,30 +790,5 @@ namespace ReportsVerification.Web.DataObjects.Xsd.SalesBookNds
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПризнСвед9
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0")]
-        Item0,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлВерсФорм
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("5.05")]
-        Item505,
-    }
 }
 #pragma warning restore

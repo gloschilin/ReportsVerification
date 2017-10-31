@@ -16,7 +16,7 @@ namespace ReportsVerification.Web.Mappers
 
         public void Map(Report source, Repositories.EF.Report destination)
         {
-            var reportInfo = source.GetReportInfo(_reportInfoBuilder);
+            var reportInfo = source.GetReportInfo();
             destination.Alias = source.ReportType.ToString();
             destination.Content = source.GetContent().ToString();
             destination.Month = reportInfo.ReportMonth.Month;

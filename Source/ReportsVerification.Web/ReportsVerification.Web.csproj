@@ -160,6 +160,7 @@
     <Compile Include="Factories\Fss4Factory.cs" />
     <Compile Include="Factories\PurchasesBookNdsFactory.cs" />
     <Compile Include="Factories\SalesBookNdsFactory.cs" />
+    <Compile Include="Utills\Attributes\CheckSessionActionFilterAttribute.cs" />
     <Compile Include="Utills\Attributes\ControllerSettingsAttribute.cs" />
     <Compile Include="Builders\AccountingStatementInfoBuilder.cs" />
     <Compile Include="Builders\AccountingStatementSimplifiedTaxationInfoBuilder.cs" />

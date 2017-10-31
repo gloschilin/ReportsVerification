@@ -28,7 +28,7 @@ namespace ReportsVerification.Web.Repositories
 
         public void Save(Guid sessionId, Report report)
         {
-            var info = report.GetReportInfo(_infoBuilder);
+            var info = report.GetReportInfo();
             using (var context = new ReportsVertification())
             {
                 var entity = context.Reports

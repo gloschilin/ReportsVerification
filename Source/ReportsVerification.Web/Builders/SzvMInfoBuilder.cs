@@ -11,8 +11,8 @@ namespace ReportsVerification.Web.Builders
         {
             var name = xsdReport.СЗВМ.Страхователь.НаименованиеКраткое;
             var month = new DateOfMonth(
-                    int.Parse(xsdReport.СЗВМ.ОтчетныйПериод.Месяц),
-                    int.Parse(xsdReport.СЗВМ.ОтчетныйПериод.КалендарныйГод)
+                    int.Parse(xsdReport.СЗВМ.ОтчетныйПериод.КалендарныйГод),
+                    int.Parse(xsdReport.СЗВМ.ОтчетныйПериод.Месяц)
                 );
             return new ReportInfo(ReportType, month, name);
         }

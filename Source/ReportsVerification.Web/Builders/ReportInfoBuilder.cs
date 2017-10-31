@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 using ReportsVerification.Web.Builders.Interfaces;
 using ReportsVerification.Web.DataObjects;
@@ -16,15 +18,31 @@ namespace ReportsVerification.Web.Builders
         public bool TryGetInfo(XDocument xmlFileContent, out ReportInfo reportInfo)
         {
             reportInfo = null;
+            var resultBuild = new List<ReportInfo>();
             foreach (var builder in _builders)
             {
-                if (builder.TryGetInfo(xmlFileContent, out reportInfo))
+                ReportInfo resultBuildInfo;
+
+                if (builder.TryGetInfo(xmlFileContent, out resultBuildInfo))
                 {
-                    return true;
+                    resultBuild.Add(resultBuildInfo);
                 }
             }
 
-            return false;
+            if (!resultBuild.Any())
+            {
+                return false;
+            }
+
+            if (resultBuild.Count == 1)
+            {
+                reportInfo = resultBuild.First();
+                return true;
+            }
+
+            var reportTypesString = string.Join(", ", resultBuild.Select(e => e.Type.ToString()));
+            throw new ApplicationException(
+                $"Несколько билдеров удовлевторяют условиям отчета ({reportTypesString})");
         }
     }
 }

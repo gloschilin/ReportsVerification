@@ -91,7 +91,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
     {
         
         #region Private fields
-        private ЭДПФРСЗВМТипФормы _типФормы;
+        private string _типФормы;
         
         private ЭДПФРСЗВМСтрахователь _страхователь;
         
@@ -109,7 +109,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
             this._страхователь = new ЭДПФРСЗВМСтрахователь();
         }
         
-        public ЭДПФРСЗВМТипФормы ТипФормы
+        public string ТипФормы
         {
             get
             {
@@ -170,25 +170,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
                 this._датаЗаполнения = value;
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://пф.рф/ВС/СЗВ-М/2017-01-01")]
-    public enum ЭДПФРСЗВМТипФормы
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2")]
-        Item2,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("3")]
-        Item3,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
@@ -468,13 +449,12 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
         #region Private fields
         private object[] _items;
         
-        private ItemsChoiceType1[] _itemsElementName;
+        private string[] _itemsElementName;
         #endregion
         
         [System.Xml.Serialization.XmlAnyElementAttribute()]
         [System.Xml.Serialization.XmlElementAttribute("PGPKeyID", typeof(byte[]), DataType="base64Binary")]
         [System.Xml.Serialization.XmlElementAttribute("PGPKeyPacket", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public object[] Items
         {
             get
@@ -489,7 +469,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
         
         [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemsChoiceType1[] ItemsElementName
+        public string[] ItemsElementName
         {
             get
             {
@@ -500,23 +480,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
                 this._itemsElementName = value;
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.w3.org/2000/09/xmldsig#", IncludeInSchema=false)]
-    public enum ItemsChoiceType1
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("##any:")]
-        Item,
-        
-        /// <remarks/>
-        PGPKeyID,
-        
-        /// <remarks/>
-        PGPKeyPacket,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
@@ -570,7 +533,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
         #region Private fields
         private object[] _items;
         
-        private ItemsChoiceType[] _itemsElementName;
+        private string[] _itemsElementName;
         #endregion
         
         [System.Xml.Serialization.XmlAnyElementAttribute()]
@@ -579,7 +542,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
         [System.Xml.Serialization.XmlElementAttribute("X509IssuerSerial", typeof(X509IssuerSerialType))]
         [System.Xml.Serialization.XmlElementAttribute("X509SKI", typeof(byte[]), DataType="base64Binary")]
         [System.Xml.Serialization.XmlElementAttribute("X509SubjectName", typeof(string))]
-        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public object[] Items
         {
             get
@@ -594,7 +556,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
         
         [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemsChoiceType[] ItemsElementName
+        public string[] ItemsElementName
         {
             get
             {
@@ -607,31 +569,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.w3.org/2000/09/xmldsig#", IncludeInSchema=false)]
-    public enum ItemsChoiceType
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("##any:")]
-        Item,
-        
-        /// <remarks/>
-        X509CRL,
-        
-        /// <remarks/>
-        X509Certificate,
-        
-        /// <remarks/>
-        X509IssuerSerial,
-        
-        /// <remarks/>
-        X509SKI,
-        
-        /// <remarks/>
-        X509SubjectName,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
@@ -964,16 +901,13 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.w3.org/2000/09/xmldsig#")]
     public partial class KeyInfoType
     {
         
         #region Private fields
-        private object[] _items;
         
-        private ItemsChoiceType2[] _itemsElementName;
+        private string[] _itemsElementName;
         
         private List<string> _text;
         
@@ -985,30 +919,10 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
             this._text = new List<string>();
         }
         
-        [System.Xml.Serialization.XmlAnyElementAttribute()]
-        [System.Xml.Serialization.XmlElementAttribute("KeyName", typeof(string))]
-        [System.Xml.Serialization.XmlElementAttribute("KeyValue", typeof(KeyValueType))]
-        [System.Xml.Serialization.XmlElementAttribute("MgmtData", typeof(string))]
-        [System.Xml.Serialization.XmlElementAttribute("PGPData", typeof(PGPDataType))]
-        [System.Xml.Serialization.XmlElementAttribute("RetrievalMethod", typeof(RetrievalMethodType))]
-        [System.Xml.Serialization.XmlElementAttribute("SPKIData", typeof(SPKIDataType))]
-        [System.Xml.Serialization.XmlElementAttribute("X509Data", typeof(X509DataType))]
-        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
-        public object[] Items
-        {
-            get
-            {
-                return this._items;
-            }
-            set
-            {
-                this._items = value;
-            }
-        }
         
         [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemsChoiceType2[] ItemsElementName
+        public string[] ItemsElementName
         {
             get
             {
@@ -1047,37 +961,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.w3.org/2000/09/xmldsig#", IncludeInSchema=false)]
-    public enum ItemsChoiceType2
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("##any:")]
-        Item,
-        
-        /// <remarks/>
-        KeyName,
-        
-        /// <remarks/>
-        KeyValue,
-        
-        /// <remarks/>
-        MgmtData,
-        
-        /// <remarks/>
-        PGPData,
-        
-        /// <remarks/>
-        RetrievalMethod,
-        
-        /// <remarks/>
-        SPKIData,
-        
-        /// <remarks/>
-        X509Data,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]

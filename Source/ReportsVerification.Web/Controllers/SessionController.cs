@@ -39,7 +39,7 @@ namespace ReportsVerification.Web.Controllers
             return model;
         }
 
-        [Route("~/api/sessions/{sessionId}"), HttpPut]
+        [Route("~/api/sessions/{sessionId}"), HttpPut, CheckSessionActionFilter]
         public SessionInfoModel UpdateSession(Guid sessionId, SessionInfoModel model)
         {
             if (model.Id != sessionId)
@@ -61,7 +61,7 @@ namespace ReportsVerification.Web.Controllers
             return model;
         }
 
-        [Route("~/api/sessions/{sessionId}"), HttpGet]
+        [Route("~/api/sessions/{sessionId}"), HttpGet, CheckSessionActionFilter]
         public SessionInfoModel Get(Guid sessionId)
         {
             var info = _sessionRepository.Get(sessionId);

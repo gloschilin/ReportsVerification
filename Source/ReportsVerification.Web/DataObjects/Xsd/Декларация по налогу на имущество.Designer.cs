@@ -33,7 +33,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
         
         private string _версПрог;
         
-        private ФайлВерсФорм _версФорм;
+        private string _версФорм;
         #endregion
         
         public Файл()
@@ -80,7 +80,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлВерсФорм ВерсФорм
+        public string ВерсФорм
         {
             get
             {
@@ -120,7 +120,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
         
         private string _номКорр;
         
-        private ФайлДокументПоМесту _поМесту;
+        private string _поМесту;
         #endregion
         
         public ФайлДокумент()
@@ -246,7 +246,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПоМесту ПоМесту
+        public string ПоМесту
         {
             get
             {
@@ -388,7 +388,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
     {
         
         #region Private fields
-        private ФайлДокументСвНПНПЮЛСвРеоргЮЛФормРеорг _формРеорг;
+        private string _формРеорг;
         
         private string _иННЮЛ;
         
@@ -396,7 +396,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
         #endregion
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументСвНПНПЮЛСвРеоргЮЛФормРеорг ФормРеорг
+        public string ФормРеорг
         {
             get
             {
@@ -433,37 +433,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
                 this._кПП = value;
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументСвНПНПЮЛСвРеоргЮЛФормРеорг
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2")]
-        Item2,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("3")]
-        Item3,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("5")]
-        Item5,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("6")]
-        Item6,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0")]
-        Item0,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
@@ -574,7 +543,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
         
         private ФайлДокументПодписантСвПред _свПред;
         
-        private ФайлДокументПодписантПрПодп _прПодп;
+        private string _прПодп;
         #endregion
         
         public ФайлДокументПодписант()
@@ -608,7 +577,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПодписантПрПодп ПрПодп
+        public string ПрПодп
         {
             get
             {
@@ -662,20 +631,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПодписантПрПодп
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2")]
-        Item2,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
@@ -798,7 +753,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
         
         private ФайлДокументСумНалПУРасОбРасчНал _расчНал;
         
-        private ФайлДокументСумНалПУРасОбВидИмущ _видИмущ;
+        private string _видИмущ;
         #endregion
         
         public ФайлДокументСумНалПУРасОб()
@@ -832,7 +787,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументСумНалПУРасОбВидИмущ ВидИмущ
+        public string ВидИмущ
         {
             get
             {
@@ -1293,49 +1248,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументСумНалПУРасОбВидИмущ
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("01")]
-        Item01,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("02")]
-        Item02,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("03")]
-        Item03,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("04")]
-        Item04,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("05")]
-        Item05,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("07")]
-        Item07,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("08")]
-        Item08,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("09")]
-        Item09,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("10")]
-        Item10,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
@@ -1429,7 +1341,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
     {
         
         #region Private fields
-        private ФайлДокументСумНалПУРасОбВидИмущ1 _видИмущ;
+        private string _видИмущ;
         
         private string _номКадЗдан;
         
@@ -1465,7 +1377,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
         #endregion
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументСумНалПУРасОбВидИмущ1 ВидИмущ
+        public string ВидИмущ
         {
             get
             {
@@ -1684,73 +1596,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.DeclarationOnPropertyTax
                 this._сумЛгУмен = value;
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументСумНалПУРасОбВидИмущ1
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("11")]
-        Item11,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("12")]
-        Item12,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("13")]
-        Item13,
-    }
-    
-    
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПоМесту
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("213")]
-        Item213,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("214")]
-        Item214,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("215")]
-        Item215,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("216")]
-        Item216,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("221")]
-        Item221,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("245")]
-        Item245,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("281")]
-        Item281,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлВерсФорм
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("5.04")]
-        Item504,
     }
 }
 #pragma warning restore

@@ -33,7 +33,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Envd
         
         private string _версПрог;
         
-        private ФайлВерсФорм _версФорм;
+        private string _версФорм;
         #endregion
         
         public Файл()
@@ -80,7 +80,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Envd
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлВерсФорм ВерсФорм
+        public string ВерсФорм
         {
             get
             {
@@ -120,7 +120,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Envd
         
         private string _номКорр;
         
-        private ФайлДокументПоМесту _поМесту;
+        private string _поМесту;
         #endregion
         
         public ФайлДокумент()
@@ -245,7 +245,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Envd
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПоМесту ПоМесту
+        public string ПоМесту
         {
             get
             {
@@ -644,7 +644,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Envd
     {
         
         #region Private fields
-        private ФайлДокументСвНПНПЮЛСвРеоргЮЛФормРеорг _формРеорг;
+        private string _формРеорг;
         
         private string _иННЮЛ;
         
@@ -652,7 +652,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Envd
         #endregion
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументСвНПНПЮЛСвРеоргЮЛФормРеорг ФормРеорг
+        public string ФормРеорг
         {
             get
             {
@@ -691,36 +691,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Envd
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументСвНПНПЮЛСвРеоргЮЛФормРеорг
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2")]
-        Item2,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("3")]
-        Item3,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("5")]
-        Item5,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("6")]
-        Item6,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0")]
-        Item0,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
@@ -735,7 +705,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Envd
         
         private ФайлДокументПодписантСвПред _свПред;
         
-        private ФайлДокументПодписантПрПодп _прПодп;
+        private string _прПодп;
         #endregion
         
         public ФайлДокументПодписант()
@@ -769,7 +739,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Envd
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПодписантПрПодп ПрПодп
+        public string ПрПодп
         {
             get
             {
@@ -823,20 +793,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Envd
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПодписантПрПодп
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2")]
-        Item2,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
@@ -1250,7 +1206,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Envd
     {
         
         #region Private fields
-        private ФайлДокументЕНВДСумНалПУПризнакНП _признакНП;
+        private string _признакНП;
         
         private string _сумНалИсчислОбщ;
         
@@ -1262,7 +1218,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Envd
         #endregion
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументЕНВДСумНалПУПризнакНП ПризнакНП
+        public string ПризнакНП
         {
             get
             {
@@ -1325,68 +1281,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Envd
                 this._налПУРасч = value;
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументЕНВДСумНалПУПризнакНП
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2")]
-        Item2,
-    }
-    
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПоМесту
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("120")]
-        Item120,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("214")]
-        Item214,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("215")]
-        Item215,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("245")]
-        Item245,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("310")]
-        Item310,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("320")]
-        Item320,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("331")]
-        Item331,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлВерсФорм
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("5.07")]
-        Item507,
     }
 }
 #pragma warning restore

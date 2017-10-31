@@ -119,7 +119,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Fss4
         
         private string _numDot;
         
-        private TitleTypeLIKV _lIKV;
+        private string _lIKV;
         
         private string _nAME;
         
@@ -143,7 +143,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Fss4
         
         private string _t1R6C2;
         
-        private TitleTypeUpoln _upoln;
+        private string _upoln;
         
         private string _cEO;
         
@@ -237,7 +237,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Fss4
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public TitleTypeLIKV LIKV
+        public string LIKV
         {
             get
             {
@@ -393,7 +393,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Fss4
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public TitleTypeUpoln Upoln
+        public string Upoln
         {
             get
             {
@@ -443,40 +443,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Fss4
                 this._upolnDoc = value;
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://fz122.fss.ru")]
-    public enum TitleTypeLIKV
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0")]
-        Item0,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://fz122.fss.ru")]
-    public enum TitleTypeUpoln
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2")]
-        Item2,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("3")]
-        Item3,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
@@ -1039,9 +1005,9 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Fss4
         
         private System.DateTime _iNC_DATE;
         
-        private F4infoTypeIS_INV _iS_INV;
+        private string _iS_INV;
         
-        private F4infoTypeIS_BUDJET _iS_BUDJET;
+        private string _iS_BUDJET;
         
         private decimal _t7R1C1;
         
@@ -1377,7 +1343,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Fss4
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public F4infoTypeIS_INV IS_INV
+        public string IS_INV
         {
             get
             {
@@ -1390,7 +1356,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Fss4
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public F4infoTypeIS_BUDJET IS_BUDJET
+        public string IS_BUDJET
         {
             get
             {
@@ -2092,34 +2058,5 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Fss4
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://fz122.fss.ru")]
-    public enum F4infoTypeIS_INV
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0")]
-        Item0,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://fz122.fss.ru")]
-    public enum F4infoTypeIS_BUDJET
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0")]
-        Item0,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-    }
 }
 #pragma warning restore

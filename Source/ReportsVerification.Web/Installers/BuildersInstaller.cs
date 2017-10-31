@@ -23,11 +23,11 @@ namespace ReportsVerification.Web.Installers
             Container.RegisterType<IConcreteReportInfoBuilder, Ndfl2InfoBuilder>("Ndfl2InfoBuilder");
             Container.RegisterType<IConcreteReportInfoBuilder, SzvMInfoBuilder>("SzvMInfoBuilder");
             Container.RegisterType<IConcreteReportInfoBuilder, TransportDeclarationInfoBuilder>("TransportDeclarationInfoBuilder");
-            Container.RegisterType<IConcreteReportInfoBuilder, UsnInfoBuilder>("UsnInfoBuilder");
             Container.RegisterType<IConcreteReportInfoBuilder, Fss4Builder>("Fss4Builder");
             Container.RegisterType<IConcreteReportInfoBuilder, NdsInfoBuilder>("NdsInfoBuilder");
             Container.RegisterType<IConcreteReportInfoBuilder, PurchasesBookNdsInfoBuilder>("PurchasesBookNdsInfoBuilder");
             Container.RegisterType<IConcreteReportInfoBuilder, SalesBookNdsInfoBuilder>("SalesBookNdsInfoBuilder");
+            Container.RegisterType<IConcreteReportInfoBuilder, UsnInfoBuilder>("UsnInfoBuilder");
         }
     }
 }

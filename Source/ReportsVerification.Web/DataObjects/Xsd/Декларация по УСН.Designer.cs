@@ -4,6 +4,9 @@
 //    <NameSpace>ReportsVerification.Web.DataObjects.Xsd.Usn</NameSpace><Collection>List</Collection><codeType>CSharp</codeType><EnableDataBinding>False</EnableDataBinding><GenerateCloneMethod>False</GenerateCloneMethod><GenerateDataContracts>False</GenerateDataContracts><DataMemberNameArg>OnlyIfDifferent</DataMemberNameArg><DataMemberOnXmlIgnore>False</DataMemberOnXmlIgnore><CodeBaseTag>Net20</CodeBaseTag><InitializeFields>All</InitializeFields><GenerateUnusedComplexTypes>False</GenerateUnusedComplexTypes><GenerateUnusedSimpleTypes>False</GenerateUnusedSimpleTypes><GenerateXMLAttributes>True</GenerateXMLAttributes><OrderXMLAttrib>False</OrderXMLAttrib><EnableLazyLoading>False</EnableLazyLoading><VirtualProp>False</VirtualProp><PascalCase>False</PascalCase><AutomaticProperties>False</AutomaticProperties><PropNameSpecified>None</PropNameSpecified><PrivateFieldName>StartWithUnderscore</PrivateFieldName><PrivateFieldNamePrefix></PrivateFieldNamePrefix><EnableRestriction>False</EnableRestriction><RestrictionMaxLenght>False</RestrictionMaxLenght><RestrictionRegEx>False</RestrictionRegEx><RestrictionRange>False</RestrictionRange><ValidateProperty>False</ValidateProperty><ClassNamePrefix></ClassNamePrefix><ClassLevel>Public</ClassLevel><PartialClass>True</PartialClass><ClassesInSeparateFiles>False</ClassesInSeparateFiles><ClassesInSeparateFilesDir></ClassesInSeparateFilesDir><TrackingChangesEnable>False</TrackingChangesEnable><GenTrackingClasses>False</GenTrackingClasses><HidePrivateFieldInIDE>False</HidePrivateFieldInIDE><EnableSummaryComment>False</EnableSummaryComment><EnableAppInfoSettings>False</EnableAppInfoSettings><EnableExternalSchemasCache>False</EnableExternalSchemasCache><EnableDebug>False</EnableDebug><EnableWarn>False</EnableWarn><ExcludeImportedTypes>False</ExcludeImportedTypes><ExpandNesteadAttributeGroup>False</ExpandNesteadAttributeGroup><CleanupCode>False</CleanupCode><EnableXmlSerialization>False</EnableXmlSerialization><SerializeMethodName>Serialize</SerializeMethodName><DeserializeMethodName>Deserialize</DeserializeMethodName><SaveToFileMethodName>SaveToFile</SaveToFileMethodName><LoadFromFileMethodName>LoadFromFile</LoadFromFileMethodName><EnableEncoding>False</EnableEncoding><EnableXMLIndent>False</EnableXMLIndent><IndentChar>Indent2Space</IndentChar><NewLineAttr>False</NewLineAttr><OmitXML>False</OmitXML><Encoder>UTF8</Encoder><Serializer>XmlSerializer</Serializer><sspNullable>False</sspNullable><sspString>False</sspString><sspCollection>False</sspCollection><sspComplexType>False</sspComplexType><sspSimpleType>False</sspSimpleType><sspEnumType>False</sspEnumType><XmlSerializerEvent>False</XmlSerializerEvent><BaseClassName>EntityBase</BaseClassName><UseBaseClass>False</UseBaseClass><GenBaseClass>False</GenBaseClass><CustomUsings></CustomUsings><AttributesToExlude></AttributesToExlude>
 //  </auto-generated>
 // ------------------------------------------------------------------------------
+
+using ReportsVerification.Web.DataObjects.Interfaces;
+
 #pragma warning disable
 namespace ReportsVerification.Web.DataObjects.Xsd.Usn
 {
@@ -23,7 +26,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-    public partial class Файл
+    public partial class Файл : IXsdReport
     {
         
         #region Private fields
@@ -33,7 +36,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         
         private string _версПрог;
         
-        private ФайлВерсФорм _версФорм;
+        private string _версФорм;
         #endregion
         
         public Файл()
@@ -80,7 +83,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлВерсФорм ВерсФорм
+        public string ВерсФорм
         {
             get
             {
@@ -120,7 +123,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         
         private string _номКорр;
         
-        private ФайлДокументПоМесту _поМесту;
+        private string _поМесту;
         #endregion
         
         public ФайлДокумент()
@@ -245,7 +248,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПоМесту ПоМесту
+        public string ПоМесту
         {
             get
             {
@@ -639,7 +642,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
     {
         
         #region Private fields
-        private ФайлДокументСвНПНПЮЛСвРеоргЮЛФормРеорг _формРеорг;
+        private string _формРеорг;
         
         private string _иННЮЛ;
         
@@ -647,7 +650,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         #endregion
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументСвНПНПЮЛСвРеоргЮЛФормРеорг ФормРеорг
+        public string ФормРеорг
         {
             get
             {
@@ -686,36 +689,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументСвНПНПЮЛСвРеоргЮЛФормРеорг
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2")]
-        Item2,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("3")]
-        Item3,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("5")]
-        Item5,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("6")]
-        Item6,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0")]
-        Item0,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
@@ -730,7 +703,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         
         private ФайлДокументПодписантСвПред _свПред;
         
-        private ФайлДокументПодписантПрПодп _прПодп;
+        private string _прПодп;
         #endregion
         
         public ФайлДокументПодписант()
@@ -764,7 +737,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПодписантПрПодп ПрПодп
+        public string ПрПодп
         {
             get
             {
@@ -816,21 +789,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
                 this._наимОрг = value;
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПодписантПрПодп
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2")]
-        Item2,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
@@ -1048,7 +1006,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         
         private ФайлДокументУСНСумНалПУ_НПРасчНал1РасчТоргСбор _расчТоргСбор;
         
-        private ФайлДокументУСНСумНалПУ_НПРасчНал1ПризНП _призНП;
+        private string _призНП;
         #endregion
         
         public ФайлДокументУСНСумНалПУ_НПРасчНал1()
@@ -1121,7 +1079,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументУСНСумНалПУ_НПРасчНал1ПризНП ПризНП
+        public string ПризНП
         {
             get
             {
@@ -1297,21 +1255,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументУСНСумНалПУ_НПРасчНал1ПризНП
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2")]
-        Item2,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
@@ -1321,7 +1264,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         #region Private fields
         private string _item;
         
-        private ItemChoiceType _itemElementName;
+        private string _itemElementName;
         
         private ФайлДокументУСНСумНалПУ_СмНПРасчНал2 _расчНал2;
         
@@ -1345,9 +1288,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
             this._расчНал2 = new ФайлДокументУСНСумНалПУ_СмНПРасчНал2();
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("НалПУМин", DataType="integer")]
-        [System.Xml.Serialization.XmlElementAttribute("НалПУУменПер", DataType="integer")]
-        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public string Item
         {
             get
@@ -1361,7 +1301,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemChoiceType ItemElementName
+        public string ItemElementName
         {
             get
             {
@@ -1477,18 +1417,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(IncludeInSchema=false)]
-    public enum ItemChoiceType
-    {
-        
-        /// <remarks/>
-        НалПУМин,
-        
-        /// <remarks/>
-        НалПУУменПер,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
@@ -1888,34 +1816,5 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Usn
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПоМесту
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("120")]
-        Item120,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("210")]
-        Item210,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("215")]
-        Item215,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлВерсФорм
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("5.05")]
-        Item505,
-    }
 }
 #pragma warning restore

@@ -70,12 +70,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Nds
     }
 }
 
-namespace ReportsVerification.Web.DataObjects.Xsd.Usn
-{
-    public partial class Файл : IXsdReport
-    {
-    }
-}
 
 namespace ReportsVerification.Web.DataObjects.Xsd.CalculationAdvancePayment
 {

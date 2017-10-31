@@ -21,6 +21,7 @@ namespace ReportsVerification.Web.Controllers
     /// Обработка файлов отчета
     /// </summary>
     [ControllerSettings(allowCamelCase: true)]
+    [CheckSessionActionFilter]
     public class ReportsController : ApiController
     {
         private readonly IRequestFileReader _requestFileReader;
@@ -93,7 +94,7 @@ namespace ReportsVerification.Web.Controllers
         /// <returns></returns>
         private IEnumerable<ReportInfo> GetExistsReports(Guid sessionId, IEnumerable<Report> exisisReports)
         {
-            var result = exisisReports.Select(report => report.GetReportInfo(_reportInfoBuilder));
+            var result = exisisReports.Select(report => report.GetReportInfo());
             return result.ToList();
         }
 

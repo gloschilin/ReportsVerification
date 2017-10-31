@@ -33,7 +33,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         
         private string _версПрог;
         
-        private ФайлВерсФорм _версФорм;
+        private string _версФорм;
         #endregion
         
         public Файл()
@@ -80,7 +80,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлВерсФорм ВерсФорм
+        public string ВерсФорм
         {
             get
             {
@@ -134,7 +134,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         
         private string _номКорр;
         
-        private ФайлДокументОКЕИ _оКЕИ;
+        private string _оКЕИ;
         #endregion
         
         public ФайлДокумент()
@@ -350,7 +350,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументОКЕИ ОКЕИ
+        public string ОКЕИ
         {
             get
             {
@@ -2407,7 +2407,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         
         private ФайлДокументПодписантСвПред _свПред;
         
-        private ФайлДокументПодписантПрПодп _прПодп;
+        private string _прПодп;
         #endregion
         
         public ФайлДокументПодписант()
@@ -2441,7 +2441,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПодписантПрПодп ПрПодп
+        public string ПрПодп
         {
             get
             {
@@ -2482,21 +2482,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПодписантПрПодп
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("1")]
-        Item1,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("2")]
-        Item2,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
@@ -2508,7 +2493,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         
         private ФайлДокументБалансПассив _пассив;
         
-        private ФайлДокументБалансОКУД _оКУД;
+        private string _оКУД;
         #endregion
         
         public ФайлДокументБаланс()
@@ -2542,7 +2527,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументБалансОКУД ОКУД
+        public string ОКУД
         {
             get
             {
@@ -2731,7 +2716,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         #region Private fields
         private ОППТип[] _items;
         
-        private ItemsChoiceType[] _itemsElementName;
+        private string[] _itemsElementName;
         
         private ОППТип _длгЗаемСредств;
         
@@ -2766,7 +2751,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         [System.Xml.Serialization.XmlElementAttribute("КапРез", typeof(ОППТип))]
         [System.Xml.Serialization.XmlElementAttribute("ФондИмущИнЦФ", typeof(ОППТип))]
         [System.Xml.Serialization.XmlElementAttribute("ЦелевСредства", typeof(ОППТип))]
-        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
         public ОППТип[] Items
         {
             get
@@ -2781,7 +2765,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         
         [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemsChoiceType[] ItemsElementName
+        public string[] ItemsElementName
         {
             get
             {
@@ -2919,32 +2903,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(IncludeInSchema=false)]
-    public enum ItemsChoiceType
-    {
-        
-        /// <remarks/>
-        КапРез,
-        
-        /// <remarks/>
-        ФондИмущИнЦФ,
-        
-        /// <remarks/>
-        ЦелевСредства,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументБалансОКУД
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0710001")]
-        Item0710001,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
@@ -2969,7 +2927,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         
         private ОтчПредОТип _чистПрибУб;
         
-        private ФайлДокументПрибУбОКУД _оКУД;
+        private string _оКУД;
         #endregion
         
         public ФайлДокументПрибУб()
@@ -3068,7 +3026,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПрибУбОКУД ОКУД
+        public string ОКУД
         {
             get
             {
@@ -3081,16 +3039,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПрибУбОКУД
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0710002")]
-        Item0710002,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
@@ -3107,7 +3055,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         
         private ФайлДокументОтчетИзмКапЧистАктив _чистАктив;
         
-        private ФайлДокументОтчетИзмКапОКУД _оКУД;
+        private string _оКУД;
         #endregion
         
         public ФайлДокументОтчетИзмКап()
@@ -3154,7 +3102,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументОтчетИзмКапОКУД ОКУД
+        public string ОКУД
         {
             get
             {
@@ -3345,17 +3293,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументОтчетИзмКапОКУД
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0710003")]
-        Item0710003,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
@@ -3377,7 +3314,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         
         private ОПТип _влИзмКурс;
         
-        private ФайлДокументДвижениеДенОКУД _оКУД;
+        private string _оКУД;
         #endregion
         
         public ФайлДокументДвижениеДен()
@@ -3476,7 +3413,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументДвижениеДенОКУД ОКУД
+        public string ОКУД
         {
             get
             {
@@ -4359,16 +4296,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументДвижениеДенОКУД
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0710004")]
-        Item0710004,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
@@ -4387,7 +4314,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         
         private ОП_ОЦИСТип _остатКонОтч;
         
-        private ФайлДокументЦелИспОКУД _оКУД;
+        private string _оКУД;
         #endregion
         
         public ФайлДокументЦелИсп()
@@ -4447,7 +4374,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументЦелИспОКУД ОКУД
+        public string ОКУД
         {
             get
             {
@@ -4640,16 +4567,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументЦелИспОКУД
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0710006")]
-        Item0710006,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
@@ -4660,13 +4577,13 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
     {
         
         #region Private fields
-        private ФайлДокументПоясненияОКУД _оКУД;
+        private string _оКУД;
         
         private string _наимФайлПЗ;
         #endregion
         
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public ФайлДокументПоясненияОКУД ОКУД
+        public string ОКУД
         {
             get
             {
@@ -4692,16 +4609,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументПоясненияОКУД
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("0710005")]
-        Item0710005,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
@@ -4755,30 +4662,5 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлДокументОКЕИ
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("384")]
-        Item384,
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("385")]
-        Item385,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
-    public enum ФайлВерсФорм
-    {
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlEnumAttribute("5.02")]
-        Item502,
-    }
 }
 #pragma warning restore
