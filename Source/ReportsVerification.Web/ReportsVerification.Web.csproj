@@ -144,10 +144,19 @@
     <Compile Include="App_Start\UnityHttpControllerActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Builders\Fss4Builder.cs" />
+    <Compile Include="Builders\PurchasesBookNdsInfoBuilder.cs" />
+    <Compile Include="Builders\SalesBookNdsInfoBuilder.cs" />
     <Compile Include="DataObjects\ConcreteReprots\Fss4.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\PurchasesBookNds.cs" />
+    <Compile Include="DataObjects\ConcreteReprots\SalesBookNds.cs" />
     <Compile Include="DataObjects\Ndfl2ReportInfo.cs" />
     <Compile Include="DataObjects\Xsd\f4form_2017.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\НДС Книга покупок.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\НДС Книга продаж.Designer.cs" />
+    <Compile Include="DataObjects\Xsd\НДС.Designer.cs" />
     <Compile Include="Factories\Fss4Factory.cs" />
+    <Compile Include="Factories\PurchasesBookNdsFactory.cs" />
+    <Compile Include="Factories\SalesBookNdsFactory.cs" />
     <Compile Include="Utills\Attributes\ControllerSettingsAttribute.cs" />
     <Compile Include="Builders\AccountingStatementInfoBuilder.cs" />
     <Compile Include="Builders\AccountingStatementSimplifiedTaxationInfoBuilder.cs" />
@@ -199,7 +208,6 @@
     <Compile Include="DataObjects\Xsd\Декларация по земельному налогу.Designer.cs" />
     <Compile Include="DataObjects\Xsd\Декларация по налогу на имущество.Designer.cs" />
     <Compile Include="DataObjects\Xsd\Декларация по налогу на прибыль.Designer.cs" />
-    <Compile Include="DataObjects\Xsd\Декларация по НДС.Designer.cs" />
     <Compile Include="DataObjects\Xsd\Декларация по УСН.Designer.cs" />
     <Compile Include="DataObjects\Xsd\Расчет по авансовому платежу по налогу на имущество организаций.Designer.cs" />
     <Compile Include="DataObjects\Xsd\Расчет по взносам.Designer.cs" />
@@ -350,10 +358,16 @@
     <None Include="DataObjects\Xsd\Source\Декларация по налогу на прибыль.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataObjects\Xsd\Source\Декларация по НДС.xsd">
+    <None Include="DataObjects\Xsd\Source\Декларация по УСН.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataObjects\Xsd\Source\Декларация по УСН.xsd">
+    <None Include="DataObjects\Xsd\Source\НДС Книга покупок.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\НДС Книга продаж.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataObjects\Xsd\Source\НДС.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="DataObjects\Xsd\Source\Расчет по авансовому платежу по налогу на имущество организаций.xsd">

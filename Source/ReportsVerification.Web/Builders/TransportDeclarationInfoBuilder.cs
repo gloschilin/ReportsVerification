@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Xml.Linq;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.Xsd.TransportDeclaration;
 
@@ -9,19 +8,31 @@ namespace ReportsVerification.Web.Builders
     {
         protected override ReportTypes ReportType => ReportTypes.TransportDeclaration;
 
-        protected string GetCompanyName(Файл xmlFileContent)
+        private static string GetCompanyName(ФайлДокументСвНПНПЮЛ ul)
         {
-            throw new NotImplementedException();
+            return $"{ul.НаимОрг}";
         }
 
         protected DateOfMonth GetReportMonth(Файл xmlFileContent)
         {
-            throw new NotImplementedException();
+            if (!Allow(xmlFileContent))
+            {
+                throw new ApplicationException("Неверный билдер для отчета");
+            }
+
+            return DateOfMonth.FromPeriod(int.Parse(xmlFileContent.Документ.ОтчетГод),
+                xmlFileContent.Документ.Период);
         }
 
         protected override ReportInfo GetReportInfoInternal(Файл xsdReport)
         {
-            
+            if (!Allow(xsdReport))
+            {
+                throw new ApplicationException("Неверный билдер для отчета");
+            }
+
+            return new ReportInfo(ReportType, GetReportMonth(xsdReport), 
+                GetCompanyName(xsdReport.Документ.СвНП.НПЮЛ));
         }
 
         protected override bool Allow(Файл xmlReport)

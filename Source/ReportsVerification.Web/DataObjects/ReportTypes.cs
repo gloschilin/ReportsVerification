@@ -78,6 +78,16 @@
         /// <summary>
         /// 4 ФСС
         /// </summary>
-        Fss4
+        Fss4,
+
+        /// <summary>
+        /// Книга покупок НДС
+        /// </summary>
+        PurchasesBookNds,
+        
+        /// <summary>
+        /// Кника продаж НДС 
+        /// </summary>
+        SalesBookNds
     }
 }
