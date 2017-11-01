@@ -150,10 +150,14 @@
     <Compile Include="DataObjects\ConcreteReprots\Fss4.cs" />
     <Compile Include="DataObjects\ConcreteReprots\PurchasesBookNds.cs" />
     <Compile Include="DataObjects\ConcreteReprots\SalesBookNds.cs" />
-    <Compile Include="DataObjects\DateOfMonthType\DateOfMonthFssExtentions.cs" />
-    <Compile Include="DataObjects\DateOfMonthType\DateOfMonthPeriodExtentions.cs" />
+    <Compile Include="DataObjects\Dates\DateOfQuarterExtentions.cs" />
+    <Compile Include="DataObjects\Dates\DateOfMonth.cs" />
+    <Compile Include="DataObjects\Dates\DateOfQuarter.cs" />
+    <Compile Include="DataObjects\Dates\IDateType.cs" />
     <Compile Include="DataObjects\ReportInfoObjects\Ndfl2ReportInfo.cs" />
     <Compile Include="DataObjects\ReportInfoObjects\ReportInfoRevistion.cs" />
+    <Compile Include="DataObjects\ReportInfoObjects\SzvMReportInfo.cs" />
+    <Compile Include="DataObjects\ReportInfoObjects\SzvMReportInfoType.cs" />
     <Compile Include="DataObjects\Xsd\f4form_2017.Designer.cs" />
     <Compile Include="DataObjects\Xsd\СЗВ-М_2017-01-01.Designer.cs" />
     <Compile Include="DataObjects\Xsd\НДС Книга покупок.Designer.cs" />
@@ -261,7 +265,6 @@
     <Compile Include="Models\ReportRequestType.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
-    <Compile Include="DataObjects\DateOfMonthType\DateOfMonth.cs" />
     <Compile Include="DataObjects\Report.cs" />
     <Compile Include="DataObjects\ReportInfoObjects\ReportInfo.cs" />
     <Compile Include="DataObjects\ReportTypes.cs" />

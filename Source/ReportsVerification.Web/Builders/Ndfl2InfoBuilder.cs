@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using ReportsVerification.Web.DataObjects;
-using ReportsVerification.Web.DataObjects.DateOfMonthType;
+using ReportsVerification.Web.DataObjects.Dates;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.DataObjects.Xsd.Ndfl2;
 
@@ -44,20 +44,14 @@ namespace ReportsVerification.Web.Builders
             return $"{ul.НаимОрг}";
         }
 
-        protected DateOfMonth GetReportMonth(Файл xmlFileContent)
-        {
-            if (!Allow(xmlFileContent))
-            {
-                throw new ApplicationException("Неверный билдер для отчета");
-            }
-
-            return new DateOfMonth(int.Parse(xmlFileContent.Документ.First().ОтчетГод), 10);
-        }
 
         protected override ReportInfo GetReportInfoInternal(Файл xsdReport)
         {
             var document = xsdReport.Документ.First();
-            return new Ndfl2ReportInfo(ReportType, GetReportMonth(xsdReport), GetCompanyName(xsdReport),
+
+            var period = new DateOfQuarter(int.Parse(document.ОтчетГод), 4);
+
+            return new Ndfl2ReportInfo(ReportType, period, GetCompanyName(xsdReport),
                 int.Parse(document.НомКорр ?? "0"),
                 int.Parse(document.Признак));
         }

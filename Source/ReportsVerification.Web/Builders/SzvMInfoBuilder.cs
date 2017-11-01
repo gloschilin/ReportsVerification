@@ -1,6 +1,6 @@
 ﻿using System;
 using ReportsVerification.Web.DataObjects;
-using ReportsVerification.Web.DataObjects.DateOfMonthType;
+using ReportsVerification.Web.DataObjects.Dates;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.DataObjects.Xsd.Szvm;
 

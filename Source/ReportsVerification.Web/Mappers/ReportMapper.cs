@@ -12,8 +12,8 @@ namespace ReportsVerification.Web.Mappers
             var reportInfo = source.GetReportInfo();
             destination.Alias = source.ReportType.ToString();
             destination.Content = source.GetContent().ToString();
-            destination.Month = reportInfo.ReportMonth.Month;
-            destination.Year = reportInfo.ReportMonth.Year;
+            destination.Month = reportInfo.GetStartReportPeriod().Month;
+            destination.Year = reportInfo.GetStartReportPeriod().Year;
             destination.DateCreate = DateTime.Now;
         }
     }

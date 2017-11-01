@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using ReportsVerification.Web.DataObjects.Xsd.Fss4;
 
-namespace ReportsVerification.Web.DataObjects.DateOfMonthType
+namespace ReportsVerification.Web.DataObjects.Dates
 {
     /// <summary>
     /// Получение даты из указанного периода отчета
     /// </summary>
-    public partial class DateOfMonth
+    public static class DateOfQuarterExtentions
     {
         private static readonly Lazy<Dictionary<int, int>> LinkPeriodToQuarter 
             = new Lazy<Dictionary<int, int>>(GetLinks);
@@ -30,19 +31,31 @@ namespace ReportsVerification.Web.DataObjects.DateOfMonthType
         /// <summary>
         /// Получение даты из указанного периода отчета
         /// </summary>
+        /// <param name="date"></param>
         /// <param name="year"></param>
         /// <param name="period"></param>
         /// <returns></returns>
-        public static DateOfMonth ReadFromPeriod(int year, int period)
+        public static DateOfQuarter ReadFromPeriod(this DateOfQuarter date, int year, int period)
         {
             int quarter;
             if (!LinkPeriodToQuarter.Value.TryGetValue(period, out quarter))
             {
                 throw new ApplicationException("Указанный период не обработан");
             }
+            return new DateOfQuarter(year, quarter);
+        }
 
-            var month = GetMonthFromQuarter(quarter);
-            return new DateOfMonth(year, month);
+        /// <summary>
+        /// Получение значения месяца из узла отчета 4ФСС
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="titleTypeNode"></param>
+        /// <returns></returns>
+        public static DateOfQuarter ReadFssDate(this DateOfQuarter date, TitleType titleTypeNode)
+        {
+            var year = int.Parse(titleTypeNode.YEAR_NUM);
+            var quarter = int.Parse(titleTypeNode.QUART_NUM);
+            return new DateOfQuarter(year, quarter);
         }
     }
 }

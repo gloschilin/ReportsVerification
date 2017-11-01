@@ -1,6 +1,6 @@
 ﻿using System;
 using ReportsVerification.Web.DataObjects;
-using ReportsVerification.Web.DataObjects.DateOfMonthType;
+using ReportsVerification.Web.DataObjects.Dates;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.DataObjects.Xsd.PurchasesBookNds;
 
@@ -12,9 +12,8 @@ namespace ReportsVerification.Web.Builders
 
         protected override ReportInfo GetReportInfoInternal(Файл xsdReport)
         {
-            return new ReportInfoRevistion(ReportType, 
-                new DateOfMonth(DateTime.Now.Year, 
-                DateTime.Now.Month), 
+            return new ReportInfoRevistion<DateOfQuarter>(ReportType, 
+                new DateOfQuarter(DateTime.Now), 
                 "",
                 int.Parse(xsdReport.Документ.НомКорр ?? "0"));
         }

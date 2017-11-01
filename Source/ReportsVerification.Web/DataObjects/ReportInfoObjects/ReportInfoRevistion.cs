@@ -1,29 +1,39 @@
-﻿using System.Security.Cryptography;
-using ReportsVerification.Web.DataObjects.DateOfMonthType;
+﻿using System;
+using System.Security.Cryptography;
+using ReportsVerification.Web.DataObjects.Dates;
 
 namespace ReportsVerification.Web.DataObjects.ReportInfoObjects
 {
-    public class ReportInfoRevistion : ReportInfo
+    public class ReportInfoRevistion<TReportDate> : ReportInfo
+        where TReportDate: IDateType
     {
         /// <summary>
         /// Номер корректировки
         /// </summary>
         public int RevisionNumber { get; }
 
-        public ReportInfoRevistion(ReportTypes type, DateOfMonth reportMonth, string companyName, int revisionNumber) 
-            : base(type, reportMonth, companyName)
+        public TReportDate ReportPeriod { get; }
+
+        public ReportInfoRevistion(ReportTypes type, TReportDate reportPeriod, string companyName, int revisionNumber) 
+            : base(type, companyName)
         {
             RevisionNumber = revisionNumber;
+            ReportPeriod = reportPeriod;
         }
 
         public override string GetUniq()
         {
-            var source = Type.ToString() + ReportMonth.Month + ReportMonth.Year + RevisionNumber;
+            var source = Type.ToString() + RevisionNumber  + ReportPeriod;
             using (var md5Hash = MD5.Create())
             {
                 var hash = GetHash(md5Hash, source);
                 return hash;
             }
+        }
+
+        public override DateTime GetStartReportPeriod()
+        {
+            return ReportPeriod.GetStartPeriodDate();
         }
     }
 }

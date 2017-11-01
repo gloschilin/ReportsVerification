@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Xml.Linq;
 using ReportsVerification.Web.DataObjects;
-using ReportsVerification.Web.DataObjects.DateOfMonthType;
+using ReportsVerification.Web.DataObjects.Dates;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedTaxation;
 
@@ -27,21 +26,14 @@ namespace ReportsVerification.Web.Builders
             return $"{ul.НаимОрг}";
         }
 
-        protected DateOfMonth GetReportMonth(Файл xmlFileContent)
-        {
-            if (!Allow(xmlFileContent))
-            {
-                throw new ApplicationException("Неверный билдер для отчета");
-            }
-
-            return DateOfMonth.ReadFromPeriod(
-                int.Parse(xmlFileContent.Документ.ОтчетГод),
-                int.Parse(xmlFileContent.Документ.Период));
-        }
-
         protected override ReportInfo GetReportInfoInternal(Файл xsdReport)
         {
-            return new ReportInfoRevistion(ReportType, GetReportMonth(xsdReport), GetCompanyName(xsdReport),
+            var period = new DateOfQuarter().ReadFromPeriod(
+                    int.Parse(xsdReport.Документ.ОтчетГод),
+                    int.Parse(xsdReport.Документ.Период)
+                );
+
+            return new ReportInfoRevistion<DateOfQuarter>(ReportType, period, GetCompanyName(xsdReport),
                 int.Parse(xsdReport.Документ.НомКорр ?? "0"));
         }
 

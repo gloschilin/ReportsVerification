@@ -1,5 +1,5 @@
 ﻿using ReportsVerification.Web.DataObjects;
-using ReportsVerification.Web.DataObjects.DateOfMonthType;
+using ReportsVerification.Web.DataObjects.Dates;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.DataObjects.Xsd.Fss4;
 
@@ -11,8 +11,8 @@ namespace ReportsVerification.Web.Builders
 
         protected override ReportInfo GetReportInfoInternal(F4ReportType xsdReport)
         {
-            var date = DateOfMonth.ReadFssDate(xsdReport.TITLE);
-            return new ReportInfoRevistion(ReportType, 
+            var date = new DateOfQuarter().ReadFssDate(xsdReport.TITLE);
+            return new ReportInfoRevistion<DateOfQuarter>(ReportType, 
                 date, 
                 xsdReport.TITLE.NAME,
                 int.Parse(xsdReport.TITLE.NumCorr ?? "0"));

@@ -9,7 +9,7 @@ namespace ReportsVerification.Web.Extentions
         public static bool ContainsReportInfo(this IEnumerable<ReportInfo> reportInfoCollection, ReportInfo info)
         {
             return reportInfoCollection.Any(e => e.Type == info.Type
-                                                 && e.ReportMonth == info.ReportMonth);
+                                                 && e.GetStartReportPeriod() == info.GetStartReportPeriod());
         }
     }
 }

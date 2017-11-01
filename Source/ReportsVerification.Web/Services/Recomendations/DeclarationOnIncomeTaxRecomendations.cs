@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ReportsVerification.Web.DataObjects;
-using ReportsVerification.Web.DataObjects.DateOfMonthType;
+using ReportsVerification.Web.DataObjects.Dates;
 using ReportsVerification.Web.DataObjects.Enums;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.Services.Interfaces;
@@ -25,10 +25,10 @@ namespace ReportsVerification.Web.Services.Recomendations
                  }.Any(e => e == sessionInfo.Category)) || sessionInfo.Mode == UserModes.OsnoWithEnvd)
             {
                 return new[] { 1, 2, 3 }.Select(
-                    e => new ReportInfo(
+                    e => new ReportInfoRevistion<DateOfQuarter>(
                         ReportTypes.DeclarationOnIncomeTax,
-                        new DateOfMonth(2017, DateOfMonth.GetMonthFromQuarter(e)),
-                        string.Empty));
+                        new DateOfQuarter(2017, e),
+                        string.Empty, 0));
             }
 
             return new List<ReportInfo>();
