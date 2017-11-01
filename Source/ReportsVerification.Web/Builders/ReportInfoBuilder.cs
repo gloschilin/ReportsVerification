@@ -5,7 +5,6 @@ using System.Linq;
 using System.Xml.Linq;
 using Microsoft.Practices.ObjectBuilder2;
 using ReportsVerification.Web.Builders.Interfaces;
-using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 
 namespace ReportsVerification.Web.Builders
@@ -24,7 +23,7 @@ namespace ReportsVerification.Web.Builders
         {
             reportInfo = null;
             var resultBuild = new ConcurrentBag<ReportInfo>();
-            _builders.AsParallel().ForEach(builder =>
+            _builders.ForEach(builder =>
             {
                 ReportInfo resultBuildInfo;
 

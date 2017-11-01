@@ -5,6 +5,7 @@ using ReportsVerification.Web.Repositories.EF;
 using ReportsVerification.Web.Repositories.Interfaces;
 using Deduction = ReportsVerification.Web.DataObjects.Catalogs.Deduction;
 using Mrot = ReportsVerification.Web.DataObjects.Catalogs.Mrot;
+using Region = ReportsVerification.Web.DataObjects.Catalogs.Region;
 
 namespace ReportsVerification.Web.Repositories
 {
@@ -18,6 +19,17 @@ namespace ReportsVerification.Web.Repositories
 
         private static readonly Lazy<IEnumerable<EF.Mrot>> MrotInMemory
             = new Lazy<IEnumerable<EF.Mrot>>(GetMrotInternal);
+
+        private static readonly Lazy<IEnumerable<EF.Region>> RegionsInMemory
+            = new Lazy<IEnumerable<EF.Region>>(GetRegionsInternal);
+
+        private static IEnumerable<EF.Region> GetRegionsInternal()
+        {
+            using (var dataContext = new ReportsVertification())
+            {
+                return dataContext.Regions.ToArray();
+            }
+        }
 
         private static IEnumerable<EF.Mrot> GetMrotInternal()
         {
@@ -42,14 +54,14 @@ namespace ReportsVerification.Web.Repositories
                 FirstQuaterAmount = input.FirstQuarter,
                 SecondQuaterAmount = input.SecondQuarder,
                 ThirdQuaterAmount = input.ThirdQuarter,
-                ForthQuaterAmount = input.FourthQuarter
+                ForthQuaterAmount = input.FourthQuarter,
+                RegionId = input.RegionId
             };
         }
 
         public IEnumerable<Deduction> GetDeductions(DateTime valuesOnDate)
         {
-            var resultDbEntities =  DeductionsInMemory.Value.Where(e => e.BeginDate <= valuesOnDate)
-                .OrderByDescending(e => e.BeginDate).ToArray();
+            var resultDbEntities =  DeductionsInMemory.Value.Where(e => e.BeginDate <= valuesOnDate).ToArray();
             var result = Array.ConvertAll(resultDbEntities, ConvertDecuctions);
             return result;
         }
@@ -75,6 +87,15 @@ namespace ReportsVerification.Web.Repositories
         public Mrot GetMrot(DateTime valuesOnDate, Guid regionId)
         {
             return GetMrot(valuesOnDate).First(e => e.RegionId == regionId);
+        }
+
+        public IEnumerable<Region> GetRegions()
+        {
+            return RegionsInMemory.Value.Select(e => new Region
+            {
+                Id = e.Id,
+                Name = e.Name
+            }).ToList();
         }
     }
 }

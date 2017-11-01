@@ -21,7 +21,9 @@ namespace ReportsVerification.Web
                 .AddNewExtension<MappersInstaller>()
                 .AddNewExtension<BuildersInstaller>()
                 .AddNewExtension<UtilsInstaller>()
-                .AddNewExtension<FactoriesInstaller>();
+                .AddNewExtension<FactoriesInstaller>()
+                .AddNewExtension<ServicesInstaller>()
+                .AddNewExtension<RecomendationsInstaller>();
             
             container.RegisterInstance<IHttpControllerActivator>(new UnityHttpControllerActivator(container));
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);

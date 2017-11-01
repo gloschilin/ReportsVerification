@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using ReportsVerification.Web.DataObjects.Interfaces;
@@ -34,13 +33,16 @@ namespace ReportsVerification.Web.DataObjects
             try
             {
                 var serializer = new XmlSerializer(xsdReportType);
-
-                using (var reader = new StringReader(reportContent.ToString()))
+                
+                using (var reader = reportContent.CreateReader())
                 {
+                    if (!serializer.CanDeserialize(reader))
+                    {
+                        return false;
+                    }
                     xsdReport = serializer.Deserialize(reader) as IXsdReport;
+                    return true;
                 }
-                return true;
-
             }
             catch
             {

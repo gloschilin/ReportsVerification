@@ -38,5 +38,11 @@ namespace ReportsVerification.Web.Repositories.Interfaces
         /// <param name="regionId"></param>
         /// <returns></returns>
         Mrot GetMrot(DateTime valuesOnDate, Guid regionId);
+
+        /// <summary>
+        /// Получить регионы
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<Region> GetRegions();
     }
 }

@@ -2714,9 +2714,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
     {
         
         #region Private fields
-        private ОППТип[] _items;
-        
-        private string[] _itemsElementName;
         
         private ОППТип _длгЗаемСредств;
         
@@ -2746,35 +2743,6 @@ namespace ReportsVerification.Web.DataObjects.Xsd.AccountingStatementSimplifiedT
             this._кртЗаемСредств = new ОППТип();
             this._дрДолгосрОбяз = new ОППТип();
             this._длгЗаемСредств = new ОППТип();
-        }
-        
-        [System.Xml.Serialization.XmlElementAttribute("КапРез", typeof(ОППТип))]
-        [System.Xml.Serialization.XmlElementAttribute("ФондИмущИнЦФ", typeof(ОППТип))]
-        [System.Xml.Serialization.XmlElementAttribute("ЦелевСредства", typeof(ОППТип))]
-        public ОППТип[] Items
-        {
-            get
-            {
-                return this._items;
-            }
-            set
-            {
-                this._items = value;
-            }
-        }
-        
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName")]
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public string[] ItemsElementName
-        {
-            get
-            {
-                return this._itemsElementName;
-            }
-            set
-            {
-                this._itemsElementName = value;
-            }
         }
         
         public ОППТип ДлгЗаемСредств

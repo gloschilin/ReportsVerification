@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Xml.Linq;
-using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
-using ReportsVerification.Web.Factories.Interfaces;
 using ReportsVerification.Web.Models;
-using ReportsVerification.Web.Repositories.Interfaces;
+using ReportsVerification.Web.Services.Interfaces;
 using ReportsVerification.Web.Utills.Attributes;
 using ReportsVerification.Web.Utills.Interfaces;
 
@@ -23,17 +19,14 @@ namespace ReportsVerification.Web.Controllers
     public class ReportsController : ApiController
     {
         private readonly IRequestFileReader _requestFileReader;
-        private readonly IReportRepository _reportRepository;
-        private readonly IReportFactory _reportFactory;
+        private readonly IReportsService _reportsService;
 
         public ReportsController(
             IRequestFileReader requestFileReader, 
-            IReportRepository reportRepository,
-            IReportFactory reportFactory)
+            IReportsService reportsService)
         {
             _requestFileReader = requestFileReader;
-            _reportRepository = reportRepository;
-            _reportFactory = reportFactory;
+            _reportsService = reportsService;
         }
 
         /// <summary>
@@ -61,27 +54,9 @@ namespace ReportsVerification.Web.Controllers
         [Route("~/api/sessions/{sessionId}/reports"), HttpGet]
         public IEnumerable<ReportInfo> GetReports(Guid sessionId, ReportRequestType type)
         {
-            var exisisReports = _reportRepository.GetList(sessionId);
-
-            return type == ReportRequestType.Exists 
-                ? GetExistsReports(exisisReports) 
-                : GetMissingReports(exisisReports);
-        }
-
-        private IEnumerable<ReportInfo> GetMissingReports(IEnumerable<Report> exisisReports)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Создать существубющие отчеты
-        /// </summary>
-        /// <param name="exisisReports"></param>
-        /// <returns></returns>
-        private static IEnumerable<ReportInfo> GetExistsReports(IEnumerable<Report> exisisReports)
-        {
-            var result = exisisReports.Select(report => report.GetReportInfo());
-            return result.ToList();
+            return type == ReportRequestType.Exists
+                ? _reportsService.GetReports(sessionId)
+                : _reportsService.GetMissingReports(sessionId);
         }
 
         /// <summary>
@@ -93,13 +68,11 @@ namespace ReportsVerification.Web.Controllers
         {
             if (fileInfo.IsValid())
             {
-                var xmlContent = XDocument.Parse(fileInfo.Content);
-                var report = _reportFactory.GetReport(xmlContent);
-                _reportRepository.Save(sessionId, fileInfo.FileName, report);
+                _reportsService.Save(sessionId, fileInfo.FileName, fileInfo.Content);
                 return;
             }
             
-            _reportRepository.SaveWrongReport(sessionId, fileInfo.FileName, fileInfo.ErrorMessage, fileInfo.Content);
+            _reportsService.SaveWrongReport(sessionId, fileInfo.FileName, fileInfo.Content, fileInfo.ErrorMessage);
         }
     }
 }
