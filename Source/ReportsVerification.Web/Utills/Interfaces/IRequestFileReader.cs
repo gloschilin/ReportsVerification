@@ -14,6 +14,6 @@ namespace ReportsVerification.Web.Utills.Interfaces
         /// <param name="request"></param>
         /// <param name="contentHandler"></param>
         /// <returns></returns>
-        bool Read(HttpRequestMessage request, Action<string> contentHandler);
+        bool Read(HttpRequestMessage request, Action<UploadFileInfo> contentHandler);
     }
 }

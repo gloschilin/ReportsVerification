@@ -12,17 +12,14 @@ namespace ReportsVerification.Web.Repositories.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Report
+    public partial class WrongReport
     {
         public System.Guid Id { get; set; }
-        public System.DateTime DateCreate { get; set; }
-        public int Year { get; set; }
-        public int Month { get; set; }
-        public string Alias { get; set; }
         public string Content { get; set; }
-        public System.Guid SessionId { get; set; }
         public string FileName { get; set; }
-        public string Uniq { get; set; }
+        public System.DateTime DateCreate { get; set; }
+        public string Message { get; set; }
+        public System.Guid SessionId { get; set; }
     
         public virtual Session Session { get; set; }
     }

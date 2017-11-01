@@ -151,7 +151,8 @@
     <Compile Include="DataObjects\ConcreteReprots\SalesBookNds.cs" />
     <Compile Include="DataObjects\DateOfMonthType\DateOfMonthFssExtentions.cs" />
     <Compile Include="DataObjects\DateOfMonthType\DateOfMonthPeriodExtentions.cs" />
-    <Compile Include="DataObjects\Ndfl2ReportInfo.cs" />
+    <Compile Include="DataObjects\ReportInfoObjects\Ndfl2ReportInfo.cs" />
+    <Compile Include="DataObjects\ReportInfoObjects\ReportInfoRevistion.cs" />
     <Compile Include="DataObjects\Xsd\f4form_2017.Designer.cs" />
     <Compile Include="DataObjects\Xsd\СЗВ-М_2017-01-01.Designer.cs" />
     <Compile Include="DataObjects\Xsd\НДС Книга покупок.Designer.cs" />
@@ -160,6 +161,9 @@
     <Compile Include="Factories\Fss4Factory.cs" />
     <Compile Include="Factories\PurchasesBookNdsFactory.cs" />
     <Compile Include="Factories\SalesBookNdsFactory.cs" />
+    <Compile Include="Repositories\EF\WrongReport.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Utills\Attributes\CheckSessionActionFilterAttribute.cs" />
     <Compile Include="Utills\Attributes\ControllerSettingsAttribute.cs" />
     <Compile Include="Builders\AccountingStatementInfoBuilder.cs" />
@@ -243,7 +247,7 @@
     <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="DataObjects\DateOfMonthType\DateOfMonth.cs" />
     <Compile Include="DataObjects\Report.cs" />
-    <Compile Include="DataObjects\ReportInfo.cs" />
+    <Compile Include="DataObjects\ReportInfoObjects\ReportInfo.cs" />
     <Compile Include="DataObjects\ReportTypes.cs" />
     <Compile Include="DataObjects\SessionInfo.cs" />
     <Compile Include="Global.asax.cs">
@@ -301,6 +305,7 @@
     <Compile Include="Mappers\Interfaces\IMapper.cs" />
     <Compile Include="Utills\DefaultLifeTimeManagerContainerExtention.cs" />
     <Compile Include="Utills\Interfaces\IRequestFileReader.cs" />
+    <Compile Include="Utills\Interfaces\UploadFileInfo.cs" />
     <Compile Include="Utills\RequestFileReader.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -377,9 +382,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="DataObjects\Xsd\Source\Расчет по взносам.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataObjects\Xsd\Source\СЗВ-М.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="DataObjects\Xsd\Source\СЗВ-М\xmldsig_core_schema.xsd">

@@ -1,5 +1,6 @@
 ﻿using System.Xml.Linq;
 using ReportsVerification.Web.DataObjects;
+using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 
 namespace ReportsVerification.Web.Builders.Interfaces
 {

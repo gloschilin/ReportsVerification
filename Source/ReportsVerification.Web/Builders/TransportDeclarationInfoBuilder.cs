@@ -1,6 +1,7 @@
 ﻿using System;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.DateOfMonthType;
+using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.DataObjects.Xsd.TransportDeclaration;
 
 namespace ReportsVerification.Web.Builders
@@ -32,8 +33,10 @@ namespace ReportsVerification.Web.Builders
                 throw new ApplicationException("Неверный билдер для отчета");
             }
 
-            return new ReportInfo(ReportType, GetReportMonth(xsdReport), 
-                GetCompanyName(xsdReport.Документ.СвНП.НПЮЛ));
+            return new ReportInfoRevistion(ReportType, 
+                GetReportMonth(xsdReport), 
+                GetCompanyName(xsdReport.Документ.СвНП.НПЮЛ),
+                int.Parse(xsdReport.Документ.НомКорр ?? "0"));
         }
 
         protected override bool Allow(Файл xmlReport)

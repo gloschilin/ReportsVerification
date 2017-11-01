@@ -18,6 +18,7 @@ namespace ReportsVerification.Web.Repositories.EF
         public Session()
         {
             this.Reports = new HashSet<Report>();
+            this.WrongReports = new HashSet<WrongReport>();
         }
     
         public System.Guid Id { get; set; }
@@ -32,5 +33,7 @@ namespace ReportsVerification.Web.Repositories.EF
         public virtual Region Region { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Report> Reports { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WrongReport> WrongReports { get; set; }
     }
 }

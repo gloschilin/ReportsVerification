@@ -3,6 +3,7 @@ using System.IO;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using ReportsVerification.Web.DataObjects.Interfaces;
+using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 
 namespace ReportsVerification.Web.DataObjects
 {

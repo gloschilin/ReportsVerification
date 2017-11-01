@@ -7,13 +7,6 @@ namespace ReportsVerification.Web.Mappers
 {
     public class ReportMapper: IMapper<Report, Repositories.EF.Report>
     {
-        private readonly IReportInfoBuilder _reportInfoBuilder;
-
-        public ReportMapper(IReportInfoBuilder reportInfoBuilder)
-        {
-            _reportInfoBuilder = reportInfoBuilder;
-        }
-
         public void Map(Report source, Repositories.EF.Report destination)
         {
             var reportInfo = source.GetReportInfo();

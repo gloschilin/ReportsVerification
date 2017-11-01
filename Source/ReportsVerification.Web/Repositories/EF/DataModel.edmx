@@ -60,6 +60,8 @@
           <Property Name="Alias" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="Content" Type="xml" Nullable="false" />
           <Property Name="SessionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Uniq" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Sessions">
           <Key>
@@ -71,6 +73,17 @@
           <Property Name="DateCreate" Type="datetime" Nullable="false" />
           <Property Name="CategoryId" Type="uniqueidentifier" />
           <Property Name="ModeId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="WrongReports">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="DateCreate" Type="datetime" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="SessionId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <Association Name="FK_Deductions_Regions">
           <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
@@ -144,6 +157,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_WrongReports_Sessions">
+          <End Role="Sessions" Type="Self.Sessions" Multiplicity="1" />
+          <End Role="WrongReports" Type="Self.WrongReports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sessions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WrongReports">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="VertificationsModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Deductions" EntityType="Self.Deductions" Schema="dbo" store:Type="Tables" />
@@ -152,6 +177,7 @@
           <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sessions" EntityType="Self.Sessions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WrongReports" EntityType="Self.WrongReports" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Deductions_Regions" Association="Self.FK_Deductions_Regions">
             <End Role="Regions" EntitySet="Regions" />
             <End Role="Deductions" EntitySet="Deductions" />
@@ -175,6 +201,10 @@
           <AssociationSet Name="FK_Sessions_Regions" Association="Self.FK_Sessions_Regions">
             <End Role="Regions" EntitySet="Regions" />
             <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WrongReports_Sessions" Association="Self.FK_WrongReports_Sessions">
+            <End Role="Sessions" EntitySet="Sessions" />
+            <End Role="WrongReports" EntitySet="WrongReports" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -236,6 +266,7 @@
           <NavigationProperty Name="Mode" Relationship="Self.FK_Sessions_Modes" FromRole="Sessions" ToRole="Modes" />
           <NavigationProperty Name="Region" Relationship="Self.FK_Sessions_Regions" FromRole="Sessions" ToRole="Regions" />
           <NavigationProperty Name="Reports" Relationship="VertificationsModel.FK_Reports_Sessions" FromRole="Session" ToRole="Report" />
+          <NavigationProperty Name="WrongReports" Relationship="VertificationsModel.FK_WrongReports_Sessions" FromRole="Session" ToRole="WrongReport" />
         </EntityType>
         <Association Name="FK_Sessions_Categories">
           <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
@@ -307,42 +338,22 @@
             <End Role="Regions" EntitySet="Regions" />
             <End Role="Sessions" EntitySet="Sessions" />
           </AssociationSet>
-          <EntitySet Name="Reports" EntityType="VertificationsModel.Report" />
-          <AssociationSet Name="FK_Reports_Sessions" Association="VertificationsModel.FK_Reports_Sessions">
-            <End Role="Session" EntitySet="Sessions" />
-            <End Role="Report" EntitySet="Reports" />
-          </AssociationSet>
           <EntitySet Name="Mrots" EntityType="VertificationsModel.Mrot" />
           <AssociationSet Name="FK_Mrot_Regions" Association="VertificationsModel.FK_Mrot_Regions">
             <End Role="Region" EntitySet="Regions" />
             <End Role="Mrot" EntitySet="Mrots" />
           </AssociationSet>
+          <EntitySet Name="Reports" EntityType="VertificationsModel.Report" />
+          <EntitySet Name="WrongReports" EntityType="VertificationsModel.WrongReport" />
+          <AssociationSet Name="FK_Reports_Sessions" Association="VertificationsModel.FK_Reports_Sessions">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="Report" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WrongReports_Sessions" Association="VertificationsModel.FK_WrongReports_Sessions">
+            <End Role="Session" EntitySet="Sessions" />
+            <End Role="WrongReport" EntitySet="WrongReports" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Report">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="DateCreate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Year" Type="Int32" Nullable="false" />
-          <Property Name="Month" Type="Int32" Nullable="false" />
-          <Property Name="Alias" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SessionId" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="Session" Relationship="VertificationsModel.FK_Reports_Sessions" FromRole="Report" ToRole="Session" />
-        </EntityType>
-        <Association Name="FK_Reports_Sessions">
-          <End Type="VertificationsModel.Session" Role="Session" Multiplicity="1" />
-          <End Type="VertificationsModel.Report" Role="Report" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Session">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Report">
-              <PropertyRef Name="SessionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Mrot">
           <Key>
             <PropertyRef Name="Id" />
@@ -362,6 +373,57 @@
             </Principal>
             <Dependent Role="Mrot">
               <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="DateCreate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Month" Type="Int32" Nullable="false" />
+          <Property Name="Alias" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SessionId" Type="Guid" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Session" Relationship="VertificationsModel.FK_Reports_Sessions" FromRole="Report" ToRole="Session" />
+          <Property Name="Uniq" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="WrongReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="SessionId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Session" Relationship="VertificationsModel.FK_WrongReports_Sessions" FromRole="WrongReport" ToRole="Session" />
+        </EntityType>
+        <Association Name="FK_Reports_Sessions">
+          <End Type="VertificationsModel.Session" Role="Session" Multiplicity="1" />
+          <End Type="VertificationsModel.Report" Role="Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Report">
+              <PropertyRef Name="SessionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WrongReports_Sessions">
+          <End Type="VertificationsModel.Session" Role="Session" Multiplicity="1" />
+          <End Type="VertificationsModel.WrongReport" Role="WrongReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Session">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WrongReport">
+              <PropertyRef Name="SessionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -422,9 +484,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Mrots">
+            <EntityTypeMapping TypeName="VertificationsModel.Mrot">
+              <MappingFragment StoreEntitySet="Mrot">
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Reports">
             <EntityTypeMapping TypeName="VertificationsModel.Report">
               <MappingFragment StoreEntitySet="Reports">
+                <ScalarProperty Name="Uniq" ColumnName="Uniq" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
                 <ScalarProperty Name="SessionId" ColumnName="SessionId" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="Alias" ColumnName="Alias" />
@@ -435,12 +509,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Mrots">
-            <EntityTypeMapping TypeName="VertificationsModel.Mrot">
-              <MappingFragment StoreEntitySet="Mrot">
-                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
-                <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <EntitySetMapping Name="WrongReports">
+            <EntityTypeMapping TypeName="VertificationsModel.WrongReport">
+              <MappingFragment StoreEntitySet="WrongReports">
+                <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -1,6 +1,7 @@
 ﻿using System;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.DateOfMonthType;
+using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.DataObjects.Xsd.Ndfl6;
 
 namespace ReportsVerification.Web.Builders
@@ -55,7 +56,10 @@ namespace ReportsVerification.Web.Builders
 
         protected override ReportInfo GetReportInfoInternal(Файл xsdReport)
         {
-            return new ReportInfo(ReportType, GetReportMonth(xsdReport), GetCompanyName(xsdReport));
+            return new ReportInfoRevistion(ReportType, 
+                GetReportMonth(xsdReport), 
+                GetCompanyName(xsdReport),
+                int.Parse(xsdReport.Документ.НомКорр ?? "0"));
         }
 
         protected override bool Allow(Файл xmlReport)

@@ -2,6 +2,7 @@
 using ReportsVerification.Web.Builders.Interfaces;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.Interfaces;
+using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 
 namespace ReportsVerification.Web.Builders
 {

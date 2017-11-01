@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
 using System.Xml.Linq;
-using ReportsVerification.Web.Builders.Interfaces;
 using ReportsVerification.Web.DataObjects;
+using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.Factories.Interfaces;
 using ReportsVerification.Web.Models;
 using ReportsVerification.Web.Repositories.Interfaces;
-using ReportsVerification.Web.Utills;
 using ReportsVerification.Web.Utills.Attributes;
 using ReportsVerification.Web.Utills.Interfaces;
 
@@ -25,18 +23,15 @@ namespace ReportsVerification.Web.Controllers
     public class ReportsController : ApiController
     {
         private readonly IRequestFileReader _requestFileReader;
-        private readonly IReportInfoBuilder _reportInfoBuilder;
         private readonly IReportRepository _reportRepository;
         private readonly IReportFactory _reportFactory;
 
         public ReportsController(
             IRequestFileReader requestFileReader, 
-            IReportInfoBuilder reportInfoBuilder,
             IReportRepository reportRepository,
             IReportFactory reportFactory)
         {
             _requestFileReader = requestFileReader;
-            _reportInfoBuilder = reportInfoBuilder;
             _reportRepository = reportRepository;
             _reportFactory = reportFactory;
         }
@@ -49,20 +44,12 @@ namespace ReportsVerification.Web.Controllers
         [Route("~/api/sessions/{sessionId}/reports"), HttpPost]
         public HttpResponseMessage Upload(Guid sessionId)
         {
-            try
-            {
-                if (_requestFileReader.Read(Request, content => HandleFileContent(sessionId, content)))
-                {
-                    return new HttpResponseMessage(HttpStatusCode.Created);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new HttpException((int)HttpStatusCode.BadRequest, ex.Message);
-            }
-            
-            AppLog.Error("Неудалось получить XML из загружаемого файла");
-            throw new HttpException((int)HttpStatusCode.BadRequest, "Не удалось загрузить файлы");
+            var uploadResult = _requestFileReader.Read(Request,
+                    content => HandleFileContent(sessionId, content));
+
+            return uploadResult
+                ? new HttpResponseMessage(HttpStatusCode.Created)
+                : new HttpResponseMessage(HttpStatusCode.BadRequest);
         }
 
         /// <summary>
@@ -77,11 +64,11 @@ namespace ReportsVerification.Web.Controllers
             var exisisReports = _reportRepository.GetList(sessionId);
 
             return type == ReportRequestType.Exists 
-                ? GetExistsReports(sessionId, exisisReports) 
-                : GetMissingReports(sessionId, exisisReports);
+                ? GetExistsReports(exisisReports) 
+                : GetMissingReports(exisisReports);
         }
 
-        private IEnumerable<ReportInfo> GetMissingReports(Guid sessionId, IEnumerable<Report> exisisReports)
+        private IEnumerable<ReportInfo> GetMissingReports(IEnumerable<Report> exisisReports)
         {
             throw new NotImplementedException();
         }
@@ -89,10 +76,9 @@ namespace ReportsVerification.Web.Controllers
         /// <summary>
         /// Создать существубющие отчеты
         /// </summary>
-        /// <param name="sessionId"></param>
         /// <param name="exisisReports"></param>
         /// <returns></returns>
-        private IEnumerable<ReportInfo> GetExistsReports(Guid sessionId, IEnumerable<Report> exisisReports)
+        private static IEnumerable<ReportInfo> GetExistsReports(IEnumerable<Report> exisisReports)
         {
             var result = exisisReports.Select(report => report.GetReportInfo());
             return result.ToList();
@@ -102,31 +88,18 @@ namespace ReportsVerification.Web.Controllers
         /// Обрабатываем полученный контект файла
         /// </summary>
         /// <param name="sessionId"></param>
-        /// <param name="fileContent"></param>
-        private void HandleFileContent(Guid sessionId, string fileContent)
+        /// <param name="fileInfo"></param>
+        private void HandleFileContent(Guid sessionId, UploadFileInfo fileInfo)
         {
-            XDocument xmlContent;
-            try
+            if (fileInfo.IsValid())
             {
-                xmlContent = XDocument.Parse(fileContent);
-            }
-            catch (Exception ex)
-            {
-                AppLog.Error("Неудалось получить XML из загружаемого файла", ex);
-                throw new HttpException((int)HttpStatusCode.BadRequest, 
-                    "Ошибка при чтении файла. Контект файла не является XML");
-            }
-
-            try
-            {
+                var xmlContent = XDocument.Parse(fileInfo.Content);
                 var report = _reportFactory.GetReport(xmlContent);
-                _reportRepository.Save(sessionId, report);
+                _reportRepository.Save(sessionId, fileInfo.FileName, report);
+                return;
             }
-            catch (Exception ex)
-            {
-                AppLog.Error($"Ошибка при создании экспемпляра отечта => {ex.Message}");
-                throw new HttpException((int)HttpStatusCode.BadRequest, ex.Message);
-            }
+            
+            _reportRepository.SaveWrongReport(sessionId, fileInfo.FileName, fileInfo.ErrorMessage, fileInfo.Content);
         }
     }
 }

@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -9,8 +10,10 @@ namespace ReportsVerification.Web.Utills
 {
     public class RequestFileReader : IRequestFileReader
     {
-        public bool Read(HttpRequestMessage request, Action<string> contentHandler)
+        public bool Read(HttpRequestMessage request, 
+            Action<UploadFileInfo> contentHandler)
         {
+            var result = true;
             if (!request.Content.IsMimeMultipartContent())
             {
                 return false;
@@ -18,17 +21,31 @@ namespace ReportsVerification.Web.Utills
 
             var provider = new MultipartMemoryStreamProvider();
             request.Content.ReadAsMultipartAsync(provider);
-            foreach (var stream in provider.Contents.Select(file => file.ReadAsStreamAsync().Result))
+            foreach (var contentInfo in provider.Contents.Select(contentInfo=> contentInfo))
             {
-                stream.Position = 0;
-                using (var reader = new StreamReader(stream, Encoding.GetEncoding("windows-1251")))
+                var fileStream = contentInfo.ReadAsStreamAsync().Result;
+                fileStream.Position = 0;
+                string content;
+                using (var reader = new StreamReader(fileStream, Encoding.GetEncoding("windows-1251")))
                 {
-                    var content = reader.ReadToEnd();
-                    contentHandler(content);
-                }   
+                    content = reader.ReadToEnd();
+                }
+                var fileName = contentInfo.Headers.ContentDisposition.FileName.Replace("\"", string.Empty);
+                var uploadFileInfo = new UploadFileInfo(fileName, content);
+
+                try
+                {
+                    contentHandler(uploadFileInfo);
+                }
+                catch (Exception ex)
+                {
+                    uploadFileInfo.SetError(ex.Message);
+                    contentHandler(uploadFileInfo);
+                    result = false;
+                }
             }
 
-            return true;
+            return result;
         }
 
     }
