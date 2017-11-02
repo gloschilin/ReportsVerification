@@ -12,7 +12,11 @@ namespace ReportsVerification.Web.Services.Validation
     public enum ValidationStepType
     {
         Nds1Vosmechenie,
-        Nds1Deduction
+        Nds1Deduction,
+        Nds2Vosmechenie,
+        Nds2Deduction,
+        Nds3Vosmechenie,
+        Nds3Deduction
     }
 
     public interface IReportsValidationService
@@ -128,10 +132,141 @@ namespace ReportsVerification.Web.Services.Validation
                     sessionInfo.RegionId.Value);
 
                 var incorrect = file.Документ.НДС.СумУпл164.СумНалВыч.НалВычОбщ.ToDecimal()
-                    /   file.Документ.НДС.СумУпл164.СумНалОб.СумНалВосст.СумНалВс.ToDecimal()*100 
+                    /   file.Документ.НДС.СумУпл164.СумНалОб.СумНалВосст.СумНалВс.ToDecimal() * 100 
                     >= deduction.FirstQuaterAmount;
 
-                if (!incorrect)
+                if (incorrect)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
+
+    /// <summary>
+    /// В декларации по НДС за 2 квартал заявлено возмещение. Готовьтесь к камеральной проверке.
+    /// </summary>
+    public class Nds2Vosmechenie : CommonConcreteValidationService
+    {
+        public Nds2Vosmechenie(IValidationHandler handler) : base(handler)
+        {
+        }
+
+        protected override ValidationStepType Type => ValidationStepType.Nds2Vosmechenie;
+        protected override bool IsValid(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo)
+        {
+            var ndsReports = reports
+                .Where(e => e.ReportType == ReportTypes.Nds)
+                .Where(e => ((ReportInfoRevistion<DateOfQuarter>)e.GetReportInfo()).ReportPeriod.Quarter == 2)
+                .Select(e => e.XsdReport).OfType<Файл>().ToArray();
+
+            return !ndsReports.Any() || ndsReports.All(e => e.Документ.НДС.СумУплНП.СумПУ_1731.ToDecimal() == 0);
+        }
+    }
+
+    /// <summary>
+    /// В декларации по НДС за 2 квартал доля вычетов превышает безопасную (нужна ссылка на сайт, где есть таблица с долями).
+    /// </summary>
+    public class Nds2Deduction : CommonConcreteValidationService
+    {
+        private readonly ICatalogRepository _catalogRepository;
+
+        public Nds2Deduction(IValidationHandler handler, ICatalogRepository catalogRepository) : base(handler)
+        {
+            _catalogRepository = catalogRepository;
+        }
+
+        protected override ValidationStepType Type => ValidationStepType.Nds2Deduction;
+        protected override bool IsValid(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo)
+        {
+            if (!sessionInfo.RegionId.HasValue)
+            {
+                return true;
+            }
+
+            foreach (var report in reports
+                .Where(e => e.ReportType == ReportTypes.Nds)
+                .Where(e => ((ReportInfoRevistion<DateOfQuarter>)e.GetReportInfo()).ReportPeriod.Quarter == 2)
+                .Where(e => (e.XsdReport as Файл)?.Документ.НДС.СумУплНП.СумПУ_1731.ToDecimal() > 0).ToList())
+            {
+                var file = (Файл)report.XsdReport;
+                var deduction = _catalogRepository.GetDeduction(
+                    report.GetReportInfo().GetStartReportPeriod(),
+                    sessionInfo.RegionId.Value);
+
+                var incorrect = file.Документ.НДС.СумУпл164.СумНалВыч.НалВычОбщ.ToDecimal()
+                    / file.Документ.НДС.СумУпл164.СумНалОб.СумНалВосст.СумНалВс.ToDecimal() * 100
+                    >= deduction.SecondQuaterAmount;
+
+                if (incorrect)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
+
+    /// <summary>
+    /// В декларации по НДС за 3 квартал заявлено возмещение. Готовьтесь к камеральной проверке
+    /// </summary>
+    public class Nds3Vosmechenie : CommonConcreteValidationService
+    {
+        public Nds3Vosmechenie(IValidationHandler handler) : base(handler)
+        {
+        }
+
+        protected override ValidationStepType Type => ValidationStepType.Nds3Vosmechenie;
+        protected override bool IsValid(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo)
+        {
+            var ndsReports = reports
+                .Where(e => e.ReportType == ReportTypes.Nds)
+                .Where(e => ((ReportInfoRevistion<DateOfQuarter>)e.GetReportInfo()).ReportPeriod.Quarter == 3)
+                .Select(e => e.XsdReport).OfType<Файл>().ToArray();
+
+            return !ndsReports.Any() || ndsReports.All(e => e.Документ.НДС.СумУплНП.СумПУ_1731.ToDecimal() == 0);
+        }
+    }
+
+    /// <summary>
+    /// В декларации по НДС за 3 квартал доля вычетов превышает 
+    /// безопасную (в скобках указываем  значение безопасной доли в %).
+    /// </summary>
+    public class Nds3Deduction : CommonConcreteValidationService
+    {
+        private readonly ICatalogRepository _catalogRepository;
+
+        public Nds3Deduction(IValidationHandler handler, ICatalogRepository catalogRepository) : base(handler)
+        {
+            _catalogRepository = catalogRepository;
+        }
+
+        protected override ValidationStepType Type => ValidationStepType.Nds3Deduction;
+        protected override bool IsValid(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo)
+        {
+            if (!sessionInfo.RegionId.HasValue)
+            {
+                return true;
+            }
+
+            foreach (var report in reports
+                .Where(e => e.ReportType == ReportTypes.Nds)
+                .Where(e => ((ReportInfoRevistion<DateOfQuarter>)e.GetReportInfo()).ReportPeriod.Quarter == 3)
+                .Where(e => (e.XsdReport as Файл)?.Документ.НДС.СумУплНП.СумПУ_1731.ToDecimal() > 0).ToList())
+            {
+                var file = (Файл)report.XsdReport;
+                var deduction = _catalogRepository.GetDeduction(
+                    report.GetReportInfo().GetStartReportPeriod(),
+                    sessionInfo.RegionId.Value);
+
+                var incorrect = file.Документ.НДС.СумУпл164.СумНалВыч.НалВычОбщ.ToDecimal()
+                    / file.Документ.НДС.СумУпл164.СумНалОб.СумНалВосст.СумНалВс.ToDecimal() * 100
+                    >= deduction.ThirdQuaterAmount;
+
+                if (incorrect)
                 {
                     return false;
                 }
