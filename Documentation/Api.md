@@ -13,9 +13,95 @@ interface ISessionInfo
   /// <summary>
   /// Идентификатор пользователя из ID2
   /// </summary>
-  userId: int
+  userId: int,
+  
+  category : "ALIAS",
+  mode : "ALIAS",
+  regionId : "GUID"
 }
 ```
+Где `category` - категория компании.
+
+Значения `category`:
+
+```
+/// <summary>
+/// ООО – работодатель
+/// </summary>
+OooEmployer,
+
+/// <summary>
+/// АО  ? работодатель
+/// </summary>
+AoEmployer,
+
+/// <summary>
+/// ИП без сотрудников
+/// </summary>
+IpWithoutEmployees,
+
+/// <summary>
+/// ИП – работодатель
+/// </summary>
+IpEmployer,
+
+/// <summary>
+/// АО без сотрудников
+/// </summary>
+AoWithoutEmployees,
+
+/// <summary>
+/// ООО без сотрудников
+/// </summary>
+OooWithoutEmployees,
+```
+
+Где `mode` - режимы пользователя. 
+
+Значения `mode`:
+```
+/// <summary>
+/// Патент
+/// </summary>
+Patent,
+
+/// <summary>
+/// ОСНО
+/// </summary>
+Osno,
+
+/// <summary>
+/// УСН + ЕНВД
+/// </summary>
+UsnWitnEnvd,
+
+/// <summary>
+/// ЕСХН + ЕНВД
+/// </summary>
+EshnWithEnvd,
+
+/// <summary>
+/// ОСНО + ЕНВД
+/// </summary>
+OsnoWithEnvd,
+
+/// <summary>
+/// ЕНВД
+/// </summary>
+Envd,
+
+/// <summary>
+/// УСН
+/// </summary>
+Usn,
+
+/// <summary>
+/// ЕСХН
+/// </summary>
+Eshn
+```
+Где `regionId` выбранный регион пользователя.
+
 Перед началом загрузки документов и их проверкой необходимо получить идентификатор сессии. 
 ```json
 POST: /api/sessions
@@ -28,7 +114,7 @@ RESPONSE: ISessionInfo
 GET: /api/sessions/{sessionId}
 RESPONSE: ISessionInfo
 ```
-Обновление данных сессии происходит ответе на контрольные вопросы пользвоателем
+Обновление данных сессии происходит при ответе на контрольные вопросы пользвоателем
 ```
 PUT: /api/sessions/{sessionId}
 BODY: ISessionInfo
@@ -36,13 +122,65 @@ RESPONSE ISessionInfo
 ```
 где `sessionId` идентификатор ранее полученной сессии
 
+##Получение данных справочников
+
+Получение списка регионов
+```
+GET /api/catalos/regions
+RESPONSE IRegion[]
+```
+```ts
+interface IRegion
+{
+  id: "GUID",
+  name: ""
+}
+```
+
+Получить информацияю по региону
+```
+GET /api/catalos/regions/{regionId}
+RESPONSE IRegionInfo[]
+```
+```ts
+interface IRegionInfo
+{
+  id: "GUID",
+  name: "",
+  
+  /// <summary>
+  /// Размер МРОТ
+  /// </summary>
+  mrot: "decimal",
+  
+  /// <summary>
+  /// Значение вычета на 1 квартал
+  /// </summary>
+  firstQuaterAmountDeduction : "decimal",
+  
+  /// <summary>
+  /// Значение вычета на 2 квартал
+  /// </summary>
+  secondQuaterAmountDeduction : "decimal",
+  
+  /// <summary>
+  /// Значение вычета на 3 квартал
+  /// </summary>
+  thirdQuaterAmountDeduction : "decimal",
+  
+  /// <summary>
+  /// Значение вычета на 4 квартал
+  /// </summary>
+  forthQuaterAmountDeduction : "decimal"
+}
+```
 
 ## Загрузка отчетов
 
 Загрузка файлов XML отчетов:
 ```
 POST: /api/sessions/{sessionId}/reports
-BODY: XML файла отчета
+BODY: XML файла отчета, можно несколько
 RESPONSE OK: 201
 RESPONSE Error: 400, в теле овтета сообщение о выданном исключении при загрузке файла
 ```
@@ -53,13 +191,23 @@ RESPONSE Error: 400, в теле овтета сообщение о выданн
 ```ts
 interface IReportInfo
 {
-  reportMonth: IDateOfMonth,
+  reportMonth: TDate,
   companyName: string,
-  type: ReportType
+  type: TReportType,
+  companyName : "",
+  inn : ""
 }
 ```
 
-где 
+где `TDate` представляет дату отчета, возможные типы `IDateOfQuarter`, `IDateOfMonth`
+
+```ts
+interface IDateOfQuarter
+{
+  year: int,
+  quarter: int
+}
+```
 
 ```ts
 interface IDateOfMonth
