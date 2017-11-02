@@ -4,6 +4,7 @@ using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.Dates;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.DataObjects.Xsd.Ndfl2;
+using ReportsVerification.Web.Factories.Interfaces;
 
 namespace ReportsVerification.Web.Builders
 {
@@ -11,7 +12,7 @@ namespace ReportsVerification.Web.Builders
     {
         protected override ReportTypes ReportType => ReportTypes.Ndfl2;
 
-        protected string GetCompanyName(Файл xmlFileContent)
+        protected string GetCompanyName(Файл xmlFileContent, out string inn)
         {
             if (!Allow(xmlFileContent))
             {
@@ -22,25 +23,27 @@ namespace ReportsVerification.Web.Builders
             var ul = item as ФайлДокументСвНАСвНАЮЛ;
             if (ul != null)
             {
-                return GetCompanyName(ul);
+                return GetCompanyName(ul, out inn);
             }
             var fl = item as ФайлДокументСвНАСвНАФЛ;
             if (fl != null)
             {
-                return GetCompanyName(fl);
+                return GetCompanyName(fl, out inn);
             }
 
             throw new ApplicationException(
                 "Невозможно определить наименование организации. Неизвестный тип значения узла XML");
         }
         
-        private static string GetCompanyName(ФайлДокументСвНАСвНАФЛ fl)
+        private static string GetCompanyName(ФайлДокументСвНАСвНАФЛ fl, out string inn)
         {
+            inn = fl.ИННФЛ;
             return $"{fl.ФИО.Фамилия} {fl.ФИО.Имя} {fl.ФИО.Отчество}";
         }
 
-        private static string GetCompanyName(ФайлДокументСвНАСвНАЮЛ ul)
+        private static string GetCompanyName(ФайлДокументСвНАСвНАЮЛ ul, out string inn)
         {
+            inn = ul.ИННЮЛ;
             return $"{ul.НаимОрг}";
         }
 
@@ -51,15 +54,23 @@ namespace ReportsVerification.Web.Builders
 
             var period = new DateOfQuarter(int.Parse(document.ОтчетГод), 4);
 
-            return new Ndfl2ReportInfo(ReportType, period, GetCompanyName(xsdReport),
-                int.Parse(document.НомКорр ?? "0"),
-                int.Parse(document.Признак));
+            string inn;
+            var companyName = GetCompanyName(xsdReport, out inn);
+
+            var info = ReportInfoFactory.Create2NdflReportInfo(period, companyName, inn,
+                int.Parse(document.НомКорр ?? "0"), int.Parse(document.Признак));
+
+            return info;
         }
 
         protected override bool Allow(Файл xmlReport)
         {
             var doc = xmlReport.Документ.First();
             return doc.КНД == "1151078";
+        }
+
+        public Ndfl2InfoBuilder(IReportInfoFactory reportInfoFactory) : base(reportInfoFactory)
+        {
         }
     }
 }

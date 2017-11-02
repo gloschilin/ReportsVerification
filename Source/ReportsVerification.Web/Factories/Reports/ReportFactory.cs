@@ -7,7 +7,7 @@ using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.Factories.Interfaces;
 
-namespace ReportsVerification.Web.Factories
+namespace ReportsVerification.Web.Factories.Reports
 {
     /// <summary>
     /// Фабрика создания экземпляра отчета

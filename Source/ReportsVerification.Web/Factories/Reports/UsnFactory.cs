@@ -3,15 +3,15 @@ using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.ConcreteReprots;
 using ReportsVerification.Web.Factories.Interfaces;
 
-namespace ReportsVerification.Web.Factories
+namespace ReportsVerification.Web.Factories.Reports
 {
-    public class SzvMFactory : IConcreteReportFactory
+    public class UsnFactory : IConcreteReportFactory
     {
         public Report GetReport(XDocument xmlContent)
         {
-            return new SzvM(xmlContent);
+            return new Usn(xmlContent);
         }
 
-        public ReportTypes ReportType => ReportTypes.SzvM;
+        public ReportTypes ReportType => ReportTypes.Usn;
     }
 }

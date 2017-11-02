@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Practices.Unity;
-using ReportsVerification.Web.Factories;
 using ReportsVerification.Web.Factories.Interfaces;
+using ReportsVerification.Web.Factories.ReportInfoObjects;
+using ReportsVerification.Web.Factories.Reports;
 
 namespace ReportsVerification.Web.Installers
 {
@@ -28,6 +29,8 @@ namespace ReportsVerification.Web.Installers
             Container.RegisterType<IConcreteReportFactory, Fss4Factory>("Fss4Factory");
             Container.RegisterType<IConcreteReportFactory, PurchasesBookNdsFactory>("PurchasesBookNdsFactory");
             Container.RegisterType<IConcreteReportFactory, SalesBookNdsFactory>("SalesBookNdsFactory");
+
+            Container.RegisterType<IReportInfoFactory, ReportInfoFactory>();
         }
     }
 }

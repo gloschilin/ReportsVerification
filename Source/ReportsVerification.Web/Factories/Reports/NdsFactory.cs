@@ -3,15 +3,15 @@ using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.ConcreteReprots;
 using ReportsVerification.Web.Factories.Interfaces;
 
-namespace ReportsVerification.Web.Factories
+namespace ReportsVerification.Web.Factories.Reports
 {
-    public class Ndfl2Factory : IConcreteReportFactory
+    public class NdsFactory : IConcreteReportFactory
     {
         public Report GetReport(XDocument xmlContent)
         {
-            return new Ndfl2(xmlContent);
+            return new Nds(xmlContent);
         }
 
-        public ReportTypes ReportType => ReportTypes.Ndfl2;
+        public ReportTypes ReportType => ReportTypes.Nds;
     }
 }

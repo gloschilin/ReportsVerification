@@ -3,15 +3,15 @@ using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.ConcreteReprots;
 using ReportsVerification.Web.Factories.Interfaces;
 
-namespace ReportsVerification.Web.Factories
+namespace ReportsVerification.Web.Factories.Reports
 {
-    public class CalculationAdvancePaymentFactory : IConcreteReportFactory
+    public class CalculationContributionsFactory : IConcreteReportFactory
     {
         public Report GetReport(XDocument xmlContent)
         {
-            return new CalculationAdvancePayment(xmlContent);
+            return new CalculationContributions(xmlContent);
         }
 
-        public ReportTypes ReportType => ReportTypes.CalculationAdvancePayment;
+        public ReportTypes ReportType => ReportTypes.CalculationContributions;
     }
 }

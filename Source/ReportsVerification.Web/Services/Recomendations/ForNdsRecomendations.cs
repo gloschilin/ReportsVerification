@@ -4,6 +4,7 @@ using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.Dates;
 using ReportsVerification.Web.DataObjects.Enums;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
+using ReportsVerification.Web.Factories.Interfaces;
 using ReportsVerification.Web.Services.Interfaces;
 
 namespace ReportsVerification.Web.Services.Recomendations
@@ -13,10 +14,17 @@ namespace ReportsVerification.Web.Services.Recomendations
     /// </summary>
     public class ForNdsRecomendations : IConcreteRecomendation
     {
+        private readonly IReportInfoFactory _reportInfoFactory;
+
         private static readonly IEnumerable<UserModes> Modes = new[]
         {
             UserModes.Osno, UserModes.OsnoWithEnvd,
         };
+
+        public ForNdsRecomendations(IReportInfoFactory reportInfoFactory)
+        {
+            _reportInfoFactory = reportInfoFactory;
+        }
 
         public IEnumerable<ReportInfo> GetRecomendatedReports(SessionInfo sessionInfo)
         {
@@ -26,10 +34,9 @@ namespace ReportsVerification.Web.Services.Recomendations
             }
 
             return new[] { 1, 2, 3 }.Select(
-                e=>new ReportInfoRevistion<DateOfQuarter>(
-                    ReportTypes.Nds, 
-                    new DateOfQuarter(2017, e), 
-                    string.Empty, 0));
+                e=> _reportInfoFactory.CreateReportInfoRevision(
+                    ReportTypes.Nds, new DateOfQuarter(2017, e), 
+                    string.Empty, string.Empty, 0));
         }
     }
 

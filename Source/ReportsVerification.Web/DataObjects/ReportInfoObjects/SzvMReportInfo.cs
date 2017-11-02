@@ -13,9 +13,9 @@ namespace ReportsVerification.Web.DataObjects.ReportInfoObjects
 
         public DateOfMonth ReportMoth { get; }
 
-        public SzvMReportInfo(ReportTypes type, DateOfMonth reportMoth, string companyName, 
+        public SzvMReportInfo(DateOfMonth reportMoth, string companyName, string inn,
             SzvMReportInfoType szvMType) 
-            : base(type, companyName)
+            : base(ReportTypes.SzvM, companyName, inn)
         {
             SzvMType = szvMType;
             ReportMoth = reportMoth;

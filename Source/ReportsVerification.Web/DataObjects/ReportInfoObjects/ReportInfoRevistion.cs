@@ -14,8 +14,9 @@ namespace ReportsVerification.Web.DataObjects.ReportInfoObjects
 
         public TReportDate ReportPeriod { get; }
 
-        public ReportInfoRevistion(ReportTypes type, TReportDate reportPeriod, string companyName, int revisionNumber) 
-            : base(type, companyName)
+        public ReportInfoRevistion(ReportTypes type, TReportDate reportPeriod, string companyName, string inn, 
+            int revisionNumber) 
+            : base(type, companyName, inn)
         {
             RevisionNumber = revisionNumber;
             ReportPeriod = reportPeriod;

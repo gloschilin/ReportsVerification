@@ -3,15 +3,15 @@ using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.ConcreteReprots;
 using ReportsVerification.Web.Factories.Interfaces;
 
-namespace ReportsVerification.Web.Factories
+namespace ReportsVerification.Web.Factories.Reports
 {
-    public class AccountingStatementFactory: IConcreteReportFactory
+    public class DeclarationOnPropertyTaxFactory : IConcreteReportFactory
     {
         public Report GetReport(XDocument xmlContent)
         {
-            return new AccountingStatement(xmlContent);
+            return new DeclarationOnPropertyTax(xmlContent);
         }
 
-        public ReportTypes ReportType => ReportTypes.AccountingStatement;
+        public ReportTypes ReportType => ReportTypes.DeclarationOnPropertyTax;
     }
 }

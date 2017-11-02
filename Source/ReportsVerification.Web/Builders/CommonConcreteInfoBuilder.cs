@@ -3,13 +3,20 @@ using ReportsVerification.Web.Builders.Interfaces;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.Interfaces;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
+using ReportsVerification.Web.Factories.Interfaces;
 
 namespace ReportsVerification.Web.Builders
 {
     public abstract class CommonConcreteInfoBuilder<TXsdReport>: IConcreteReportInfoBuilder
         where TXsdReport: class, IXsdReport
     {
+        protected readonly IReportInfoFactory ReportInfoFactory;
         protected abstract ReportTypes ReportType { get; }
+
+        protected CommonConcreteInfoBuilder(IReportInfoFactory reportInfoFactory)
+        {
+            ReportInfoFactory = reportInfoFactory;
+        }
 
         public bool TryGetInfo(XDocument xmlFileContent, out ReportInfo reportInfo)
         {

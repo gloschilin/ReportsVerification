@@ -10,9 +10,9 @@ namespace ReportsVerification.Web.DataObjects.ReportInfoObjects
         /// </summary>
         public int Mark { get; }
 
-        public Ndfl2ReportInfo(ReportTypes type, DateOfQuarter reportMonth, string companyName, 
+        public Ndfl2ReportInfo(DateOfQuarter reportMonth, string companyName, string inn,
             int revisionNumber, int mark) 
-            : base(type, reportMonth, companyName, revisionNumber)
+            : base(ReportTypes.Ndfl2, reportMonth, companyName, inn, revisionNumber)
         {
             Mark = mark;
         }

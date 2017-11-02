@@ -3,29 +3,14 @@ using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.Dates;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.DataObjects.Xsd.CalculationAdvancePayment;
+using ReportsVerification.Web.Factories.Interfaces;
 
 namespace ReportsVerification.Web.Builders
 {
     public class CalculationAdvancePaymentInfoBuilder : CommonConcreteInfoBuilder<Файл>
     {
         protected override ReportTypes ReportType => ReportTypes.CalculationAdvancePayment;
-
-        protected string GetCompanyName(Файл xmlFileContent)
-        {
-            if (!Allow(xmlFileContent))
-            {
-                throw new ApplicationException("Неверный билдер для отчета");
-            }
-
-            var item = xmlFileContent.Документ.СвНП.НПЮЛ;
-            return GetCompanyName(item);
-        }
-
-        private static string GetCompanyName(ФайлДокументСвНПНПЮЛ ul)
-        {
-            return $"{ul.НаимОрг}";
-        }
-
+        
 
         protected override ReportInfo GetReportInfoInternal(Файл xsdReport)
         {
@@ -34,15 +19,22 @@ namespace ReportsVerification.Web.Builders
                     int.Parse(xsdReport.Документ.Период)
                 );
 
-            return new ReportInfoRevistion<DateOfQuarter>(ReportType,
-                period, 
-                GetCompanyName(xsdReport), 
+            var info = ReportInfoFactory.CreateReportInfoRevision(ReportType, period,
+                xsdReport.Документ.СвНП.НПЮЛ.НаимОрг,
+                xsdReport.Документ.СвНП.НПЮЛ.ИННЮЛ,
                 int.Parse(xsdReport.Документ.НомКорр ?? "0"));
+
+            return info;
         }
 
         protected override bool Allow(Файл xmlReport)
         {
             return xmlReport != null && xmlReport.Документ?.КНД == "1152028";
+        }
+
+        public CalculationAdvancePaymentInfoBuilder(IReportInfoFactory reportInfoFactory) 
+            : base(reportInfoFactory)
+        {
         }
     }
 }

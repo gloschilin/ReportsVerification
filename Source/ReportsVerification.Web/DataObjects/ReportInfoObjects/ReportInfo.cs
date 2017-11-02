@@ -9,10 +9,11 @@ namespace ReportsVerification.Web.DataObjects.ReportInfoObjects
     /// </summary>
     public abstract class ReportInfo
     {
-        protected ReportInfo(ReportTypes type, string companyName)
+        protected ReportInfo(ReportTypes type, string companyName, string inn)
         {
             Type = type;
             CompanyName = companyName;
+            Inn = inn;
         }
 
         /// <summary>
@@ -24,6 +25,8 @@ namespace ReportsVerification.Web.DataObjects.ReportInfoObjects
         /// Тип отчета
         /// </summary>
         public ReportTypes Type { get; }
+
+        public string Inn { get; }
 
         public abstract string GetUniq();
 
