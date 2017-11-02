@@ -76,7 +76,7 @@ Osno,
 UsnWitnEnvd,
 
 /// <summary>
-/// ЕСХН + ЕНВД
+ /// ЕСХН + ЕНВД
 /// </summary>
 EshnWithEnvd,
 
@@ -122,7 +122,7 @@ RESPONSE ISessionInfo
 ```
 где `sessionId` идентификатор ранее полученной сессии
 
-##Получение данных справочников
+## Получение данных справочников
 
 Получение списка регионов
 ```
@@ -140,7 +140,7 @@ interface IRegion
 Получить информацияю по региону
 ```
 GET /api/catalos/regions/{regionId}
-RESPONSE IRegionInfo[]
+RESPONSE IRegionInfo
 ```
 ```ts
 interface IRegionInfo
