@@ -164,6 +164,7 @@
     <Compile Include="DataObjects\Xsd\НДС Книга продаж.Designer.cs" />
     <Compile Include="DataObjects\Xsd\НДС.Designer.cs" />
     <Compile Include="Extentions\ReportInfoCollectionExtentions.cs" />
+    <Compile Include="Extentions\StringExtentions.cs" />
     <Compile Include="Factories\Interfaces\IReportInfoFactory.cs" />
     <Compile Include="Factories\ReportInfoObjects\ReportInfoFactory.cs" />
     <Compile Include="Factories\Reports\Fss4Factory.cs" />
