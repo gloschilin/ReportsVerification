@@ -1,0 +1,18 @@
+﻿using ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common;
+using ReportsVerification.Web.Services.Validation.Interfaces;
+
+namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax
+{
+    /// <summary>
+    /// Соотношение прямых расходов и выручки от реализации 1 квартал
+    /// </summary>
+    public class DirectCosts1Validator : CommonDirectCostsValidator
+    {
+        public DirectCosts1Validator(IValidationContext context) : base(context)
+        {
+        }
+
+        protected override ValidationStepType Type => ValidationStepType.DirectCosts1Validator;
+        protected override int Quarter => 1;
+    }
+}

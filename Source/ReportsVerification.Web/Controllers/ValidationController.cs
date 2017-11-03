@@ -14,36 +14,35 @@ namespace ReportsVerification.Web.Controllers
     /// </summary>
     public class ValidationController : ApiController
     {
-        private readonly IReportsValidationService _reportsValidationService;
+        private readonly IReportsValidator _reportsValidator;
         private readonly IReportRepository _reportRepository;
         private readonly ISessionRepository _sessionRepository;
-        private readonly IValidationHandler _validationHandler;
+        private readonly IValidationContext _validationContext;
 
         public ValidationController(
-            IReportsValidationService reportsValidationService,
+            IReportsValidator reportsValidator,
             IReportRepository reportRepository,
             ISessionRepository sessionRepository,
-            IValidationHandler validationHandler)
+            IValidationContext validationContext)
         {
-            _reportsValidationService = reportsValidationService;
+            _reportsValidator = reportsValidator;
             _reportRepository = reportRepository;
             _sessionRepository = sessionRepository;
-            _validationHandler = validationHandler;
+            _validationContext = validationContext;
         }
 
         /// <summary>
         /// Получить проверку отчетов
         /// </summary>
         /// <param name="sessionId"></param>
-        /// <param name="type"></param>
         /// <returns></returns>
         [Route("api/services/validation"), HttpGet]
-        public IEnumerable<ValidationStepType> ValidateReports(Guid sessionId, ValidateRequestType type)
+        public IEnumerable<ValidationStepType> ValidateReports(Guid sessionId)
         {
             var reports = _reportRepository.GetList(sessionId).ToArray();
             var session = _sessionRepository.Get(sessionId);
-            _reportsValidationService.Validate(reports, session);
-            var validationResult = _validationHandler.GetWrongMessages();
+            _reportsValidator.Validate(reports, session);
+            var validationResult = _validationContext.GetWrongMessages(sessionId);
             return validationResult;
         }
     }

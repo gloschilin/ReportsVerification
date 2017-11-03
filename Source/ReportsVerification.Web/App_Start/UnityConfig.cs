@@ -1,8 +1,6 @@
-using System.Linq;
 using Microsoft.Practices.Unity;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
-using System.Web.Http.Filters;
 using Microsoft.Practices.ServiceLocation;
 using ReportsVerification.Web.Installers;
 using ReportsVerification.Web.Utills;
@@ -23,7 +21,9 @@ namespace ReportsVerification.Web
                 .AddNewExtension<UtilsInstaller>()
                 .AddNewExtension<FactoriesInstaller>()
                 .AddNewExtension<ServicesInstaller>()
+                .AddNewExtension<ValidationInstaller>()
                 .AddNewExtension<RecomendationsInstaller>();
+            
             
             container.RegisterInstance<IHttpControllerActivator>(new UnityHttpControllerActivator(container));
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
