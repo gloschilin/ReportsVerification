@@ -14,6 +14,6 @@ namespace ReportsVerification.Web.Services.Validation.Nds
 
         protected override ValidationStepType Type => ValidationStepType.Nds2VosmechenieValidator;
 
-        protected override int NdsQuarter => 2;
+        protected override int Quarter => 2;
     }
 }

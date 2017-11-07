@@ -12,7 +12,7 @@ namespace ReportsVerification.Web.Services.Validation.Nds.Common
 {
     public abstract class CommonNdsVosmechenieValidator : CommonConcreteReportValidator
     {
-        protected abstract int NdsQuarter { get; }
+        protected abstract int Quarter { get; }
 
         protected CommonNdsVosmechenieValidator(IValidationContext context) : base(context)
         {
@@ -21,14 +21,19 @@ namespace ReportsVerification.Web.Services.Validation.Nds.Common
 
         protected override bool IsValid(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo)
         {
-            var incorrectReports = reports
-                .Where(e => e.ReportType == ReportTypes.Nds)
-                .Where(e => ((ReportInfoRevistion<DateOfQuarter>)e.GetReportInfo()).ReportPeriod.Quarter == NdsQuarter)
-                .Select(e => e.XsdReport).OfType<Файл>()
-                .Where(e=> e.Документ.НДС.СумУплНП.СумПУ_1731.ToDecimal() > 0)
-                .ToArray();
+            var ndsReportByQuarter = reports.FirstOrDefault(e =>
+            {
+                var info = e.GetReportInfo() as ReportInfoRevistion<DateOfQuarter>;
+                return info != null && info.ReportPeriod.Quarter == Quarter;
+            });
 
-            return !incorrectReports.Any();
+            if (ndsReportByQuarter == null)
+            {
+                return true;
+            }
+
+            var xsd = (Файл)ndsReportByQuarter.XsdReport;
+            return xsd.Документ.НДС.СумУплНП.СумПУ_1731.ToDecimal() > 0;
         }
     }
 }

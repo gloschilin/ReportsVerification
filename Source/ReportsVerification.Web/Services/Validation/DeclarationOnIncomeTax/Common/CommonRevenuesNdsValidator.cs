@@ -19,8 +19,17 @@ namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Com
             IReadOnlyCollection<Report> allReports, SessionInfo sessionInfo)
         {
             var file = (Файл)report.XsdReport;
-            var ndsForQuarterReports = Enumerable.Range(1, Quarter)
-                .Select(quarter=> GetNdsSums(allReports, quarter)).Sum();
+            var ndsForQuarterReports = 0m;
+            if (!Enumerable.Range(1, Quarter).All(quarter =>
+            {
+                decimal amount;
+                var result = TryGetNdsSums(allReports, quarter, out amount);
+                ndsForQuarterReports += amount;
+                return result;
+            }))
+            {
+                return true;
+            }
 
             var fileRevenues = file.Документ.Прибыль.Items.OfType<ФайлДокументПрибыльРасчНал>()
                 .Select(e => e.ДохРеалВнеРеал.ДохРеал.ВырРеалИтог.ToDecimal()).First();
@@ -28,21 +37,28 @@ namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Com
             return ndsForQuarterReports != fileRevenues;
         }
 
-        private static decimal GetNdsSums(IEnumerable<Report> reports, int quarter)
+        private static bool TryGetNdsSums(IEnumerable<Report> reports, int quarter, out decimal sum)
         {
-            var ndsByQuarter = (DataObjects.Xsd.Nds.Файл)reports
+            var ndsByQuarter = reports
                 .Where(e => e.ReportType == ReportTypes.Nds)
-                .First(e => ((ReportInfoRevistion<DateOfQuarter>)e.GetReportInfo()).ReportPeriod.Quarter == quarter)
-                .XsdReport;
+                .FirstOrDefault(e => ((ReportInfoRevistion<DateOfQuarter>) e.GetReportInfo()).ReportPeriod.Quarter == quarter)
+                ?.XsdReport as DataObjects.Xsd.Nds.Файл;
 
-            var summ = ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов18.НалБаза.ToDecimal()
+            if (ndsByQuarter == null)
+            {
+                sum = 0;
+                return false;
+            }
+
+            sum = ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов18.НалБаза.ToDecimal()
                        + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов18.НалБаза.ToDecimal()
                        + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов10.НалБаза.ToDecimal()
                        + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов118.НалБаза.ToDecimal()
                        + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов110.НалБаза.ToDecimal()
                        + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалСрок1511_118.НалБаза.ToDecimal();
 
-            return summ;
+            return true;
+
         }
     }
 }

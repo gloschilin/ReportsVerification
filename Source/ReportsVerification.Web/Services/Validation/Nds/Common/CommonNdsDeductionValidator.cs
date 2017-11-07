@@ -29,27 +29,33 @@ namespace ReportsVerification.Web.Services.Validation.Nds.Common
                 return true;
             }
 
-            foreach (var report in reports
-                .Where(e => e.ReportType == ReportTypes.Nds)
-                .Where(e => ((ReportInfoRevistion<DateOfQuarter>)e.GetReportInfo()).ReportPeriod.Quarter == Quarter)
-                .Where(e => (e.XsdReport as Файл)?.Документ.НДС.СумУплНП.СумПУ_1731.ToDecimal() > 0).ToList())
+            var ndsReportByQuarter = reports.FirstOrDefault(e =>
             {
-                var file = (Файл)report.XsdReport;
-                var deduction = _catalogRepository.GetDeduction(
-                    report.GetReportInfo().GetStartReportPeriod(),
-                    sessionInfo.RegionId.Value);
+                var info = e.GetReportInfo() as ReportInfoRevistion<DateOfQuarter>;
+                return info != null && info.ReportPeriod.Quarter == Quarter;
+            });
 
-                var incorrect = file.Документ.НДС.СумУпл164.СумНалВыч.НалВычОбщ.ToDecimal()
-                                / file.Документ.НДС.СумУпл164.СумНалОб.СумНалВосст.СумНалВс.ToDecimal() * 100
-                                >= GetDeduction(deduction);
-
-                if (incorrect)
-                {
-                    return false;
-                }
+            if (ndsReportByQuarter == null)
+            {
+                return true;
             }
 
-            return true;
+            var xsd = (Файл) ndsReportByQuarter.XsdReport;
+
+            if (xsd.Документ.НДС.СумУплНП.СумПУ_1731.ToDecimal() <= 0)
+            {
+                return true;
+            }
+
+            var deduction = _catalogRepository.GetDeduction(
+                ndsReportByQuarter.GetReportInfo().GetStartReportPeriod(),
+                sessionInfo.RegionId.Value);
+
+            var correct = xsd.Документ.НДС.СумУпл164.СумНалВыч.НалВычОбщ.ToDecimal()
+                          / xsd.Документ.НДС.СумУпл164.СумНалОб.СумНалВосст.СумНалВс.ToDecimal() * 100m
+                          >= GetDeduction(deduction);
+
+            return correct;
         }
 
         protected abstract decimal GetDeduction(Deduction deduction);
