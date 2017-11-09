@@ -21,7 +21,7 @@ namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Com
         {
             var file = (Файл) report.XsdReport;
             return file.Документ.Прибыль.Items.OfType<ФайлДокументПрибыльРасчНал>()
-                .Any(e => e.РасхУмРеал.ToDecimal() <= e.ДохРеал.ToDecimal());
+                .Any(e => e.РасхУмРеал.ToDecimal() > e.ДохРеал.ToDecimal());
         }
     }
 }

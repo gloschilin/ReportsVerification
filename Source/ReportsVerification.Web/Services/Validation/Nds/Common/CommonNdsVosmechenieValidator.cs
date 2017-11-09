@@ -33,7 +33,7 @@ namespace ReportsVerification.Web.Services.Validation.Nds.Common
             }
 
             var xsd = (Файл)ndsReportByQuarter.XsdReport;
-            return xsd.Документ.НДС.СумУплНП.СумПУ_1731.ToDecimal() > 0;
+            return xsd.Документ.НДС.СумУплНП.СумПУ_1731.ToDecimal() >= 0;
         }
     }
 }

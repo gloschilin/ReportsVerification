@@ -17,7 +17,8 @@ namespace ReportsVerification.Web.Services.Validation.Nds.Common
         private readonly ICatalogRepository _catalogRepository;
         protected abstract int Quarter { get; }
 
-        protected CommonNdsDeductionValidator(IValidationContext context, ICatalogRepository catalogRepository) : base(context)
+        protected CommonNdsDeductionValidator(IValidationContext context, ICatalogRepository catalogRepository) 
+            : base(context)
         {
             _catalogRepository = catalogRepository;
         }

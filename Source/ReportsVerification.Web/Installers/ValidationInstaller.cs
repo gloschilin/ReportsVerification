@@ -16,6 +16,8 @@ namespace ReportsVerification.Web.Installers
             Container.RegisterType<IValidationContext, HttpValidationContext>();
             Container.RegisterType<IReportsValidator, ReportsValidator>();
             Container.RegisterType<IEnumerable<IConcreteReportValidator>, IConcreteReportValidator[]>();
+
+            //TODO:
             Container.RegisterType<IConcreteReportValidator, DirectCosts1Validator>("DirectCosts1Validator");
             Container.RegisterType<IConcreteReportValidator, DirectCosts2Validator>("DirectCosts2Validator");
             Container.RegisterType<IConcreteReportValidator, DirectCosts3Validator>("DirectCosts3Validator");

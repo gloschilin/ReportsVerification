@@ -1,4 +1,4 @@
-namespace ReportsVerification.Web.Services.Validation
+﻿namespace ReportsVerification.Web.Services.Validation
 {
     public enum ValidationStepType
     {
@@ -28,6 +28,23 @@ namespace ReportsVerification.Web.Services.Validation
         ReportsIsUniqueValidator,
         ReportsByYearValidator,
         ReportsByInnValidator,
-        
+
+        //НДФЛ6
+
+        Ndfl61WageMrotValidator,
+        Ndfl62WageMrotValidator,
+        Ndfl63WageMrotValidator,
+        Ndfl64WageMrotValidator,
+        Ndfl64TaxesValidator,
+        Ndfl63TaxesValidator,
+        Ndfl62TaxesValidator,
+        Ndfl61TaxesValidator,
+
+        //Расчет по взносам
+
+        CalculationContributions1WithNdfl6BaseValidator,
+        CalculationContributions4WithNdfl6BaseValidator,
+        CalculationContributions2WithNdfl6BaseValidator,
+        CalculationContributions3WithNdfl6BaseValidator
     }
 }

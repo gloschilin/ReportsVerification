@@ -189,11 +189,29 @@
     <Compile Include="Services\Recomendations\ForNdsRecomendations.cs" />
     <Compile Include="Services\RecomendationsService.cs" />
     <Compile Include="Services\ReportsService.cs" />
+    <Compile Include="Services\Validation\CalculationContributionsVsSzvm\Common\CommonCalculationContributionsVsSzvmValidator.cs" />
+    <Compile Include="Services\Validation\CalculationContributions\CalculationContributions1WithNdfl6BaseValidator.cs" />
+    <Compile Include="Services\Validation\CalculationContributions\CalculationContributions2WithNdfl6BaseValidator.cs" />
+    <Compile Include="Services\Validation\CalculationContributions\CalculationContributions3WithNdfl6BaseValidator.cs" />
+    <Compile Include="Services\Validation\CalculationContributions\CalculationContributions4WithNdfl6BaseValidator.cs" />
+    <Compile Include="Services\Validation\CalculationContributions\Common\CommonCalculationContributionsValidator.cs" />
+    <Compile Include="Services\Validation\CalculationContributions\Common\CommonCalculationContributionsWithNdfl6BaseValidator.cs" />
     <Compile Include="Services\Validation\Common\CommonConcreteReportValidator.cs" />
     <Compile Include="Services\Validation\DeclarationOnIncomeTax\RevenuesNds1Validator.cs" />
     <Compile Include="Services\Validation\DeclarationOnIncomeTax\RevenuesNds2Validator.cs" />
     <Compile Include="Services\Validation\DeclarationOnIncomeTax\RevenuesNds3Validator.cs" />
     <Compile Include="Services\Validation\DeclarationOnIncomeTax\Common\CommonRevenuesNdsValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6\Common\CommonNdflValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6\Ndfl61TaxesValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6\Ndfl61WageMrotValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6\Ndfl62TaxesValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6\Ndfl62WageMrotValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6\Ndfl63TaxesValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6\Ndfl63WageMrotValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6\Ndfl64TaxesValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6\Ndfl64WageMrotValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6\Common\Ndfl6TaxesValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6\Common\NdflWageMrotValidator.cs" />
     <Compile Include="Services\Validation\PrimaryValidation\ByInnReportValidator.cs" />
     <Compile Include="Services\Validation\Common\CommonConcretePrimaryReportValidator.cs" />
     <Compile Include="Services\Validation\PrimaryReportsValidator.cs" />
@@ -396,6 +414,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Services\Validation\Szvm\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
