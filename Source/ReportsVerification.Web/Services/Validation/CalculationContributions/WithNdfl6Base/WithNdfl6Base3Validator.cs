@@ -1,12 +1,12 @@
 ﻿using ReportsVerification.Web.Services.Validation.CalculationContributions.Common;
 using ReportsVerification.Web.Services.Validation.Interfaces;
 
-namespace ReportsVerification.Web.Services.Validation.CalculationContributions
+namespace ReportsVerification.Web.Services.Validation.CalculationContributions.WithNdfl6Base
 {
-    public class CalculationContributions3WithNdfl6BaseValidator
-        : CommonCalculationContributionsWithNdfl6BaseValidator
+    public class WithNdfl6Base3Validator
+        : CommonWithNdfl6BaseValidator
     {
-        public CalculationContributions3WithNdfl6BaseValidator(IValidationContext context) : base(context)
+        public WithNdfl6Base3Validator(IValidationContext context) : base(context)
         {
         }
 

@@ -10,7 +10,7 @@ namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax
         }
 
         protected override ValidationStepType Type 
-            => ValidationStepType.RevenuesNds1Validator;
+            => ValidationStepType.DeclarationOnIncomeTaxRevenuesNds1Validator;
         protected override int Quarter => 1;
     }
 }

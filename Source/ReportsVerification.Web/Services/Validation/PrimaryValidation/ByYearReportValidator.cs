@@ -17,7 +17,7 @@ namespace ReportsVerification.Web.Services.Validation.PrimaryValidation
             _reportHasDateSpecidication = reportHasDateSpecidication;
         }
 
-        protected override ValidationStepType Type => ValidationStepType.ReportsByYearValidator;
+        protected override ValidationStepType Type => ValidationStepType.PrimaryReportsByYearValidator;
         protected override bool IsValid(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo)
         {
             return reports.Select(e => e.GetReportInfo())

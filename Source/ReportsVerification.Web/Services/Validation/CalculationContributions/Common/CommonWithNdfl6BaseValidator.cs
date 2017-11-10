@@ -8,10 +8,10 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.CalculationContributions.Common
 {
-    public abstract class CommonCalculationContributionsWithNdfl6BaseValidator
-        : CommonCalculationContributionsValidator
+    public abstract class CommonWithNdfl6BaseValidator
+        : CommonValidator
     {
-        protected CommonCalculationContributionsWithNdfl6BaseValidator(IValidationContext context) : base(context)
+        protected CommonWithNdfl6BaseValidator(IValidationContext context) : base(context)
         {
 
         }

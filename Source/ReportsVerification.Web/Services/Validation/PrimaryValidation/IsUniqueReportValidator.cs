@@ -12,7 +12,7 @@ namespace ReportsVerification.Web.Services.Validation.PrimaryValidation
         {
         }
 
-        protected override ValidationStepType Type => ValidationStepType.ReportsIsUniqueValidator;
+        protected override ValidationStepType Type => ValidationStepType.PrimaryReportsIsUniqueValidator;
 
         protected override bool IsValid(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo)
         {

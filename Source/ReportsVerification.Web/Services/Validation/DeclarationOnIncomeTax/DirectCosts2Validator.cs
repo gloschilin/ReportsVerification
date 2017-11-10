@@ -12,7 +12,7 @@ namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax
         {
         }
 
-        protected override ValidationStepType Type => ValidationStepType.DirectCosts2Validator;
+        protected override ValidationStepType Type => ValidationStepType.DeclarationOnIncomeTaxDirectCosts2Validator;
         protected override int Quarter => 2;
     }
 }

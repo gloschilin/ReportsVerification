@@ -9,7 +9,7 @@ namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax
         {
         }
 
-        protected override ValidationStepType Type => ValidationStepType.Loss3Validator;
+        protected override ValidationStepType Type => ValidationStepType.DeclarationOnIncomeTaxLoss3Validator;
         protected override int Quarter => 3;
     }
 }

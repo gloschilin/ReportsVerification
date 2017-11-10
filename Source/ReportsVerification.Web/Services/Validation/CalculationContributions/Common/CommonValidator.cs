@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.Dates;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
@@ -11,11 +9,11 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.CalculationContributions.Common
 {
-    public abstract class CommonCalculationContributionsValidator : CommonConcreteReportValidator
+    public abstract class CommonValidator : CommonConcreteReportValidator
     {
         protected abstract int Quarter { get; }
 
-        protected CommonCalculationContributionsValidator(IValidationContext context) : base(context)
+        protected CommonValidator(IValidationContext context) : base(context)
         {
         }
 

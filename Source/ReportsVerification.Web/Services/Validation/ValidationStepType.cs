@@ -13,21 +13,21 @@
 
         //DeclarationOnIncomeTax
 
-        DirectCosts1Validator,
-        DirectCosts2Validator,
-        DirectCosts3Validator,
-        Loss1Validator,
-        Loss2Validator,
-        Loss3Validator,
-        RevenuesNds1Validator,
-        RevenuesNds2Validator,
-        RevenuesNds3Validator,
+        DeclarationOnIncomeTaxDirectCosts1Validator,
+        DeclarationOnIncomeTaxDirectCosts2Validator,
+        DeclarationOnIncomeTaxDirectCosts3Validator,
+        DeclarationOnIncomeTaxLoss1Validator,
+        DeclarationOnIncomeTaxLoss2Validator,
+        DeclarationOnIncomeTaxLoss3Validator,
+        DeclarationOnIncomeTaxRevenuesNds1Validator,
+        DeclarationOnIncomeTaxRevenuesNds2Validator,
+        DeclarationOnIncomeTaxRevenuesNds3Validator,
         
         //Primary
 
-        ReportsIsUniqueValidator,
-        ReportsByYearValidator,
-        ReportsByInnValidator,
+        PrimaryReportsIsUniqueValidator,
+        PrimaryReportsByYearValidator,
+        PrimaryReportsByInnValidator,
 
         //НДФЛ6
 
@@ -45,6 +45,24 @@
         CalculationContributions1WithNdfl6BaseValidator,
         CalculationContributions4WithNdfl6BaseValidator,
         CalculationContributions2WithNdfl6BaseValidator,
-        CalculationContributions3WithNdfl6BaseValidator
+        CalculationContributions3WithNdfl6BaseValidator,
+        CalculationContributionsFirst11ErrorsValidator,
+        CalculationContributionsFirst12ErrorsValidator,
+        CalculationContributionsFirst13ErrorsValidator,
+        CalculationContributionsFirst21ErrorsValidator,
+        CalculationContributionsFirst22ErrorsValidator,
+        CalculationContributionsFirst23ErrorsValidator,
+        CalculationContributionsFirst31ErrorsValidator,
+        CalculationContributionsFirst32ErrorsValidator,
+        CalculationContributionsFirst33ErrorsValidator,
+        CalculationContributionsSecondErrors11Validator,
+        CalculationContributionsSecondErrors12Validator,
+        CalculationContributionsSecondErrors13Validator,
+        CalculationContributionsSecondErrors21Validator,
+        CalculationContributionsSecondErrors22Validator,
+        CalculationContributionsSecondErrors23Validator,
+        CalculationContributionsSecondErrors31Validator,
+        CalculationContributionsSecondErrors32Validator,
+        CalculationContributionsSecondErrors33Validator
     }
 }

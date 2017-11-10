@@ -17,7 +17,7 @@ namespace ReportsVerification.Web.Services.Validation.PrimaryValidation
             _reportHasInnSpecification = reportHasInnSpecification;
         }
 
-        protected override ValidationStepType Type => ValidationStepType.ReportsByInnValidator;
+        protected override ValidationStepType Type => ValidationStepType.PrimaryReportsByInnValidator;
         protected override bool IsValid(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo)
         {
             return reports.Select(e => e.GetReportInfo())
