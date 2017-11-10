@@ -3,6 +3,7 @@ using System.Linq;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.Dates;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
+using ReportsVerification.Web.DataObjects.Xsd.CalculationContributions;
 using ReportsVerification.Web.Services.Validation.Common;
 using ReportsVerification.Web.Services.Validation.Interfaces;
 
@@ -67,12 +68,21 @@ namespace ReportsVerification.Web.Services.Validation.CalculationContributionsVs
 
             var initialSzvMReportXsd = (DataObjects.Xsd.Szvm.ЭДПФР)initialSzvMReport.XsdReport;
             var calculationContributionsReportXsd = 
-                (DataObjects.Xsd.CalculationContributions.Файл)calculationContributionsReport.XsdReport;
+                (Файл)calculationContributionsReport.XsdReport;
 
             var complementarySzvMReportXsd = (DataObjects.Xsd.Szvm.ЭДПФР)complementarySzvMReport?.XsdReport;
             var cancelingSzvMReportXsd = (DataObjects.Xsd.Szvm.ЭДПФР)cancelingSzvMReport?.XsdReport;
 
-            return false; //calculationContributionsReportXsd.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.
+            var ccAmount = calculationContributionsReportXsd.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС
+                .Select(e => GetCount(e.РасчСВ_ОПС.КолСтрахЛицВс)).Sum();
+
+            var initialTagsCount = initialSzvMReportXsd.СЗВМ.СписокЗЛ.Select(e => e.НомерПП).Count();
+            var complementaryTagsCount = complementarySzvMReportXsd?.СЗВМ.СписокЗЛ.Select(e => e.НомерПП).Count() ?? 0;
+            var cancelingTagsCount = cancelingSzvMReportXsd?.СЗВМ.СписокЗЛ.Select(e => e.НомерПП).Count() ?? 0;
+
+            return ccAmount == initialTagsCount + complementaryTagsCount - cancelingTagsCount;
         }
+
+        protected abstract int GetCount(КолЛицТип value);
     }
 }

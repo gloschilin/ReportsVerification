@@ -189,6 +189,15 @@
     <Compile Include="Services\Recomendations\ForNdsRecomendations.cs" />
     <Compile Include="Services\RecomendationsService.cs" />
     <Compile Include="Services\ReportsService.cs" />
+    <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm11Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm12Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm13Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm24Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm25Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm26Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm37Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm38Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm39Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\Common\CommonCalculationContributionsVsSzvmValidator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors11Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors12Validator.cs" />
@@ -434,9 +443,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\Validation\Szvm\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

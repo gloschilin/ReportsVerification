@@ -9,7 +9,7 @@ namespace ReportsVerification.Web.Extentions
             throw new NotImplementedException();
         }
 
-        public static decimal ToInt(this string value)
+        public static int ToInt(this string value)
         {
             throw new NotImplementedException();
         }

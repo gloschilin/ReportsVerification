@@ -63,6 +63,16 @@
         CalculationContributionsSecondErrors23Validator,
         CalculationContributionsSecondErrors31Validator,
         CalculationContributionsSecondErrors32Validator,
-        CalculationContributionsSecondErrors33Validator
+        CalculationContributionsSecondErrors33Validator,
+
+        CalculationContributionsVsSzvm11Validator,
+        CalculationContributionsVsSzvm12Validator,
+        CalculationContributionsVsSzvm13Validator,
+        CalculationContributionsVsSzvm24Validator,
+        CalculationContributionsVsSzvm25Validator,
+        CalculationContributionsVsSzvm26Validator,
+        CalculationContributionsVsSzvm37Validator,
+        CalculationContributionsVsSzvm38Validator,
+        CalculationContributionsVsSzvm39Validator
     }
 }
