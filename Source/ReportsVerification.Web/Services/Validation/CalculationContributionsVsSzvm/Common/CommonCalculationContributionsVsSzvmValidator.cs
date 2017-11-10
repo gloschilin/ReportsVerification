@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.Dates;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
@@ -74,7 +72,7 @@ namespace ReportsVerification.Web.Services.Validation.CalculationContributionsVs
             var complementarySzvMReportXsd = (DataObjects.Xsd.Szvm.ЭДПФР)complementarySzvMReport?.XsdReport;
             var cancelingSzvMReportXsd = (DataObjects.Xsd.Szvm.ЭДПФР)cancelingSzvMReport?.XsdReport;
 
-            return calculationContributionsReportXsd.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.
+            return false; //calculationContributionsReportXsd.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.
         }
     }
 }

@@ -415,7 +415,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Services\Validation\Szvm\" />
   </ItemGroup>
   <ItemGroup>
