@@ -9,6 +9,7 @@ namespace ReportsVerification.Web.Installers
         protected override void Initialize()
         {
             Container.RegisterType<IReportsService, ReportsService>();
+            Container.RegisterType<IRevisionFilerService, RevisionFilerService>();
         }
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using ReportsVerification.Web.Models;
 using ReportsVerification.Web.Repositories.Interfaces;
 using ReportsVerification.Web.Services.Validation;
 using ReportsVerification.Web.Services.Validation.Interfaces;

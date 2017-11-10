@@ -201,6 +201,7 @@
     <Compile Include="Services\Validation\DeclarationOnIncomeTax\RevenuesNds2Validator.cs" />
     <Compile Include="Services\Validation\DeclarationOnIncomeTax\RevenuesNds3Validator.cs" />
     <Compile Include="Services\Validation\DeclarationOnIncomeTax\Common\CommonRevenuesNdsValidator.cs" />
+    <Compile Include="Services\Interfaces\IRevisionFilerService.cs" />
     <Compile Include="Services\Validation\Ndfl6\Common\CommonNdflValidator.cs" />
     <Compile Include="Services\Validation\Ndfl6\Ndfl61TaxesValidator.cs" />
     <Compile Include="Services\Validation\Ndfl6\Ndfl61WageMrotValidator.cs" />
@@ -240,6 +241,7 @@
     <Compile Include="Services\Validation\Nds\Nds3DeductionValidator.cs" />
     <Compile Include="Services\Validation\Nds\Nds3VosmechenieValidator.cs" />
     <Compile Include="Services\Validation\ReportsValidator.cs" />
+    <Compile Include="Services\RevisionFilerService.cs" />
     <Compile Include="Services\Validation\ValidationStepType.cs" />
     <Compile Include="Specifications\Interfaces\ISpecification.cs" />
     <Compile Include="Specifications\ReportHasDateSpecidication.cs" />
