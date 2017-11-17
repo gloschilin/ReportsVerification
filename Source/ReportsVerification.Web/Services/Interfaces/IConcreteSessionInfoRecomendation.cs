@@ -3,7 +3,7 @@
     /// <summary>
     /// Обработка конкретной рекомендации
     /// </summary>
-    public interface IConcreteRecomendation : IRecomendationsService
+    public interface IConcreteSessionInfoRecomendation : ISessionInfoRecomendationsService
     {
 
     }

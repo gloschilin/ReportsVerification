@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
+using ReportsVerification.Web.Services.ReportsRecomendations;
 
 namespace ReportsVerification.Web.Services.Interfaces
 {
@@ -40,5 +41,12 @@ namespace ReportsVerification.Web.Services.Interfaces
         /// <param name="fileContent"></param>
         /// <param name="errorMessage"></param>
         void SaveWrongReport(Guid sessionId, string fileName, string fileContent, string errorMessage);
+
+        /// <summary>
+        /// Получить рекомендации по загруженным отчетам
+        /// </summary>
+        /// <param name="sessionId"></param>
+        /// <returns></returns>
+        IEnumerable<ReportsRecomendationTypes> GeTrRecomendationsByExistsReports(Guid sessionId);
     }
 }

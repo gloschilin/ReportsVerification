@@ -7,7 +7,7 @@ namespace ReportsVerification.Web.Services.Interfaces
     /// <summary>
     /// Обработка рекомендаций
     /// </summary>
-    public interface IRecomendationsService
+    public interface ISessionInfoRecomendationsService
     {
         /// <summary>
         /// Получить отчеты рекомендуемые к загрузке

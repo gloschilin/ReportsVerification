@@ -6,10 +6,10 @@ using ReportsVerification.Web.Services.Interfaces;
 
 namespace ReportsVerification.Web.Services
 {
-    public class RecomendationsService : IRecomendationsService
+    public class SessionInfoRecomendationsService : ISessionInfoRecomendationsService
     {
-        private readonly IEnumerable<IConcreteRecomendation> _conditions;
-        public RecomendationsService(IEnumerable<IConcreteRecomendation> conditions)
+        private readonly IEnumerable<IConcreteSessionInfoRecomendation> _conditions;
+        public SessionInfoRecomendationsService(IEnumerable<IConcreteSessionInfoRecomendation> conditions)
         {
             _conditions = conditions;
         }

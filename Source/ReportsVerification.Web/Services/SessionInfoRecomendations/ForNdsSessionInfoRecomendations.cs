@@ -7,12 +7,12 @@ using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.Factories.Interfaces;
 using ReportsVerification.Web.Services.Interfaces;
 
-namespace ReportsVerification.Web.Services.Recomendations
+namespace ReportsVerification.Web.Services.SessionInfoRecomendations
 {
     /// <summary>
     /// Рекомендации для загрузки НДС
     /// </summary>
-    public class ForNdsRecomendations : IConcreteRecomendation
+    public class ForNdsSessionInfoRecomendations : IConcreteSessionInfoRecomendation
     {
         private readonly IReportInfoFactory _reportInfoFactory;
 
@@ -21,7 +21,7 @@ namespace ReportsVerification.Web.Services.Recomendations
             UserModes.Osno, UserModes.OsnoWithEnvd,
         };
 
-        public ForNdsRecomendations(IReportInfoFactory reportInfoFactory)
+        public ForNdsSessionInfoRecomendations(IReportInfoFactory reportInfoFactory)
         {
             _reportInfoFactory = reportInfoFactory;
         }

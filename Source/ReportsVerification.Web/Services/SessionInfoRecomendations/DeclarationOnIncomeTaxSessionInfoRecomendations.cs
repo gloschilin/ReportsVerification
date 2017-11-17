@@ -7,16 +7,16 @@ using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.Factories.Interfaces;
 using ReportsVerification.Web.Services.Interfaces;
 
-namespace ReportsVerification.Web.Services.Recomendations
+namespace ReportsVerification.Web.Services.SessionInfoRecomendations
 {
     /// <summary>
     /// Рекомендации для загрузки "Декларация по налогу на прибыль"
     /// </summary>
-    public class DeclarationOnIncomeTaxRecomendations : IConcreteRecomendation
+    public class DeclarationOnIncomeTaxSessionInfoRecomendations : IConcreteSessionInfoRecomendation
     {
         private readonly IReportInfoFactory _reportInfoFactory;
 
-        public DeclarationOnIncomeTaxRecomendations(IReportInfoFactory reportInfoFactory)
+        public DeclarationOnIncomeTaxSessionInfoRecomendations(IReportInfoFactory reportInfoFactory)
         {
             _reportInfoFactory = reportInfoFactory;
         }

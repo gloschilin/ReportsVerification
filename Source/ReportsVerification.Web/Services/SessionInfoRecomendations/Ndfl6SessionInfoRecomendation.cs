@@ -7,13 +7,13 @@ using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.Factories.Interfaces;
 using ReportsVerification.Web.Services.Interfaces;
 
-namespace ReportsVerification.Web.Services.Recomendations
+namespace ReportsVerification.Web.Services.SessionInfoRecomendations
 {
-    public class Ndfl6Recomendation : IConcreteRecomendation
+    public class Ndfl6SessionInfoRecomendation : IConcreteSessionInfoRecomendation
     {
         private readonly IReportInfoFactory _reportInfoFactory;
 
-        public Ndfl6Recomendation(IReportInfoFactory reportInfoFactory)
+        public Ndfl6SessionInfoRecomendation(IReportInfoFactory reportInfoFactory)
         {
             _reportInfoFactory = reportInfoFactory;
         }

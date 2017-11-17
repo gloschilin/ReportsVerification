@@ -7,6 +7,7 @@ using ReportsVerification.Web.Extentions;
 using ReportsVerification.Web.Factories.Interfaces;
 using ReportsVerification.Web.Repositories.Interfaces;
 using ReportsVerification.Web.Services.Interfaces;
+using ReportsVerification.Web.Services.ReportsRecomendations;
 
 namespace ReportsVerification.Web.Services
 {
@@ -15,24 +16,27 @@ namespace ReportsVerification.Web.Services
         private readonly IReportRepository _reportRepository;
         private readonly IReportFactory _reportFactory;
         private readonly ISessionRepository _sessionRepository;
-        private readonly IRecomendationsService _recomendationsService;
+        private readonly ISessionInfoRecomendationsService _sessionInfoRecomendationsService;
+        private readonly IReportsRecomendations _reportsRecomendations;
 
         public ReportsService(IReportRepository reportRepository, 
             IReportFactory reportFactory,
             ISessionRepository sessionRepository,
-            IRecomendationsService recomendationsService)
+            ISessionInfoRecomendationsService sessionInfoRecomendationsService,
+            IReportsRecomendations reportsRecomendations)
         {
             _reportRepository = reportRepository;
             _reportFactory = reportFactory;
             _sessionRepository = sessionRepository;
-            _recomendationsService = recomendationsService;
+            _sessionInfoRecomendationsService = sessionInfoRecomendationsService;
+            _reportsRecomendations = reportsRecomendations;
         }
 
         public IEnumerable<ReportInfo> GetMissingReports(Guid sessionId)
         {
             var session = _sessionRepository.Get(sessionId);
             var existsReports = GetReports(sessionId);
-            var result = _recomendationsService.GetRecomendatedReports(session).ToList();
+            var result = _sessionInfoRecomendationsService.GetRecomendatedReports(session).ToList();
             result.RemoveAll(e => existsReports.ContainsReportInfo(e));
             return result;
         }
@@ -52,6 +56,12 @@ namespace ReportsVerification.Web.Services
         public void SaveWrongReport(Guid sessionId, string fileName, string fileContent, string errorMessage)
         {
             _reportRepository.SaveWrongReport(sessionId, fileName, errorMessage, fileContent);
+        }
+
+        public IEnumerable<ReportsRecomendationTypes> GeTrRecomendationsByExistsReports(Guid sessionId)
+        {
+            var reprots = GetReports(sessionId);
+            return _reportsRecomendations.GetRecomendations(reprots);
         }
     }
 }

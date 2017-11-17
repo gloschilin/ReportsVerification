@@ -7,28 +7,33 @@ using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.Factories.Interfaces;
 using ReportsVerification.Web.Services.Interfaces;
 
-namespace ReportsVerification.Web.Services.Recomendations
+namespace ReportsVerification.Web.Services.SessionInfoRecomendations
 {
-    public class Fss4Recomendation : IConcreteRecomendation
+    /// <summary>
+    /// Рекомандации для загрузки отчета ЕНВД
+    /// </summary>
+    public class EndvSessionInfoRecomendations: IConcreteSessionInfoRecomendation
     {
         private readonly IReportInfoFactory _reportInfoFactory;
 
-        public Fss4Recomendation(IReportInfoFactory reportInfoFactory)
+        public EndvSessionInfoRecomendations(IReportInfoFactory reportInfoFactory)
         {
             _reportInfoFactory = reportInfoFactory;
         }
 
         public IEnumerable<ReportInfo> GetRecomendatedReports(SessionInfo sessionInfo)
         {
-            if (sessionInfo.Category == Categories.OooEmployer
-                || sessionInfo.Category == Categories.AoEmployer
-                || sessionInfo.Category == Categories.IpEmployer)
+            if (sessionInfo.Mode == UserModes.Envd
+                || sessionInfo.Mode == UserModes.OsnoWithEnvd
+                || sessionInfo.Mode == UserModes.UsnWitnEnvd
+                || sessionInfo.Mode == UserModes.EshnWithEnvd)
             {
                 return new[] { 1, 2, 3 }.Select(
                     e => _reportInfoFactory.CreateReportInfoRevision(
-                        ReportTypes.Fss4,
+                        ReportTypes.Envd,
                         new DateOfQuarter(2017, e),
-                        string.Empty, string.Empty, 0));
+                        string.Empty, string.Empty, 0)
+                    );
             }
 
             return new List<ReportInfo>();
