@@ -6,7 +6,6 @@ using System.Web.Http;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.Models;
 using ReportsVerification.Web.Services.Interfaces;
-using ReportsVerification.Web.Services.ReportsRecomendations;
 using ReportsVerification.Web.Utills.Attributes;
 using ReportsVerification.Web.Utills.Interfaces;
 
@@ -60,16 +59,6 @@ namespace ReportsVerification.Web.Controllers
                 : _reportsService.GetMissingReports(sessionId);
         }
 
-        /// <summary>
-        /// Получить рекомендации по загруженным отчетам
-        /// </summary>
-        /// <param name="sessionId"></param>
-        /// <returns></returns>
-        [Route("~/api/sessions/{sessionId}/recomendations"), HttpGet]
-        public IEnumerable<ReportsRecomendationTypes> GetRecomendations(Guid sessionId)
-        {
-            return _reportsService.GeTrRecomendationsByExistsReports(sessionId);
-        }
 
         /// <summary>
         /// Обрабатываем полученный контект файла
