@@ -197,35 +197,167 @@
         /// </summary>
         CalculationContributions4WithNdfl6BaseValidator,
 
+        /// <summary>
+        /// Проверка расчета по взносам за 1 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsFirst11ErrorsValidator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 1 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsFirst12ErrorsValidator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 1 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsFirst13ErrorsValidator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 2 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsFirst21ErrorsValidator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 2 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsFirst22ErrorsValidator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 2 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsFirst23ErrorsValidator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 3 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsFirst31ErrorsValidator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 3 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsFirst32ErrorsValidator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 3 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsFirst33ErrorsValidator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 1 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsSecondErrors11Validator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 1 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsSecondErrors12Validator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 1 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsSecondErrors13Validator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 2 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsSecondErrors21Validator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 2 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsSecondErrors22Validator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 2 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsSecondErrors23Validator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 3 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsSecondErrors31Validator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 3 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsSecondErrors32Validator,
+
+        /// <summary>
+        /// Проверка расчета по взносам за 3 кв.  
+        /// На ошибки, из-за которых отчет не считается сданным 
+        /// </summary>
         CalculationContributionsSecondErrors33Validator,
 
         //СЗВМ VS Расчет по взносам
-
+        /// <summary>
+        /// Сравнение расчета по взносам и СЗВ-М
+        /// Сравнение расчета по взносам за 1 кв. с СЗВ-М за январь 
+        /// </summary>
         CalculationContributionsVsSzvm11Validator,
+
+        /// <summary>
+        /// Сравнение расчета по взносам и СЗВ-М
+        /// Сравнение расчета по взносам за 1 кв. с СЗВ-М за февраль  
+        /// </summary>
         CalculationContributionsVsSzvm12Validator,
+
+        /// <summary>
+        /// Сравнение расчета по взносам и СЗВ-М
+        /// Сравнение расчета по взносам за 1 кв. с СЗВ-М за март  
+        /// </summary>
         CalculationContributionsVsSzvm13Validator,
+
+        /// <summary>
+        /// Сравнение расчета по взносам и СЗВ-М
+        /// Сравнение расчета по взносам за 2 кв. с СЗВ-М за апрель  
+        /// </summary>
         CalculationContributionsVsSzvm24Validator,
+
+        /// <summary>
+        /// Сравнение расчета по взносам и СЗВ-М
+        /// Сравнение расчета по взносам за 2 кв. с СЗВ-М за май  
+        /// </summary>
         CalculationContributionsVsSzvm25Validator,
+
+        /// <summary>
+        /// Сравнение расчета по взносам и СЗВ-М
+        /// Сравнение расчета по взносам за 2 кв. с СЗВ-М за июнь  
+        /// </summary>
         CalculationContributionsVsSzvm26Validator,
+
+        /// <summary>
+        /// Сравнение расчета по взносам и СЗВ-М
+        /// Сравнение расчета по взносам за 3 кв. с СЗВ-М за июль  
+        /// </summary>
         CalculationContributionsVsSzvm37Validator,
+
+        /// <summary>
+        /// Сравнение расчета по взносам и СЗВ-М
+        /// Сравнение расчета по взносам за 3 кв. с СЗВ-М за август  
+        /// </summary>
         CalculationContributionsVsSzvm38Validator,
+
+        /// <summary>
+        /// Сравнение расчета по взносам и СЗВ-М
+        /// Сравнение расчета по взносам за 3 кв. с СЗВ-М за сентябрь  
+        /// </summary>
         CalculationContributionsVsSzvm39Validator
     }
 }
