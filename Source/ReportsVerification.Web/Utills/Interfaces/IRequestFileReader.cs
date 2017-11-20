@@ -15,5 +15,13 @@ namespace ReportsVerification.Web.Utills.Interfaces
         /// <param name="contentHandler"></param>
         /// <returns></returns>
         bool Read(HttpRequestMessage request, Action<UploadFileInfo> contentHandler);
+
+        /// <summary>
+        /// Метод читает файлы из папки на сервере
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="contentHandler"></param>
+        /// <returns></returns>
+        bool Read(string path, Action<UploadFileInfo> contentHandler);
     }
 }

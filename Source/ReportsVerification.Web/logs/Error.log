@@ -1,0 +1,156 @@
+﻿2017-11-20 17:10:10,752  ERROR Application Error:
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ReportsVerification.Web.Controllers.SessionController.AddNewSession(SessionInfoModel model) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Controllers\SessionController.cs:line 36
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()
+2017-11-20 17:39:24,115  ERROR Ошибка при валидации Nds1VosmechenieValidator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.InvalidCastException: Unable to cast object of type 'ReportsVerification.Web.DataObjects.Xsd.CalculationAdvancePayment.Файл' to type 'ReportsVerification.Web.DataObjects.Xsd.Nds.Файл'.
+   at ReportsVerification.Web.Services.Validation.Nds.Common.CommonNdsVosmechenieValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Nds\Common\CommonNdsVosmechenieValidator.cs:line 35
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,124  ERROR Ошибка при валидации Nds3VosmechenieValidator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.InvalidCastException: Unable to cast object of type 'ReportsVerification.Web.DataObjects.Xsd.Fss4.F4ReportType' to type 'ReportsVerification.Web.DataObjects.Xsd.Nds.Файл'.
+   at ReportsVerification.Web.Services.Validation.Nds.Common.CommonNdsVosmechenieValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Nds\Common\CommonNdsVosmechenieValidator.cs:line 35
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,126  ERROR Ошибка при валидации Ndfl61TaxesValidator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.NotImplementedException: The method or operation is not implemented.
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 9
+   at ReportsVerification.Web.Services.Validation.Ndfl6.Common.Ndfl6TaxesValidator.IsValid(Файл report, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Ndfl6\Common\Ndfl6TaxesValidator.cs:line 24
+   at ReportsVerification.Web.Services.Validation.Ndfl6.Common.CommonNdflValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Ndfl6\Common\CommonNdflValidator.cs:line 34
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,134  ERROR Ошибка при валидации RevenuesNds1Validator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.NotImplementedException: The method or operation is not implemented.
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 9
+   at ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common.CommonRevenuesNdsValidator.TryGetNdsSums(IEnumerable`1 reports, Int32 quarter, Decimal& sum) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\DeclarationOnIncomeTax\Common\CommonRevenuesNdsValidator.cs:line 53
+   at ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common.CommonRevenuesNdsValidator.<>c__DisplayClass1_0.<IsInvalid>b__0(Int32 quarter) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\DeclarationOnIncomeTax\Common\CommonRevenuesNdsValidator.cs:line 26
+   at System.Linq.Enumerable.All[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common.CommonRevenuesNdsValidator.IsInvalid(Report report, IReadOnlyCollection`1 allReports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\DeclarationOnIncomeTax\Common\CommonRevenuesNdsValidator.cs:line 23
+   at ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common.CommonValidator.<>c__DisplayClass3_0.<IsValid>b__2(Report e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\DeclarationOnIncomeTax\Common\CommonValidator.cs:line 24
+   at System.Linq.Enumerable.WhereListIterator`1.MoveNext()
+   at System.Linq.Enumerable.Any[TSource](IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\DeclarationOnIncomeTax\Common\CommonValidator.cs:line 26
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,137  ERROR Ошибка при валидации DirectCosts1Validator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.NotImplementedException: The method or operation is not implemented.
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 9
+   at ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common.CommonDirectCostsValidator.<>c.<IsInvalid>b__1_0(ФайлДокументПрибыльРасчНал e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\DeclarationOnIncomeTax\Common\CommonDirectCostsValidator.cs:line 24
+   at System.Linq.Enumerable.Any[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common.CommonDirectCostsValidator.IsInvalid(Report report, IReadOnlyCollection`1 allReports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\DeclarationOnIncomeTax\Common\CommonDirectCostsValidator.cs:line 23
+   at ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common.CommonValidator.<>c__DisplayClass3_0.<IsValid>b__2(Report e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\DeclarationOnIncomeTax\Common\CommonValidator.cs:line 24
+   at System.Linq.Enumerable.WhereListIterator`1.MoveNext()
+   at System.Linq.Enumerable.Any[TSource](IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\DeclarationOnIncomeTax\Common\CommonValidator.cs:line 26
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,139  ERROR Ошибка при валидации Loss1Validator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.NotImplementedException: The method or operation is not implemented.
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 9
+   at ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common.CommonLossValidator.<>c.<IsInvalid>b__1_0(ФайлДокументПрибыльРасчНал e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\DeclarationOnIncomeTax\Common\CommonLossValidator.cs:line 21
+   at System.Linq.Enumerable.Any[TSource](IEnumerable`1 source, Func`2 predicate)
+   at ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common.CommonLossValidator.IsInvalid(Report report, IReadOnlyCollection`1 allReports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\DeclarationOnIncomeTax\Common\CommonLossValidator.cs:line 20
+   at ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common.CommonValidator.<>c__DisplayClass3_0.<IsValid>b__2(Report e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\DeclarationOnIncomeTax\Common\CommonValidator.cs:line 24
+   at System.Linq.Enumerable.WhereListIterator`1.MoveNext()
+   at System.Linq.Enumerable.Any[TSource](IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Common.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\DeclarationOnIncomeTax\Common\CommonValidator.cs:line 26
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,146  ERROR Ошибка при валидации First11ErrorsValidator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.NotImplementedException: The method or operation is not implemented.
+   at ReportsVerification.Web.Extentions.StringExtentions.ToInt(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 14
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonFirstErrorsValidator.<IsValid>b__3_3(ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПССвВыплСвВыплМК e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonFirstErrorsValidator.cs:line 28
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.Sum(IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonFirstErrorsValidator.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonFirstErrorsValidator.cs:line 27
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonValidator.cs:line 36
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,147  ERROR Ошибка при валидации First12ErrorsValidator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.NotImplementedException: The method or operation is not implemented.
+   at ReportsVerification.Web.Extentions.StringExtentions.ToInt(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 14
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonFirstErrorsValidator.<IsValid>b__3_3(ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПССвВыплСвВыплМК e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonFirstErrorsValidator.cs:line 28
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.Sum(IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonFirstErrorsValidator.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonFirstErrorsValidator.cs:line 27
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonValidator.cs:line 36
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,148  ERROR Ошибка при валидации First13ErrorsValidator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.NotImplementedException: The method or operation is not implemented.
+   at ReportsVerification.Web.Extentions.StringExtentions.ToInt(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 14
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonFirstErrorsValidator.<IsValid>b__3_3(ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПССвВыплСвВыплМК e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonFirstErrorsValidator.cs:line 28
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at System.Linq.Enumerable.Sum(IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonFirstErrorsValidator.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonFirstErrorsValidator.cs:line 27
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonValidator.cs:line 36
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,154  ERROR Ошибка при валидации SecondErrors11Validator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.NotImplementedException: The method or operation is not implemented.
+   at ReportsVerification.Web.Extentions.StringExtentions.ToInt(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 14
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonSecondErrorsValidator.<IsValid>b__3_5(ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПСВыплСВДопВыплСВДопМТ c) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonSecondErrorsValidator.cs:line 29
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.Sum(IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonSecondErrorsValidator.<IsValid>b__3_4(ФайлДокументРасчетСВПерсСвСтрахЛиц e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonSecondErrorsValidator.cs:line 29
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.Sum(IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonSecondErrorsValidator.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonSecondErrorsValidator.cs:line 27
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonValidator.cs:line 36
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,155  ERROR Ошибка при валидации SecondErrors12Validator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.NotImplementedException: The method or operation is not implemented.
+   at ReportsVerification.Web.Extentions.StringExtentions.ToInt(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 14
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonSecondErrorsValidator.<IsValid>b__3_5(ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПСВыплСВДопВыплСВДопМТ c) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonSecondErrorsValidator.cs:line 29
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.Sum(IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonSecondErrorsValidator.<IsValid>b__3_4(ФайлДокументРасчетСВПерсСвСтрахЛиц e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonSecondErrorsValidator.cs:line 29
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.Sum(IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonSecondErrorsValidator.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonSecondErrorsValidator.cs:line 27
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonValidator.cs:line 36
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,156  ERROR Ошибка при валидации SecondErrors13Validator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.NotImplementedException: The method or operation is not implemented.
+   at ReportsVerification.Web.Extentions.StringExtentions.ToInt(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 14
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonSecondErrorsValidator.<IsValid>b__3_5(ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПСВыплСВДопВыплСВДопМТ c) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonSecondErrorsValidator.cs:line 29
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.Sum(IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonSecondErrorsValidator.<IsValid>b__3_4(ФайлДокументРасчетСВПерсСвСтрахЛиц e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonSecondErrorsValidator.cs:line 29
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.Sum(IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonSecondErrorsValidator.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonSecondErrorsValidator.cs:line 27
+   at ReportsVerification.Web.Services.Validation.CalculationContributions.Common.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributions\Common\CommonValidator.cs:line 36
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,160  ERROR Ошибка при валидации CalculationContributionsVsSzvm11Validator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.NotImplementedException: The method or operation is not implemented.
+   at ReportsVerification.Web.Extentions.StringExtentions.ToInt(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 14
+   at ReportsVerification.Web.Services.Validation.CalculationContributionsVsSzvm.CalculationContributionsVsSzvm11Validator.GetCount(КолЛицТип value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm11Validator.cs:line 22
+   at ReportsVerification.Web.Services.Validation.CalculationContributionsVsSzvm.Common.CommonCalculationContributionsVsSzvmValidator.<IsValid>b__5_4(ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМС e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributionsVsSzvm\Common\CommonCalculationContributionsVsSzvmValidator.cs:line 77
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.Sum(IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.CalculationContributionsVsSzvm.Common.CommonCalculationContributionsVsSzvmValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributionsVsSzvm\Common\CommonCalculationContributionsVsSzvmValidator.cs:line 76
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,162  ERROR Ошибка при валидации CalculationContributionsVsSzvm12Validator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.NotImplementedException: The method or operation is not implemented.
+   at ReportsVerification.Web.Extentions.StringExtentions.ToInt(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 14
+   at ReportsVerification.Web.Services.Validation.CalculationContributionsVsSzvm.CalculationContributionsVsSzvm12Validator.GetCount(КолЛицТип value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm12Validator.cs:line 22
+   at ReportsVerification.Web.Services.Validation.CalculationContributionsVsSzvm.Common.CommonCalculationContributionsVsSzvmValidator.<IsValid>b__5_4(ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМС e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributionsVsSzvm\Common\CommonCalculationContributionsVsSzvmValidator.cs:line 77
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.Sum(IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.CalculationContributionsVsSzvm.Common.CommonCalculationContributionsVsSzvmValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributionsVsSzvm\Common\CommonCalculationContributionsVsSzvmValidator.cs:line 76
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25
+2017-11-20 17:39:24,163  ERROR Ошибка при валидации CalculationContributionsVsSzvm13Validator, userId = 100, sessionId=7bf78834-1ea2-45c1-a892-1083f858d6b5
+System.NotImplementedException: The method or operation is not implemented.
+   at ReportsVerification.Web.Extentions.StringExtentions.ToInt(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 14
+   at ReportsVerification.Web.Services.Validation.CalculationContributionsVsSzvm.CalculationContributionsVsSzvm13Validator.GetCount(КолЛицТип value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm13Validator.cs:line 22
+   at ReportsVerification.Web.Services.Validation.CalculationContributionsVsSzvm.Common.CommonCalculationContributionsVsSzvmValidator.<IsValid>b__5_4(ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМС e) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributionsVsSzvm\Common\CommonCalculationContributionsVsSzvmValidator.cs:line 77
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.Sum(IEnumerable`1 source)
+   at ReportsVerification.Web.Services.Validation.CalculationContributionsVsSzvm.Common.CommonCalculationContributionsVsSzvmValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\CalculationContributionsVsSzvm\Common\CommonCalculationContributionsVsSzvmValidator.cs:line 76
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 25

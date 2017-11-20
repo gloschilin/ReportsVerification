@@ -52,7 +52,7 @@ namespace ReportsVerification.Web.Builders
         {
             var document = xsdReport.Документ.First();
 
-            var period = new DateOfQuarter(int.Parse(document.ОтчетГод), 4);
+            var period = new DateOfQuarter(int.Parse(xsdReport.СвРекв.ОтчетГод), 4);
 
             string inn;
             var companyName = GetCompanyName(xsdReport, out inn);

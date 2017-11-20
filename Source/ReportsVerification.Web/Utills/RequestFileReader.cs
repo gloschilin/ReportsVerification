@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -48,5 +47,33 @@ namespace ReportsVerification.Web.Utills
             return result;
         }
 
+        public bool Read(string path, Action<UploadFileInfo> contentHandler)
+        {
+            if (!Directory.Exists(path))
+            {
+                return false;
+            }
+
+            var files = Directory.GetFiles(path);
+            var result = true;
+            foreach (var file in files)
+            {
+                var fileInfo = new FileInfo(file);
+                var content = File.ReadAllText(file, Encoding.GetEncoding("windows-1251"));
+                var info = new UploadFileInfo(fileInfo.Name, content);
+                try
+                {
+                    contentHandler(info);
+                }
+                catch (Exception ex)
+                {
+                    info.SetError(ex.Message);
+                    contentHandler(info);
+                    result = false;
+                }
+            }
+
+            return result;
+        }
     }
 }

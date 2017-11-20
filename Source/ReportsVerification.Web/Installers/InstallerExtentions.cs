@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Microsoft.Practices.Unity;
+using ReportsVerification.Web.Utills;
 
 namespace ReportsVerification.Web.Installers
 {
@@ -15,6 +15,8 @@ namespace ReportsVerification.Web.Installers
         /// <param name="container"></param>
         public static void RegisterCollection<TCollectionInterface>(this IUnityContainer container)
         {
+            AppLog.Instance().Info($"===== RegisterCollection Install {typeof(TCollectionInterface).Name} =====");
+
             container.RegisterType<IEnumerable<TCollectionInterface>, TCollectionInterface[]>();
             container.RegisterType<IReadOnlyCollection<TCollectionInterface>, TCollectionInterface[]>();
 
@@ -31,7 +33,7 @@ namespace ReportsVerification.Web.Installers
 
             foreach (var type in types)
             {
-                Debug.WriteLine($"Register {myTypeInterface} is {type} by name {type.Name}");
+                AppLog.Instance().Info($"Install {myTypeInterface} is {type} by name {type.Name}");
                 container.RegisterType(myTypeInterface, type, type.Name);
             }
         }

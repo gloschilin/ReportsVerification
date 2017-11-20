@@ -1,22 +1,38 @@
 ﻿using System;
+using log4net;
+using log4net.Config;
 
 namespace ReportsVerification.Web.Utills
 {
-    public static class AppLog
+    public class AppLog  : IAppLog
     {
-        public static void Error(string message, Exception ex)
-        {
+        private readonly ILog _log4Net;
+        private static IAppLog _instance;
 
+        public static IAppLog Instance()
+        {
+            return _instance ?? (_instance = new AppLog());
         }
 
-        public static void Error(string message)
+        private AppLog()
         {
-
+            _log4Net = LogManager.GetLogger("LOGGER");
+            XmlConfigurator.Configure();
         }
 
-        public static void Info(string message)
+        public  void Error(string message, Exception ex)
         {
+            _log4Net.Error(message, ex);
+        }
 
+        public  void Error(string message)
+        {
+            _log4Net.Error(message);
+        }
+
+        public  void Info(string message)
+        {
+            _log4Net.Info(message);
         }
     }
 }

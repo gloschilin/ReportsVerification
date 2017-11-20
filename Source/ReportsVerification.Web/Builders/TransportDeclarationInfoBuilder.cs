@@ -25,7 +25,7 @@ namespace ReportsVerification.Web.Builders
 
             var info = ReportInfoFactory.CreateReportInfoRevision(ReportType, period,
                 xsdReport.Документ.СвНП.НПЮЛ.НаимОрг,
-                xsdReport.Документ.СвНП.НПЮЛ.НаимОрг, 
+                xsdReport.Документ.СвНП.НПЮЛ.ИННЮЛ, 
                 int.Parse(xsdReport.Документ.НомКорр ?? "0"));
 
             return info;

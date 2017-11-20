@@ -59,9 +59,9 @@ namespace ReportsVerification.Web.Utills
             {
                 return new List<ValidationStepType>();
             }
-
-            return validationResultCollection.Where(e => e.ResultType == ValidationResultType.Error)
+            var result = validationResultCollection.Where(e => e.ResultType == ValidationResultType.Error)
                 .Select(e => e.StepType).ToList();
+            return result;
         }
 
     }

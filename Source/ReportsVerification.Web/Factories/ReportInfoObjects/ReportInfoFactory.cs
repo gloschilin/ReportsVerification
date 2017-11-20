@@ -10,7 +10,7 @@ namespace ReportsVerification.Web.Factories.ReportInfoObjects
         public ReportInfo Create2NdflReportInfo(DateOfQuarter reportMonth, 
             string companyName, string inn, int revisionNumber, int mark)
         {
-            return new Ndfl2ReportInfo(reportMonth, companyName, companyName, revisionNumber, mark);
+            return new Ndfl2ReportInfo(reportMonth, companyName, inn, revisionNumber, mark);
         }
 
         public ReportInfo CreateReportInfoRevision<TReportDate>(ReportTypes type, TReportDate reportPeriod, 

@@ -1,6 +1,8 @@
+﻿using System;
 using System.Collections.Generic;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.Services.Validation.Interfaces;
+using ReportsVerification.Web.Utills;
 
 namespace ReportsVerification.Web.Services.Validation.Common
 {
@@ -16,7 +18,21 @@ namespace ReportsVerification.Web.Services.Validation.Common
 
         public void Validate(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo)
         {
-            if (IsValid(reports, sessionInfo))
+            bool isValid;
+
+            try
+            {
+                isValid = IsValid(reports, sessionInfo);
+            }
+            catch (Exception ex)
+            {
+                AppLog.Instance().Error($"Ошибка при валидации {GetType().Name}, " +
+                                        $"userId = {sessionInfo.ActionUserId}, " +
+                                        $"sessionId={sessionInfo.Id}", ex);
+                isValid = true;
+            }
+            
+            if (isValid)
             {
                 _context.Success(sessionInfo.Id, Type);
             }

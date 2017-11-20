@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -309,6 +313,7 @@
     <Compile Include="Builders\SzvMInfoBuilder.cs" />
     <Compile Include="Builders\TransportDeclarationInfoBuilder.cs" />
     <Compile Include="Builders\UsnInfoBuilder.cs" />
+    <Compile Include="Utills\CommonExceptionLogger.cs" />
     <Compile Include="Utills\Converters\Json2DateFormatConverter.cs" />
     <Compile Include="DataObjects\Catalogs\Deduction.cs" />
     <Compile Include="DataObjects\Catalogs\Mrot.cs" />
@@ -430,6 +435,7 @@
     <Compile Include="Mappers\Interfaces\IMapper.cs" />
     <Compile Include="Utills\DefaultLifeTimeManagerContainerExtention.cs" />
     <Compile Include="Utills\HttpValidationContext.cs" />
+    <Compile Include="Utills\IAppLog.cs" />
     <Compile Include="Utills\Interfaces\IRequestFileReader.cs" />
     <Compile Include="Utills\Interfaces\UploadFileInfo.cs" />
     <Compile Include="Utills\RequestFileReader.cs" />
@@ -572,6 +578,7 @@
     <Content Include="Repositories\EF\DataModel.edmx.diagram">
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\Publish.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -45,6 +45,17 @@ namespace ReportsVerification.Web.Controllers
                 : new HttpResponseMessage(HttpStatusCode.BadRequest);
         }
 
+        [Route("~/api/sessions/{sessionId}/reports"), HttpPost]
+        public HttpResponseMessage Upload(Guid sessionId, [FromUri]string path)
+        {
+            var uploadResult = _requestFileReader.Read(path,
+                    content => HandleFileContent(sessionId, content));
+
+            return uploadResult
+                ? new HttpResponseMessage(HttpStatusCode.Created)
+                : new HttpResponseMessage(HttpStatusCode.BadRequest);
+        }
+
         /// <summary>
         /// Получить загруженные отечты пользвателем
         /// </summary>
@@ -72,7 +83,7 @@ namespace ReportsVerification.Web.Controllers
                 _reportsService.Save(sessionId, fileInfo.FileName, fileInfo.Content);
                 return;
             }
-            
+
             _reportsService.SaveWrongReport(sessionId, fileInfo.FileName, fileInfo.Content, fileInfo.ErrorMessage);
         }
     }

@@ -27,7 +27,7 @@ namespace ReportsVerification.Web.Services.Validation
         public void Validate(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo)
         {
             reports = _revisionFilerService.GetActualReports(reports).ToList();
-
+            _validationContext.Clear(sessionInfo.Id);
             _primaryReportsValidator.Validate(reports, sessionInfo);
             var wrongReports = _validationContext.GetWrongMessages(sessionInfo.Id);
             if (wrongReports.Any())
