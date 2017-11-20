@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.Services.Validation.Common;
 using ReportsVerification.Web.Services.Validation.Interfaces;
@@ -22,7 +23,7 @@ namespace ReportsVerification.Web.Services.Validation.PrimaryValidation
         {
             return reports.Select(e => e.GetReportInfo())
                 .Where(e => _reportHasDateSpecidication.IsSpecificatedBy(e))
-                .Select(e => e.GetStartReportPeriod()).Select(e => e.Year).Distinct().Count() == 1;
+                .Select(e => e.GetStartReportPeriod()).Select(e => e.Year).Distinct().Count() <= 1;
         }
     }
 }

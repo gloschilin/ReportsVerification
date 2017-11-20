@@ -264,6 +264,7 @@
     <Compile Include="Services\Validation\PrimaryValidation\ByInnReportValidator.cs" />
     <Compile Include="Services\Validation\Common\CommonConcretePrimaryReportValidator.cs" />
     <Compile Include="Services\Validation\PrimaryReportsValidator.cs" />
+    <Compile Include="Services\Validation\PrimaryValidation\ByYearNdfl2ReportValidator.cs" />
     <Compile Include="Services\Validation\PrimaryValidation\ByYearReportValidator.cs" />
     <Compile Include="Services\Validation\PrimaryValidation\IsUniqueReportValidator.cs" />
     <Compile Include="Services\Validation\Interfaces\IConcretePrimaryReportValidator.cs" />

@@ -116,6 +116,11 @@
         PrimaryReportsByYearValidator,
 
         /// <summary>
+        /// В фалйле НДФЛ2 все годы должны быть одинаковые
+        /// </summary>
+        PrimaryReportsNdfl2ByYearValidator,
+
+        /// <summary>
         /// Валидация после загрузки 
         /// По ИНН (во всех загруженный файлах ИНН должен быть один)
         /// </summary>
@@ -358,6 +363,7 @@
         /// Сравнение расчета по взносам и СЗВ-М
         /// Сравнение расчета по взносам за 3 кв. с СЗВ-М за сентябрь  
         /// </summary>
-        CalculationContributionsVsSzvm39Validator
+        CalculationContributionsVsSzvm39Validator,
+        
     }
 }

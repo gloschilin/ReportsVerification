@@ -22,7 +22,7 @@ namespace ReportsVerification.Web.Services.Validation.PrimaryValidation
         {
             return reports.Select(e => e.GetReportInfo())
                 .Where(e => _reportHasInnSpecification.IsSpecificatedBy(e))
-                .Select(e => e.Inn).GroupBy(e => e).Count() == 1;
+                .Select(e => e.Inn).GroupBy(e => e).Count() <= 1;
         }
     }
 }

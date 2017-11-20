@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<?F4FORM version="0.92" appname="arm_fss" version_app="2.0.4.43"?>
+<F4REPORT xmlns="http://fz122.fss.ru" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:schemaLocation="http://fz122.fss.ru/doc/f4form_2017.xsd">
+  <TITLE REG_NUM="1604596266" KPS_NUM="16041" YEAR_NUM="2018" QUART_NUM="3" LIKV="0" NAME="ООО &quot;ТОРГОВАЯ КОМПАНИЯ ОСТ&quot;" INN="1660193142" KPP="165901001" OGRN="001041628230654" PHONE="89172872239" CADDR="г.Казань, ул.Складская, д.2" EMAIL="ost_kazan@mail.ru" OKVED="51.70" T1R1C2="2" Upoln="1" CEO="Давыдов Евгений Валентинович" CRE_DATE="2017-06-15"/>
+  <F4INFO T1R3C2="60000.00" C1="20000.00" C2="20000.00" C3="20000.00" RATE_MIS="0.2" T7R1C1="80.00" T7R5C1="40.00" T7R6C1="40.00" T7R7C1="40.00" T7R31C1="120.00" T7R34C1="80.00"/>
+</F4REPORT>
