@@ -317,7 +317,7 @@ RESPONSE: ValidationStepType[]
 Где `ValidationStepType` может принимать следующий значения
 
 ```
-        //Nds
+       //Nds
 
         /// <summary>
         /// Проверка декларации по НДС за 1 кв 
@@ -429,6 +429,11 @@ RESPONSE: ValidationStepType[]
         /// Пока закладываем проверку по 2017 году
         /// </summary>
         PrimaryReportsByYearValidator,
+
+        /// <summary>
+        /// В фалйле НДФЛ2 все годы должны быть одинаковые
+        /// </summary>
+        PrimaryReportsNdfl2ByYearValidator,
 
         /// <summary>
         /// Валидация после загрузки 
@@ -673,7 +678,7 @@ RESPONSE: ValidationStepType[]
         /// Сравнение расчета по взносам и СЗВ-М
         /// Сравнение расчета по взносам за 3 кв. с СЗВ-М за сентябрь  
         /// </summary>
-        CalculationContributionsVsSzvm39Validator
+        CalculationContributionsVsSzvm39Validator,
 ```
 
 ### Получение рекомендаций после загрузки и валидации отчетов
