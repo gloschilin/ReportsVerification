@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using ReportsVerification.Web.DataObjects.Catalogs;
+using ReportsVerification.Web.Filters;
 using ReportsVerification.Web.Repositories.Interfaces;
 using ReportsVerification.Web.Utills.Attributes;
 
@@ -49,7 +50,7 @@ namespace ReportsVerification.Web.Controllers
     /// <summary>
     /// Получение справочников
     /// </summary>
-    [ControllerSettings(allowCamelCase: true)]
+    [ControllerSettings(allowCamelCase: true), AllowOptionsFilter]
     [RoutePrefix("api/catalogs")]
     public class CatalogsController: ApiController
     {
@@ -60,7 +61,7 @@ namespace ReportsVerification.Web.Controllers
             _catalogRepository = catalogRepository;
         }
 
-        [Route("regions"), HttpGet]
+        [Route("regions"), HttpGet, HttpPut]
         public IEnumerable<Region> Regions()
         {
             var regions = _catalogRepository.GetRegions();

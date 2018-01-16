@@ -3,6 +3,7 @@ using System.Net;
 using System.Web;
 using System.Web.Http;
 using ReportsVerification.Web.DataObjects;
+using ReportsVerification.Web.Filters;
 using ReportsVerification.Web.Mappers.Interfaces;
 using ReportsVerification.Web.Models;
 using ReportsVerification.Web.Repositories.Interfaces;
@@ -13,7 +14,7 @@ namespace ReportsVerification.Web.Controllers
     /// <summary>
     /// Контроллер для обработки данных сессии
     /// </summary>
-    [ControllerSettings(allowCamelCase: true)]
+    [ControllerSettings(allowCamelCase: true), AllowOptionsFilter]
     public class SessionController : ApiController
     {
         private readonly ISessionRepository _sessionRepository;

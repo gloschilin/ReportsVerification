@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using ReportsVerification.Web.Filters;
 using ReportsVerification.Web.Services.Interfaces;
 using ReportsVerification.Web.Services.ReportsRecomendations;
 using ReportsVerification.Web.Utills.Attributes;
 
 namespace ReportsVerification.Web.Controllers
 {
-    [ControllerSettings(allowCamelCase: true)]
+    [ControllerSettings(allowCamelCase: true), AllowOptionsFilter]
     public class RecomendationsController : ApiController
     {
         private readonly IReportsService _reportsService;

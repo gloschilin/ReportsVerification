@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using ReportsVerification.Web.Filters;
 using ReportsVerification.Web.Repositories.Interfaces;
 using ReportsVerification.Web.Services.Validation;
 using ReportsVerification.Web.Services.Validation.Interfaces;
@@ -13,7 +14,7 @@ namespace ReportsVerification.Web.Controllers
     /// <summary>
     /// Контроллер для валидации отчетов загруженных пользователем
     /// </summary>
-    [ControllerSettings(allowCamelCase: true)]
+    [ControllerSettings(allowCamelCase: true), AllowOptionsFilter]
     public class ValidationController : ApiController
     {
         private readonly IReportsValidator _reportsValidator;

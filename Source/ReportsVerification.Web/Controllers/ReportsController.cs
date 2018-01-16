@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
+using ReportsVerification.Web.Filters;
 using ReportsVerification.Web.Models;
 using ReportsVerification.Web.Services.Interfaces;
 using ReportsVerification.Web.Utills.Attributes;
@@ -14,7 +15,7 @@ namespace ReportsVerification.Web.Controllers
     /// <summary>
     /// Обработка файлов отчета
     /// </summary>
-    [ControllerSettings(allowCamelCase: true)]
+    [ControllerSettings(allowCamelCase: true), AllowOptionsFilter]
     [CheckSessionActionFilter]
     public class ReportsController : ApiController
     {

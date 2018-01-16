@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -152,6 +153,7 @@
     <Compile Include="Builders\SalesBookNdsInfoBuilder.cs" />
     <Compile Include="Controllers\CatalogsController.cs" />
     <Compile Include="Controllers\RecomendationsController.cs" />
+    <Compile Include="Filters\AllowOptionsFilterAttribute.cs" />
     <Compile Include="Installers\InstallerExtentions.cs" />
     <Compile Include="Installers\ValidationInstaller.cs" />
     <Compile Include="Controllers\ValidationController.cs" />
