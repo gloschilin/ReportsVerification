@@ -307,9 +307,12 @@ RESPONSE: IReportInfo[]
 
 После загрузки отчетов делаем их проверку. 
 ```
-HTTP GET: api/services/validation?sessionId={sessionId}
+HTTP GET: api/services/validation?sessionId={sessionId}&type={validationType}
 ```
 где `{sessionId}` идентификатор сессии загрузки
+
+а `{validationType}` может принимать значения `Primary` (первичная валидация) `Secondary` (полная валидация)
+
 В ответе будет коллекция из ALIAS валидационных сообщений. 
 ```
 RESPONSE: ValidationStepType[]
