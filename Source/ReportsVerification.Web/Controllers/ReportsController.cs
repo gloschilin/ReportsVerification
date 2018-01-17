@@ -39,7 +39,15 @@ namespace ReportsVerification.Web.Controllers
         public HttpResponseMessage Upload(Guid sessionId)
         {
             var uploadResult = _requestFileReader.Read(Request,
-                    content => HandleFileContent(sessionId, content));
+                content =>
+                {
+                    if (content?.Content == null)
+                    {
+                        return;
+                    }
+
+                    HandleFileContent(sessionId, content);
+                });
 
             return uploadResult
                 ? new HttpResponseMessage(HttpStatusCode.Created)

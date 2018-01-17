@@ -38,9 +38,11 @@ namespace ReportsVerification.Web.Controllers
         /// Получить проверку отчетов
         /// </summary>
         /// <param name="sessionId"></param>
+        /// <param name="type"></param>
         /// <returns></returns>
         [Route("api/services/validation"), HttpGet]
-        public IEnumerable<ValidationStepType> ValidateReports(Guid sessionId)
+        public IEnumerable<ValidationStepType> ValidateReports(Guid sessionId, 
+            ValidationType type = ValidationType.Primary)
         {
             var reports = _reportRepository.GetList(sessionId).ToArray();
             var session = _sessionRepository.Get(sessionId);
@@ -50,7 +52,7 @@ namespace ReportsVerification.Web.Controllers
                 throw new HttpException(403, "Доступ запрещен. Указанная сессия не найдена.");
             }
 
-            _reportsValidator.Validate(reports, session);
+            _reportsValidator.Validate(reports, session, type);
             var validationResult = _validationContext.GetWrongMessages(sessionId);
             return validationResult;
         }

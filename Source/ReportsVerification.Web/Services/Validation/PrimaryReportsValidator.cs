@@ -13,7 +13,8 @@ namespace ReportsVerification.Web.Services.Validation
             _services = services;
         }
 
-        public void Validate(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo)
+        public void Validate(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo,
+            ValidationType validationType)
         {
             foreach (var service in _services)
             {

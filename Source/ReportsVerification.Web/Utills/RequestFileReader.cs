@@ -20,27 +20,40 @@ namespace ReportsVerification.Web.Utills
 
             var provider = new MultipartMemoryStreamProvider();
             request.Content.ReadAsMultipartAsync(provider);
-            foreach (var contentInfo in provider.Contents.Select(contentInfo=> contentInfo))
+            foreach (var contentInfo in provider.Contents)
             {
-                var fileStream = contentInfo.ReadAsStreamAsync().Result;
-                fileStream.Position = 0;
-                string content;
-                using (var reader = new StreamReader(fileStream, Encoding.GetEncoding("windows-1251")))
+                if (contentInfo == null)
                 {
-                    content = reader.ReadToEnd();
+                    continue;
                 }
-                var fileName = contentInfo.Headers.ContentDisposition.FileName.Replace("\"", string.Empty);
-                var uploadFileInfo = new UploadFileInfo(fileName, content);
 
-                try
+                using (var fileStream = contentInfo.ReadAsStreamAsync().Result)
                 {
-                    contentHandler(uploadFileInfo);
-                }
-                catch (Exception ex)
-                {
-                    uploadFileInfo.SetError(ex.Message);
-                    contentHandler(uploadFileInfo);
-                    result = false;
+                    if (!fileStream.CanRead)
+                    {
+                        continue;
+                    }
+
+                    fileStream.Position = 0;
+                    string content;
+                    using (var reader = new StreamReader(fileStream, Encoding.GetEncoding("windows-1251")))
+                    {
+                        content = reader.ReadToEnd();
+                    }
+
+                    var fileName = contentInfo.Headers.ContentDisposition.FileName.Replace("\"", string.Empty);
+                    var uploadFileInfo = new UploadFileInfo(fileName, content);
+
+                    try
+                    {
+                        contentHandler(uploadFileInfo);
+                    }
+                    catch (Exception ex)
+                    {
+                        uploadFileInfo.SetError(ex.Message);
+                        contentHandler(uploadFileInfo);
+                        result = false;
+                    }
                 }
             }
 

@@ -16,7 +16,8 @@ namespace ReportsVerification.Web.Services.Validation.Common
             _context = context;
         }
 
-        public void Validate(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo)
+        public void Validate(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo,
+            ValidationType validationType = ValidationType.Primary)
         {
             bool isValid;
 

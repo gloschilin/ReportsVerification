@@ -6,6 +6,12 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation
 {
+    public enum ValidationType
+    {
+        Primary,
+        Secondary
+    }
+
     public class ReportsValidator: IReportsValidator
     {
         private readonly IEnumerable<IConcreteReportValidator> _services;
@@ -24,13 +30,15 @@ namespace ReportsVerification.Web.Services.Validation
             _revisionFilerService = revisionFilerService;
         }
 
-        public void Validate(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo)
+        public void Validate(IReadOnlyCollection<Report> reports, 
+            SessionInfo sessionInfo,
+            ValidationType validationType = ValidationType.Primary)
         {
             reports = _revisionFilerService.GetActualReports(reports).ToList();
             _validationContext.Clear(sessionInfo.Id);
             _primaryReportsValidator.Validate(reports, sessionInfo);
             var wrongReports = _validationContext.GetWrongMessages(sessionInfo.Id);
-            if (wrongReports.Any())
+            if (wrongReports.Any() || validationType == ValidationType.Primary)
             {
                 return;
             }

@@ -5,6 +5,6 @@ namespace ReportsVerification.Web.Services.Validation.Interfaces
 {
     public interface IReportsValidator
     {
-        void Validate(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo);
+        void Validate(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo, ValidationType validationType = ValidationType.Primary);
     }
 }
