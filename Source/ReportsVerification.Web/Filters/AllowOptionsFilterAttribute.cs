@@ -9,12 +9,6 @@ namespace ReportsVerification.Web.Filters
     {
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
-            if (actionContext.Request.Method == HttpMethod.Options)
-            {
-                actionContext.Response.StatusCode = HttpStatusCode.OK;
-                return;
-            }
-
             base.OnActionExecuting(actionContext);
         }
     }
