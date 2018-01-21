@@ -315,9 +315,20 @@ HTTP GET: api/services/validation?sessionId={sessionId}&type={validationType}
 
 В ответе будет коллекция из ALIAS валидационных сообщений. 
 ```
-RESPONSE: ValidationStepType[]
+RESPONSE: IValidationInfo[]
 ```
-Где `ValidationStepType` может принимать следующий значения
+
+```IValidationInfo``` представляет собой объект
+```
+interface IValidationInfo
+{
+  message: ValidationStepType,
+  quarter: int?
+}
+```
+значение quarter может быть пустым для общих соотношений,
+
+а `ValidationStepType` может принимать следующие значения
 
 ```
        //Nds
