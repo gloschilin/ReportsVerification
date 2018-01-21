@@ -21,17 +21,20 @@ namespace ReportsVerification.Web.Controllers
         private readonly IReportRepository _reportRepository;
         private readonly ISessionRepository _sessionRepository;
         private readonly IValidationContext _validationContext;
+        private readonly IMessagesRepository _messagesRepository;
 
         public ValidationController(
             IReportsValidator reportsValidator,
             IReportRepository reportRepository,
             ISessionRepository sessionRepository,
-            IValidationContext validationContext)
+            IValidationContext validationContext,
+            IMessagesRepository messagesRepository)
         {
             _reportsValidator = reportsValidator;
             _reportRepository = reportRepository;
             _sessionRepository = sessionRepository;
             _validationContext = validationContext;
+            _messagesRepository = messagesRepository;
         }
 
         /// <summary>
@@ -41,7 +44,7 @@ namespace ReportsVerification.Web.Controllers
         /// <param name="type"></param>
         /// <returns></returns>
         [Route("api/services/validation"), HttpGet]
-        public IEnumerable<ValidationStepType> ValidateReports(Guid sessionId, 
+        public IHttpActionResult ValidateReports(Guid sessionId, 
             ValidationType type = ValidationType.Primary)
         {
             var reports = _reportRepository.GetList(sessionId).ToArray();
@@ -54,7 +57,10 @@ namespace ReportsVerification.Web.Controllers
 
             _reportsValidator.Validate(reports, session, type);
             var validationResult = _validationContext.GetWrongMessages(sessionId);
-            return validationResult;
+            var messages = _messagesRepository.GetMessages()
+                .Where(e => validationResult.Contains(e.Message))
+                .Select(e => new { Message = e.Message, Quarter = e.Quarter });
+            return Ok(messages);
         }
     }
 }

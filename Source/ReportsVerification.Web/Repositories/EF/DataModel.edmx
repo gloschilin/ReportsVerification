@@ -25,6 +25,14 @@
           <Property Name="FourthQuarter" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="BeginDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="MessageToQuarters">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Quarter" Type="int" />
+        </EntityType>
         <EntityType Name="Modes">
           <Key>
             <PropertyRef Name="Id" />
@@ -172,6 +180,7 @@
         <EntityContainer Name="VertificationsModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Deductions" EntityType="Self.Deductions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MessageToQuarters" EntityType="Self.MessageToQuarters" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Modes" EntityType="Self.Modes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mrot" EntityType="Self.Mrot" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
@@ -353,6 +362,7 @@
             <End Role="Session" EntitySet="Sessions" />
             <End Role="WrongReport" EntitySet="WrongReports" />
           </AssociationSet>
+          <EntitySet Name="MessageToQuarters" EntityType="VertificationsModel.MessageToQuarter" />
         </EntityContainer>
         <EntityType Name="Mrot">
           <Key>
@@ -427,6 +437,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="MessageToQuarter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Quarter" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -517,6 +535,15 @@
                 <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
                 <ScalarProperty Name="FileName" ColumnName="FileName" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageToQuarters">
+            <EntityTypeMapping TypeName="VertificationsModel.MessageToQuarter">
+              <MappingFragment StoreEntitySet="MessageToQuarters">
+                <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -10,13 +10,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>03/02/2015 09:32:26</publishTime>
+      <publishTime>02/03/2015 09:32:26</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>03/02/2015 09:32:26</publishTime>
+      <publishTime>02/03/2015 09:32:26</publishTime>
     </File>
     <File Include="bin/log4net.dll">
-      <publishTime>03/08/2017 19:26:22</publishTime>
+      <publishTime>08/03/2017 19:26:22</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
       <publishTime>05/05/2014 11:25:44</publishTime>
@@ -25,13 +25,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2014 11:25:44</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
-      <publishTime>10/05/2015 09:37:20</publishTime>
+      <publishTime>05/10/2015 09:37:20</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.dll">
-      <publishTime>10/05/2015 09:37:20</publishTime>
+      <publishTime>05/10/2015 09:37:20</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.RegistrationByConvention.dll">
-      <publishTime>10/05/2015 09:37:20</publishTime>
+      <publishTime>05/10/2015 09:37:20</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/25/2012 11:48:56</publishTime>
@@ -40,10 +40,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/18/2017 13:57:10</publishTime>
     </File>
     <File Include="bin/ReportsVerification.Web.dll">
-      <publishTime>01/17/2018 00:34:26</publishTime>
+      <publishTime>01/17/2018 10:39:21</publishTime>
     </File>
     <File Include="bin/ReportsVerification.Web.pdb">
-      <publishTime>01/17/2018 00:34:26</publishTime>
+      <publishTime>01/17/2018 10:39:21</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>06/18/2015 20:19:46</publishTime>
@@ -97,7 +97,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/26/2014 04:33:20</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>02/11/2014 15:26:04</publishTime>
+      <publishTime>11/02/2014 15:26:04</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
       <publishTime>01/28/2015 04:02:32</publishTime>
@@ -124,7 +124,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/16/2018 22:22:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/17/2018 00:25:49</publishTime>
+      <publishTime>01/17/2018 10:39:21</publishTime>
     </File>
   </ItemGroup>
 </Project>

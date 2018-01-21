@@ -182,9 +182,15 @@
     <Compile Include="Factories\Reports\SalesBookNdsFactory.cs" />
     <Compile Include="Installers\RecomendationsInstaller.cs" />
     <Compile Include="Installers\ServicesInstaller.cs" />
+    <Compile Include="Repositories\EF\MessageToQuarter.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\EF\WrongReport.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\Interfaces\IMessagesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\MessageInfo.cs" />
+    <Compile Include="Repositories\Interfaces\MessagesRepository.cs" />
     <Compile Include="Services\ReportsRecomendations\AccountingReportingRecomendation.cs" />
     <Compile Include="Services\ReportsRecomendations\CalculationAdvancePaymentRecomendation.cs" />
     <Compile Include="Services\ReportsRecomendations\CalculationContributionsRecomendation.cs" />

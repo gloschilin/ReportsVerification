@@ -20,6 +20,7 @@
         <EntityTypeShape EntityType="VertificationsModel.WrongReport" Width="1.5" PointX="8.25" PointY="4.125" />
         <AssociationConnector Association="VertificationsModel.FK_Reports_Sessions" />
         <AssociationConnector Association="VertificationsModel.FK_WrongReports_Sessions" />
+        <EntityTypeShape EntityType="VertificationsModel.MessageToQuarter" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

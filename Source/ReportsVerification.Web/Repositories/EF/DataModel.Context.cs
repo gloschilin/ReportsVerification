@@ -33,5 +33,6 @@ namespace ReportsVerification.Web.Repositories.EF
         public virtual DbSet<Mrot> Mrots { get; set; }
         public virtual DbSet<Report> Reports { get; set; }
         public virtual DbSet<WrongReport> WrongReports { get; set; }
+        public virtual DbSet<MessageToQuarter> MessageToQuarters { get; set; }
     }
 }
