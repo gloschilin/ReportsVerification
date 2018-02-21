@@ -222,18 +222,27 @@
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm24Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm25Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm26Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm4107Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm37Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm411Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm38Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm412Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm39Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\Common\CommonCalculationContributionsVsSzvmValidator.cs" />
+    <Compile Include="Services\Validation\CalculationContributions\FirstErrors\First41ErrorsValidator.cs" />
+    <Compile Include="Services\Validation\CalculationContributions\FirstErrors\First42ErrorsValidator.cs" />
+    <Compile Include="Services\Validation\CalculationContributions\FirstErrors\First43ErrorsValidator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors11Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors12Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors13Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors21Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors22Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors23Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors41Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors31Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors42Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors32Validator.cs" />
+    <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors43Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\SecondErrors\SecondErrors33Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\Common\CommonSecondErrorsValidator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\FirstErrors\First11ErrorsValidator.cs" />
@@ -253,8 +262,11 @@
     <Compile Include="Services\Validation\CalculationContributions\Common\CommonValidator.cs" />
     <Compile Include="Services\Validation\CalculationContributions\Common\CommonWithNdfl6BaseValidator.cs" />
     <Compile Include="Services\Validation\Common\CommonConcreteReportValidator.cs" />
+    <Compile Include="Services\Validation\DeclarationOnIncomeTax\DirectCosts4Validator.cs" />
+    <Compile Include="Services\Validation\DeclarationOnIncomeTax\Loss4Validator.cs" />
     <Compile Include="Services\Validation\DeclarationOnIncomeTax\RevenuesNds1Validator.cs" />
     <Compile Include="Services\Validation\DeclarationOnIncomeTax\RevenuesNds2Validator.cs" />
+    <Compile Include="Services\Validation\DeclarationOnIncomeTax\RevenuesNds4Validator.cs" />
     <Compile Include="Services\Validation\DeclarationOnIncomeTax\RevenuesNds3Validator.cs" />
     <Compile Include="Services\Validation\DeclarationOnIncomeTax\Common\CommonRevenuesNdsValidator.cs" />
     <Compile Include="Services\Interfaces\IRevisionFilerService.cs" />
@@ -269,6 +281,8 @@
     <Compile Include="Services\Validation\Ndfl6\Ndfl64WageMrotValidator.cs" />
     <Compile Include="Services\Validation\Ndfl6\Common\Ndfl6TaxesValidator.cs" />
     <Compile Include="Services\Validation\Ndfl6\Common\NdflWageMrotValidator.cs" />
+    <Compile Include="Services\Validation\Nds\Nds4DeductionValidator.cs" />
+    <Compile Include="Services\Validation\Nds\Nds4VosmechenieValidator.cs" />
     <Compile Include="Services\Validation\PrimaryValidation\ByInnReportValidator.cs" />
     <Compile Include="Services\Validation\Common\CommonConcretePrimaryReportValidator.cs" />
     <Compile Include="Services\Validation\PrimaryReportsValidator.cs" />
@@ -465,7 +479,9 @@
       <DependentUpon>DataModel.edmx</DependentUpon>
       <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

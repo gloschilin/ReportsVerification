@@ -4,16 +4,16 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.CalculationContributions.SecondErrors
 {
-    public class SecondErrors33Validator
+    public class SecondErrors43Validator
         : CommonSecondErrorsValidator
     {
-        public SecondErrors33Validator(IValidationContext context) : base(context)
+        public SecondErrors43Validator(IValidationContext context) : base(context)
         {
         }
 
         protected override ValidationStepType Type
-            => ValidationStepType.CalculationContributionsSecondErrors33Validator;
-        protected override int Quarter => 3;
+            => ValidationStepType.CalculationContributionsSecondErrors43Validator;
+        protected override int Quarter => 4;
         protected override int Month => 3;
         protected override decimal GetSum(СвСум1Тип value)
         {
