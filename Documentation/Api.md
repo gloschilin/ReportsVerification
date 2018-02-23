@@ -61,44 +61,34 @@ OooWithoutEmployees,
 Значения `mode`:
 ```
 /// <summary>
-/// Патент
-/// </summary>
-Patent,
-
-/// <summary>
-/// ОСНО
-/// </summary>
-Osno,
-
-/// <summary>
-/// УСН + ЕНВД
-/// </summary>
-UsnWitnEnvd,
-
-/// <summary>
- /// ЕСХН + ЕНВД
-/// </summary>
-EshnWithEnvd,
-
-/// <summary>
-/// ОСНО + ЕНВД
-/// </summary>
-OsnoWithEnvd,
-
-/// <summary>
 /// ЕНВД
 /// </summary>
-Envd,
+ENVD,
 
 /// <summary>
 /// УСН
 /// </summary>
-Usn,
+USN,
+
+/// <summary>
+/// ОСНО
+/// </summary>
+OSNO,
 
 /// <summary>
 /// ЕСХН
 /// </summary>
-Eshn
+ESHN,
+
+/// <summary>
+/// ОСНО + ЕНВД
+/// </summary>
+OSNOvsENVD,
+
+/// <summary>
+/// УСН + ЕНВД
+/// </summary>
+USNvsENVD
 ```
 Где `regionId` выбранный регион пользователя.
 
