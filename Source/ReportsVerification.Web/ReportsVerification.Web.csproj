@@ -267,6 +267,8 @@
     <Compile Include="Services\Validation\AccountingStatement\AccountingStatement8Validtor.cs" />
     <Compile Include="Services\Validation\AccountingStatement\AccountingStatement9Validtor.cs" />
     <Compile Include="Services\Validation\AccountingStatement\CommonValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6VsNdfl2\CommonValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6VsNdfl2\Ndfl6Vs2RateDivValidator.cs" />
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm11Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm12Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm13Validator.cs" />
@@ -321,6 +323,8 @@
     <Compile Include="Services\Validation\DeclarationOnIncomeTax\RevenuesNds3Validator.cs" />
     <Compile Include="Services\Validation\DeclarationOnIncomeTax\Common\CommonRevenuesNdsValidator.cs" />
     <Compile Include="Services\Interfaces\IRevisionFilerService.cs" />
+    <Compile Include="Services\Validation\Ndfl6VsNdfl2\Ndfl6Vs2RateTaxSumValidator.cs" />
+    <Compile Include="Services\Validation\Ndfl6VsNdfl2\Ndfl6Vs2TaxNUValidator.cs" />
     <Compile Include="Services\Validation\Ndfl6\Common\CommonNdflValidator.cs" />
     <Compile Include="Services\Validation\Ndfl6\Ndfl61TaxesValidator.cs" />
     <Compile Include="Services\Validation\Ndfl6\Ndfl61WageMrotValidator.cs" />

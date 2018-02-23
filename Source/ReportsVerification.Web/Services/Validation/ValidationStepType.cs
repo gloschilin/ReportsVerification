@@ -500,7 +500,17 @@
         //Не удержанный налог
         //Количество физлиц, получивших доход
 
-
-
+        Ndfl6Vs2Rate13Validator,
+        Ndfl6Vs2Rate9Validator,
+        Ndfl6Vs2Rate15Validator,
+        Ndfl6Vs2Rate35Validator,
+        Ndfl6Vs2Rate13DivValidator,
+        Ndfl6Vs2Rate15DivValidator,
+        Ndfl6Vs2Rate13TaxSumValidator,
+        Ndfl6Vs2Rate9TaxSumValidator,
+        Ndfl6Vs2Rate15TaxSumValidator,
+        Ndfl6Vs2Rate35TaxSumValidator,
+        Ndfl6Vs2TaxNuValidator,
+        Ndfl6Vs2PersonsAmountValidator
     }
 }
