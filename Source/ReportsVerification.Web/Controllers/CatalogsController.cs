@@ -64,7 +64,9 @@ namespace ReportsVerification.Web.Controllers
         [Route("regions"), HttpGet, HttpPut]
         public IEnumerable<Region> Regions()
         {
-            var regions = _catalogRepository.GetRegions();
+            var regions = _catalogRepository
+                .GetRegions()
+                .OrderBy(e=>e.Name);
             return regions;
         }
 

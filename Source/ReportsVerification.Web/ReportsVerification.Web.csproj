@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ReportsVerification.Web</RootNamespace>
     <AssemblyName>ReportsVerification.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -26,6 +26,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <Use64BitIISExpress />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -72,17 +73,17 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
@@ -129,6 +130,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="Unity.WebApi, Version=5.2.3.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.WebAPI.5.2.3\lib\net45\Unity.WebApi.dll</HintPath>
       <Private>True</Private>
@@ -216,6 +218,55 @@
     <Compile Include="Services\SessionInfoRecomendations\ForNdsSessionInfoRecomendations.cs" />
     <Compile Include="Services\SessionInfoRecomendationsService.cs" />
     <Compile Include="Services\ReportsService.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance11Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance12Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance13Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance14Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance21Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance22Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance23Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance24Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance31Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance32Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance33Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance34Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\Common\Common1Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\Common\Common2Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\Common\Common3Validator.cs" />
+    <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\Common\CommonValidator.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement10Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement11Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement12Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement13Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement14Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement15Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement16Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement17Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement18Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement19Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement1Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement20Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement21Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement22Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement23Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement24Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement25Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement26Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement27Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement28Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement29Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement2Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement30Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement31Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement32Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement3Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement4Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement5Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement6Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement7Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement8Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement9Validtor.cs" />
+    <Compile Include="Services\Validation\AccountingStatement\CommonValidator.cs" />
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm11Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm12Validator.cs" />
     <Compile Include="Services\Validation\CalculationContributionsVsSzvm\CalculationContributionsVsSzvm13Validator.cs" />
