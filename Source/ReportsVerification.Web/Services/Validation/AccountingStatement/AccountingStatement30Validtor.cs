@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.Xsd.AccountingStatement;
 using ReportsVerification.Web.Extentions;
@@ -60,8 +61,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
             IReadOnlyCollection<Report> reports,
             SessionInfo sessionInfo)
         {
-            return xsdReport.Документ.Баланс.Актив.ОбА.ДенежнСр.СумПрдшв.ToDecimal()
-                   == xsdReport.Документ.ДвижениеДен.ОстНачОтч.СумПред.ToDecimal();
+            throw new NotImplementedException();
         }
     }
 }

@@ -258,7 +258,6 @@
     <Compile Include="Services\Validation\AccountingStatement\AccountingStatement2Validtor.cs" />
     <Compile Include="Services\Validation\AccountingStatement\AccountingStatement30Validtor.cs" />
     <Compile Include="Services\Validation\AccountingStatement\AccountingStatement31Validtor.cs" />
-    <Compile Include="Services\Validation\AccountingStatement\AccountingStatement32Validtor.cs" />
     <Compile Include="Services\Validation\AccountingStatement\AccountingStatement3Validtor.cs" />
     <Compile Include="Services\Validation\AccountingStatement\AccountingStatement4Validtor.cs" />
     <Compile Include="Services\Validation\AccountingStatement\AccountingStatement5Validtor.cs" />

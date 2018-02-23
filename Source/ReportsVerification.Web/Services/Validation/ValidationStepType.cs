@@ -456,61 +456,219 @@
         //Валюта баланса  за отчетный год
         CurencyBalance3Validator,
 
+        /// <summary>
+        /// Изменение отложенных налоговых активов отчетного года
+        /// </summary>
         AccountingStatement1Validtor,
+
+        /// <summary>
+        /// Изменение отложенных налоговых активов предыдущего  года
+        /// </summary>
         AccountingStatement2Validtor,
+
+        /// <summary>
+        /// Изменение отложенных налоговых обязательств отчетного года
+        /// </summary>
         AccountingStatement3Validtor,
+
+        /// <summary>
+        /// Изменение отложенных налоговых обязательств предыдущего  года
+        /// </summary>
         AccountingStatement4Validtor,
+
+        /// <summary>
+        /// Изменение нераспределенной прибыли отчетного года
+        /// </summary>
         AccountingStatement5Validtor,
+
+        /// <summary>
+        /// Изменение нераспределенной прибыли предыдущего года
+        /// </summary>
         AccountingStatement6Validtor,
+
+        /// <summary>
+        /// Валюта баланса  за год, предшествующий предыдущему
+        /// </summary>
         AccountingStatement7Validtor,
+
+        /// <summary>
+        /// Валюта баланса  за предыдущий год 
+        /// </summary>
         AccountingStatement8Validtor,
+
+        /// <summary>
+        /// Валюта баланса  за отчетный год
+        /// </summary>
         AccountingStatement9Validtor,
+
+        /// <summary>
+        /// Уставный капитал по данным баланса и отчета об изменении капитала за отчетный  год
+        /// </summary>
         AccountingStatement10Validtor,
+
+        /// <summary>
+        /// Уставный капитал по данным баланса и отчета об изменении капитала за предыдущий год
+        /// </summary>
         AccountingStatement11Validtor,
+
+        /// <summary>
+        /// Уставный капитал по данным баланса и отчета об изменении капитала за год, предшествующий  предыдущему
+        /// </summary>
         AccountingStatement12Validtor,
+
+        /// <summary>
+        /// Собственные акции по данным баланса и отчета об изменении капитала за отчетный  год
+        /// </summary>
         AccountingStatement13Validtor,
+
+        /// <summary>
+        /// Собственные акции по данным баланса и отчета об изменении капитала за предыдущий год
+        /// </summary>
         AccountingStatement14Validtor,
+
+        /// <summary>
+        /// Собственные акции по данным баланса и отчета об изменении капитала за год, предшествующий  предыдущему
+        /// </summary>
         AccountingStatement15Validtor,
+
+        /// <summary>
+        /// Резервный капитал  по данным баланса и отчета об изменении капитала за отчетный  год
+        /// </summary>
         AccountingStatement16Validtor,
+
+        /// <summary>
+        /// Резервный капитал  по данным баланса и отчета об изменении капитала за предыдущий год
+        /// </summary>
         AccountingStatement17Validtor,
+
+        /// <summary>
+        /// Резервный капитал  по данным баланса и отчета об изменении капитала за год, предшествующий  предыдущему
+        /// </summary>
         AccountingStatement18Validtor,
+
+        /// <summary>
+        /// Нераспределенная прибыль (непокрытый убыток) по данным баланса и отчета об изменении капитала за отчетный  год
+        /// </summary>
         AccountingStatement19Validtor,
+
+        /// <summary>
+        /// Нераспределенная прибыль (непокрытый убыток) по данным баланса и отчета об изменении капитала за предыдущий год
+        /// </summary>
         AccountingStatement20Validtor,
+
+        /// <summary>
+        /// Нераспределенная прибыль (непокрытый убыток) по данным баланса и отчета об изменении капитала за год, предшествующий  предыдущему
+        /// </summary>
         AccountingStatement21Validtor,
+
+        /// <summary>
+        /// Итого капитал по данным баланса и отчета об изменении капитала за отчетный  год
+        /// </summary>
         AccountingStatement22Validtor,
+
+        /// <summary>
+        /// Итого капитал по данным баланса и отчета об изменении капитала за предыдущий год
+        /// </summary>
         AccountingStatement23Validtor,
+
+        /// <summary>
+        /// Итого капитал по данным баланса и отчета об изменении капитала за год, предшествующий  предыдущему
+        /// </summary>
         AccountingStatement24Validtor,
+
+        /// <summary>
+        /// Сумма переоценки и добавочного капитала по данным баланса и отчета об изменении капитала за отчетный  год
+        /// </summary>
         AccountingStatement25Validtor,
+
+        /// <summary>
+        /// Сумма переоценки и добавочного капитала по данным баланса и отчета об изменении капитала за предыдущий год
+        /// </summary>
         AccountingStatement26Validtor,
+
+        /// <summary>
+        /// Денежные средства на конец отчетного периода по данным баланса и отчета о движении денежных средств
+        /// </summary>
         AccountingStatement27Validtor,
+
+        /// <summary>
+        /// Денежные средства на начало отчетного периода по данным баланса и отчета о движении денежных средств
+        /// </summary>
         AccountingStatement28Validtor,
+
+        /// <summary>
+        /// Денежные средства на начало отчетного периода по данным баланса и отчета о движении денежных средств
+        /// </summary>
         AccountingStatement29Validtor,
+
+        /// <summary>
+        /// Чистая прибыль (убыток) за  отчетный период по данным баланса и отчета об изменении капитала
+        /// </summary>
         AccountingStatement30Validtor,
+
+        /// <summary>
+        /// Чистая прибыль (убыток) за пошлый год по данным баланса и отчета об изменении капитала
+        /// </summary>
         AccountingStatement31Validtor,
-        AccountingStatement32Validtor,
 
-        //Общая сумма дохода за год (проверка по ставке 15%)
-        //Общая сумма дохода за год (проверка по ставке 35%)
-        //Общая сумма дивидендов по ставке 13 %
-        //Общая сумма дивидендов по ставке 15 %
-        //Исчисленная сумма налога по ставке 13 %
-        //Исчисленная сумма налога по ставке 9 %
-        //Исчисленная сумма налога по ставке 15 %
-        //Исчисленная сумма налога по ставке 35 %
-        //Не удержанный налог
-        //Количество физлиц, получивших доход
-
+        /// <summary>
+        /// Общая сумма дохода за год (проверка по ставке 13%)
+        /// </summary>
         Ndfl6Vs2Rate13Validator,
+
+        /// <summary>
+        /// Общая сумма дохода за год (проверка по ставке 9%)
+        /// </summary>
         Ndfl6Vs2Rate9Validator,
+
+        /// <summary>
+        /// Общая сумма дохода за год (проверка по ставке 15%) 
+        /// </summary>
         Ndfl6Vs2Rate15Validator,
+
+        /// <summary>
+        /// Общая сумма дохода за год (проверка по ставке 35%) 
+        /// </summary>
         Ndfl6Vs2Rate35Validator,
+
+        /// <summary>
+        /// Общая сумма дивидендов по ставке 13 %
+        /// </summary>
         Ndfl6Vs2Rate13DivValidator,
+
+        /// <summary>
+        /// Общая сумма дивидендов по ставке 15 %
+        /// </summary>
         Ndfl6Vs2Rate15DivValidator,
+
+        /// <summary>
+        /// Исчисленная сумма налога по ставке 13 %
+        /// </summary>
         Ndfl6Vs2Rate13TaxSumValidator,
+
+        /// <summary>
+        /// Исчисленная сумма налога по ставке 9 %
+        /// </summary>
         Ndfl6Vs2Rate9TaxSumValidator,
+
+        /// <summary>
+        /// Исчисленная сумма налога по ставке 15 %
+        /// </summary>
         Ndfl6Vs2Rate15TaxSumValidator,
+
+        /// <summary>
+        /// Исчисленная сумма налога по ставке 35 %
+        /// </summary>
         Ndfl6Vs2Rate35TaxSumValidator,
+
+        /// <summary>
+        /// Не удержанный налог
+        /// </summary>
         Ndfl6Vs2TaxNuValidator,
+
+        /// <summary>
+        /// Количество физлиц, получивших доход
+        /// </summary>
         Ndfl6Vs2PersonsAmountValidator
     }
 }

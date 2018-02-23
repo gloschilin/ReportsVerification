@@ -59,16 +59,8 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
             IReadOnlyCollection<Report> reports,
             SessionInfo sessionInfo)
         {
-            var kr = xsdReport.Документ.Баланс.Пассив.Item as ФайлДокументБалансПассивКапРез;
-
-            if (kr == null)
-            {
-                return true;
-            }
-
-            return kr.ПереоцВнеОбА.СумПрдщ.ToDecimal()
-                   + kr.ДобКапитал.СумПрдщ.ToDecimal()
-                   == xsdReport.Документ.ОтчетИзмКап.ДвиженКап.ПредГод.Кап31дек.ДобКапитал.ToDecimal();
+            return xsdReport.Документ.Баланс.Актив.ОбА.ДенежнСр.СумОтч.ToDecimal()
+                   == xsdReport.Документ.ДвижениеДен.ОстКонОтч.СумОтч.ToDecimal();
         }
     }
 }

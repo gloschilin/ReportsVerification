@@ -60,8 +60,8 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
             IReadOnlyCollection<Report> reports,
             SessionInfo sessionInfo)
         {
-            return xsdReport.Документ.Баланс.Актив.ОбА.ДенежнСр.СумОтч.ToDecimal()
-                   == xsdReport.Документ.ДвижениеДен.ОстКонОтч.СумОтч.ToDecimal();
+            return xsdReport.Документ.Баланс.Актив.ОбА.ДенежнСр.СумПрдщ.ToDecimal()
+                   == xsdReport.Документ.ДвижениеДен.ОстКонОтч.СумПред.ToDecimal();
         }
     }
 }

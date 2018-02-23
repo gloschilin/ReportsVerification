@@ -61,7 +61,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
             SessionInfo sessionInfo)
         {
             return xsdReport.Документ.Баланс.Актив.ОбА.ДенежнСр.СумПрдщ.ToDecimal()
-                   == xsdReport.Документ.ДвижениеДен.ОстКонОтч.СумПред.ToDecimal();
+                   == xsdReport.Документ.ДвижениеДен.ОстКонОтч.СумОтч.ToDecimal();
         }
     }
 }
