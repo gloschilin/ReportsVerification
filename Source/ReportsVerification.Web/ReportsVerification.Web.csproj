@@ -211,7 +211,14 @@
     <Compile Include="Services\ReportsRecomendations\SzvmReomendation.cs" />
     <Compile Include="Services\SessionInfoRecomendationsService.cs" />
     <Compile Include="Services\ReportsService.cs" />
+    <Compile Include="Services\SessionInfoRecomendations\CommonSessionInfoRecomedation.cs" />
     <Compile Include="Services\SessionInfoRecomendations\SessionInfoRecomedation1.cs" />
+    <Compile Include="Services\SessionInfoRecomendations\SessionInfoRecomedation2.cs" />
+    <Compile Include="Services\SessionInfoRecomendations\SessionInfoRecomedation3.cs" />
+    <Compile Include="Services\SessionInfoRecomendations\SessionInfoRecomedation4.cs" />
+    <Compile Include="Services\SessionInfoRecomendations\SessionInfoRecomedation5.cs" />
+    <Compile Include="Services\SessionInfoRecomendations\SessionInfoRecomedation6.cs" />
+    <Compile Include="Services\SessionInfoRecomendations\SessionInfoRecomedation7.cs" />
     <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance11Validator.cs" />
     <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance12Validator.cs" />
     <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance13Validator.cs" />
