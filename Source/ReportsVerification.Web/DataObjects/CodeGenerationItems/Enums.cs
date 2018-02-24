@@ -52,46 +52,35 @@ namespace ReportsVerification.Web.DataObjects.Enums
     /// </summary>
 	public enum UserModes
 	{
-		/// <summary>
-		/// Патент
-		/// </summary>
-		Patent,
+        /// <summary>
+        /// ЕНВД
+        /// </summary>
+        ENVD,
 
-		/// <summary>
-		/// ОСНО
-		/// </summary>
-		Osno,
+        /// <summary>
+        /// УСН
+        /// </summary>
+        USN,
 
-		/// <summary>
-		/// УСН + ЕНВД
-		/// </summary>
-		UsnWitnEnvd,
+        /// <summary>
+        /// ОСНО
+        /// </summary>
+        OSNO,
 
-		/// <summary>
-		/// ЕСХН + ЕНВД
-		/// </summary>
-		EshnWithEnvd,
+        /// <summary>
+        /// ЕСХН
+        /// </summary>
+        ESHN,
 
-		/// <summary>
-		/// ОСНО + ЕНВД
-		/// </summary>
-		OsnoWithEnvd,
+        /// <summary>
+        /// ОСНО + ЕНВД
+        /// </summary>
+        OSNOvsENVD,
 
-		/// <summary>
-		/// ЕНВД
-		/// </summary>
-		Envd,
-
-		/// <summary>
-		/// УСН
-		/// </summary>
-		Usn,
-
-		/// <summary>
-		/// ЕСХН
-		/// </summary>
-		Eshn,
-
-	}
+        /// <summary>
+        /// УСН + ЕНВД
+        /// </summary>
+        USNvsENVD
+    }
 }
  

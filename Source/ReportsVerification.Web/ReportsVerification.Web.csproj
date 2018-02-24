@@ -209,15 +209,9 @@
     <Compile Include="Services\ReportsRecomendations\ReportsRecomendations.cs" />
     <Compile Include="Services\ReportsRecomendations\ReportsRecomendationTypes.cs" />
     <Compile Include="Services\ReportsRecomendations\SzvmReomendation.cs" />
-    <Compile Include="Services\SessionInfoRecomendations\CalculationContributionsSessionInfoRecomendation.cs" />
-    <Compile Include="Services\SessionInfoRecomendations\DeclarationOnIncomeTaxSessionInfoRecomendations.cs" />
-    <Compile Include="Services\SessionInfoRecomendations\EndvSessionInfoRecomendations.cs" />
-    <Compile Include="Services\SessionInfoRecomendations\Fss4SessionInfoRecomendation.cs" />
-    <Compile Include="Services\SessionInfoRecomendations\Ndfl6SessionInfoRecomendation.cs" />
-    <Compile Include="Services\SessionInfoRecomendations\SzvmSessionInfoRecomendation.cs" />
-    <Compile Include="Services\SessionInfoRecomendations\ForNdsSessionInfoRecomendations.cs" />
     <Compile Include="Services\SessionInfoRecomendationsService.cs" />
     <Compile Include="Services\ReportsService.cs" />
+    <Compile Include="Services\SessionInfoRecomendations\SessionInfoRecomedation1.cs" />
     <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance11Validator.cs" />
     <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance12Validator.cs" />
     <Compile Include="Services\Validation\AccountingStatementSimplifiedTaxation\CurencyBalance13Validator.cs" />
