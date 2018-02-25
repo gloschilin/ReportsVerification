@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.Xsd.AccountingStatement;
 using ReportsVerification.Web.Extentions;
@@ -61,7 +62,13 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
             IReadOnlyCollection<Report> reports,
             SessionInfo sessionInfo)
         {
-            throw new NotImplementedException();
+            return xsdReport.Документ.ПрибУб.ЧистПрибУб.СумОтч.ToDecimal()
+                   == xsdReport.Документ.ОтчетИзмКап.ДвиженКап
+                       .ОтчетГод.УвеличКапитал.ЧистПриб.НераспПриб.ToDecimal()
+                   ||
+                   xsdReport.Документ.ПрибУб.ЧистПрибУб.СумОтч.ToDecimal()
+                   == xsdReport.Документ.ОтчетИзмКап.ДвиженКап
+                       .ОтчетГод.УменКапитал.Убыток.НераспПриб.ToDecimal();
         }
     }
 }

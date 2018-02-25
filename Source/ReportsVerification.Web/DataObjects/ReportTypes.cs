@@ -71,6 +71,11 @@
         SzvM,
 
         /// <summary>
+        /// СЗВ Стаж
+        /// </summary>
+        SzvStazh,
+
+        /// <summary>
         /// Транспортная декларация
         /// </summary>
         TransportDeclaration,

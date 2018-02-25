@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.Xsd.AccountingStatement;
+using ReportsVerification.Web.Extentions;
 using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.AccountingStatement
@@ -60,7 +61,16 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
             IReadOnlyCollection<Report> reports,
             SessionInfo sessionInfo)
         {
-            throw new NotImplementedException();
+            var kr = xsdReport.Документ.Баланс.Пассив.Item as ФайлДокументБалансПассивКапРез;
+
+            if (kr == null)
+            {
+                return true;
+            }
+
+            return kr.НераспПриб.СумОтч.ToDecimal()
+                   - kr.НераспПриб.СумПрдщ.ToDecimal()
+                   == xsdReport.Документ.ПрибУб.ЧистПрибУб.СумОтч.ToDecimal();
         }
     }
 }
