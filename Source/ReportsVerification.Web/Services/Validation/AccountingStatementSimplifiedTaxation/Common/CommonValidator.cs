@@ -11,6 +11,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatementSimplif
 {
     public abstract class CommonValidator : CommonConcreteReportValidator
     {
+        public override ReportTypes[] ReportTypesSupport => new[] { ReportTypes.AccountingStatementSimplifiedTaxation };
         protected abstract int Quarter { get; }
 
         protected CommonValidator(IValidationContext context) : base(context)

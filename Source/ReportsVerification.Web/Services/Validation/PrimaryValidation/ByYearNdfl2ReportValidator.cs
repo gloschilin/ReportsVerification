@@ -10,6 +10,8 @@ namespace ReportsVerification.Web.Services.Validation.PrimaryValidation
 {
     public class ByYearNdfl2ReportValidator : CommonConcretePrimaryReportValidator
     {
+
+        public override ReportTypes[] ReportTypesSupport => new ReportTypes[0];
         public ByYearNdfl2ReportValidator(IValidationContext context) : base(context)
         {
         }

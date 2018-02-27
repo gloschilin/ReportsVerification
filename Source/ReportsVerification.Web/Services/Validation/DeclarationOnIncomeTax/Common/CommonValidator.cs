@@ -10,6 +10,11 @@ namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Com
 {
     public abstract class CommonValidator : CommonConcreteReportValidator
     {
+        public override ReportTypes[] ReportTypesSupport => new[]
+        {
+            ReportTypes.DeclarationOnIncomeTax
+        };
+
         protected abstract int Quarter { get; }
 
         protected CommonValidator(IValidationContext context) : base(context)

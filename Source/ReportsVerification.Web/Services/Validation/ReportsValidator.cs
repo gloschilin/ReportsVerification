@@ -43,6 +43,22 @@ namespace ReportsVerification.Web.Services.Validation
                 return;
             }
 
+            var servicesLen = 0;
+            foreach (var validator in _services)
+            {
+                if (validator.ReportTypesSupport.Any() 
+                    && validator.ReportTypesSupport.All(e => reports.Any(r => r.ReportType == e)))
+                {
+                    servicesLen++;
+                }
+            }
+
+            if (servicesLen == 0)
+            {
+                _validationContext.Wrong(sessionInfo.Id, ValidationStepType.EmptyServicesValidator);
+                return;
+            }
+
             foreach (var service in _services)
             {
                 service.Validate(reports, sessionInfo);

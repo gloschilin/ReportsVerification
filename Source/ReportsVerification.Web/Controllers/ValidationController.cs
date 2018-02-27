@@ -57,9 +57,17 @@ namespace ReportsVerification.Web.Controllers
 
             _reportsValidator.Validate(reports, session, type);
             var validationResult = _validationContext.GetWrongMessages(sessionId);
-            var messages = _messagesRepository.GetMessages()
-                .Where(e => validationResult.Contains(e.Message))
-                .Select(e => new { Message = e.Message, Quarter = e.Quarter });
+            var allMessages = _messagesRepository.GetMessages();
+            //var messages = _messagesRepository.GetMessages()
+            //    .Where(e => validationResult.Contains(e.Message))
+            //    .Select(e => new { Message = e.Message, Quarter = e.Quarter });
+
+            var messages = validationResult.Select(e=> new
+            {
+                Message = e.ToString(),
+                Quarter = allMessages.FirstOrDefault(m=>m.Message == e)?.Quarter
+            });
+
             return Ok(messages);
         }
     }

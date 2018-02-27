@@ -12,6 +12,11 @@ namespace ReportsVerification.Web.Services.Validation.Nds.Common
 {
     public abstract class CommonNdsVosmechenieValidator : CommonConcreteReportValidator
     {
+        public override ReportTypes[] ReportTypesSupport => new[]
+        {
+            ReportTypes.Nds
+        };
+
         protected abstract int Quarter { get; }
 
         protected CommonNdsVosmechenieValidator(IValidationContext context) : base(context)

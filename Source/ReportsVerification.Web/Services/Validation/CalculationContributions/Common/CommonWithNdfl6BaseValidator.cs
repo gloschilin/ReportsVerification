@@ -11,6 +11,12 @@ namespace ReportsVerification.Web.Services.Validation.CalculationContributions.C
     public abstract class CommonWithNdfl6BaseValidator
         : CommonValidator
     {
+        public override ReportTypes[] ReportTypesSupport => new[]
+        {
+            ReportTypes.CalculationContributions,
+            ReportTypes.Ndfl6
+        };
+
         protected CommonWithNdfl6BaseValidator(IValidationContext context) : base(context)
         {
 

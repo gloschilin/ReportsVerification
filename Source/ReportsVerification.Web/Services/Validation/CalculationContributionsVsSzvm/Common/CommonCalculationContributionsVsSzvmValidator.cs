@@ -11,6 +11,12 @@ namespace ReportsVerification.Web.Services.Validation.CalculationContributionsVs
 {
     public abstract class CommonCalculationContributionsVsSzvmValidator : CommonConcreteReportValidator
     {
+        public override ReportTypes[] ReportTypesSupport => new[]
+        {
+            ReportTypes.CalculationContributions,
+            ReportTypes.SzvM
+        };
+
         protected abstract int CalculationContributionsQuarter { get; }
         protected abstract int SzvmMonth { get; }
 

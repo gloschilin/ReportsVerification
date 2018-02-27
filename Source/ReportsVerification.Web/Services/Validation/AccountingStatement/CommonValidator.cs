@@ -13,6 +13,8 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
     {
         protected abstract int Quarter { get; }
 
+        public override ReportTypes[] ReportTypesSupport => new[] {ReportTypes.AccountingStatement};
+
         protected CommonValidator(IValidationContext context) : base(context)
         {
         }
@@ -24,7 +26,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
                 var reportInfo = e.GetReportInfo() as ReportInfoRevistion<DateOfQuarter>;
                 return reportInfo != null
                        && reportInfo.ReportPeriod.Quarter == Quarter
-                       && reportInfo.Type == ReportTypes.AccountingStatementSimplifiedTaxation;
+                       && reportInfo.Type == ReportTypes.AccountingStatement;
             });
             if (report == null)
             {

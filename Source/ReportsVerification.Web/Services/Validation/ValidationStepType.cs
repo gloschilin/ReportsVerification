@@ -669,6 +669,11 @@
         /// <summary>
         /// Количество физлиц, получивших доход
         /// </summary>
-        Ndfl6Vs2PersonsAmountValidator
+        Ndfl6Vs2PersonsAmountValidator,
+
+        /// <summary>
+        /// Для загруженных отчетов нет не одного валидатора
+        /// </summary>
+        EmptyServicesValidator
     }
 }

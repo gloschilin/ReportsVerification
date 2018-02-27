@@ -14,6 +14,11 @@ namespace ReportsVerification.Web.Services.Validation.Nds.Common
 {
     public abstract class CommonNdsDeductionValidator: CommonConcreteReportValidator
     {
+        public override ReportTypes[] ReportTypesSupport => new[]
+        {
+            ReportTypes.Nds
+        };
+
         private readonly ICatalogRepository _catalogRepository;
         protected abstract int Quarter { get; }
 

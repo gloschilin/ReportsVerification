@@ -13,6 +13,8 @@ namespace ReportsVerification.Web.Services.Validation.CalculationContributions.C
     {
         protected abstract int Quarter { get; }
 
+        public override ReportTypes[] ReportTypesSupport => new[] { ReportTypes.CalculationContributions };
+
         protected CommonValidator(IValidationContext context) : base(context)
         {
         }

@@ -44,5 +44,6 @@ namespace ReportsVerification.Web.Services.Validation.Common
         }
 
         protected abstract bool IsValid(IReadOnlyCollection<Report> reports, SessionInfo sessionInfo);
+        public abstract ReportTypes[] ReportTypesSupport { get; }
     }
 }

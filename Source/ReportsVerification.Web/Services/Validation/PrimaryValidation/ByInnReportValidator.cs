@@ -9,6 +9,8 @@ namespace ReportsVerification.Web.Services.Validation.PrimaryValidation
 {
     public class ByInnReportValidator: CommonConcretePrimaryReportValidator
     {
+        public override ReportTypes[] ReportTypesSupport => new ReportTypes[0];
+
         private readonly ReportHasInnSpecification _reportHasInnSpecification;
 
         public ByInnReportValidator(IValidationContext context, 

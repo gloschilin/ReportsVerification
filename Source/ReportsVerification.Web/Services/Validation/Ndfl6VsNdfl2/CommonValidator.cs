@@ -13,6 +13,11 @@ namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
 {
     public abstract class CommonValidator : CommonConcreteReportValidator
     {
+        public override ReportTypes[] ReportTypesSupport => new[]
+        {
+            ReportTypes.Ndfl6, ReportTypes.Ndfl2
+        };
+
         protected CommonValidator(IValidationContext context) 
             : base(context)
         {

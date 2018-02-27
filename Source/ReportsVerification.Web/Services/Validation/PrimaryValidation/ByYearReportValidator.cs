@@ -10,6 +10,7 @@ namespace ReportsVerification.Web.Services.Validation.PrimaryValidation
 {
     public class ByYearReportValidator: CommonConcretePrimaryReportValidator
     {
+        public override ReportTypes[] ReportTypesSupport => new ReportTypes[0];
         private readonly ReportHasDateSpecidication _reportHasDateSpecidication;
 
         public ByYearReportValidator(IValidationContext context,
