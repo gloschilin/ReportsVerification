@@ -14,7 +14,7 @@ namespace ReportsVerification.Web.Services.Validation.CalculationContributions.S
         protected override ValidationStepType Type
             => ValidationStepType.CalculationContributionsSecondErrors33Validator;
         protected override int Quarter => 3;
-        protected override int Month => 3;
+        protected override int Month => 9;
         protected override decimal GetSum(СвСум1Тип value)
         {
             return value.Сум3Посл3М;
