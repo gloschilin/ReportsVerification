@@ -29,7 +29,7 @@ namespace ReportsVerification.Web.Services.Validation.Nds.Common
             var ndsReportByQuarter = reports.FirstOrDefault(e =>
             {
                 var info = e.GetReportInfo() as ReportInfoRevistion<DateOfQuarter>;
-                return info != null && info.ReportPeriod.Quarter == Quarter;
+                return info != null && info.ReportPeriod.Quarter == Quarter && info.Type == ReportTypes.Nds;
             });
 
             if (ndsReportByQuarter == null)

@@ -3,6 +3,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.CalculationContributions.WithNdfl6Base
 {
+    [ValidatorQuarter(4)]
     public class WithNdfl6Base4Validator
         : CommonWithNdfl6BaseValidator
     {

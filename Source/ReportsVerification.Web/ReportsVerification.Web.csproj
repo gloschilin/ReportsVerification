@@ -185,15 +185,10 @@
     <Compile Include="Factories\Reports\SalesBookNdsFactory.cs" />
     <Compile Include="Installers\RecomendationsInstaller.cs" />
     <Compile Include="Installers\ServicesInstaller.cs" />
-    <Compile Include="Repositories\EF\MessageToQuarter.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Repositories\EF\WrongReport.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\Interfaces\IMessagesRepository.cs" />
     <Compile Include="Repositories\Interfaces\MessageInfo.cs" />
-    <Compile Include="Repositories\Interfaces\MessagesRepository.cs" />
     <Compile Include="Services\ReportsRecomendations\AccountingReportingRecomendation.cs" />
     <Compile Include="Services\ReportsRecomendations\CalculationAdvancePaymentRecomendation.cs" />
     <Compile Include="Services\ReportsRecomendations\CalculationContributionsRecomendation.cs" />
@@ -210,6 +205,7 @@
     <Compile Include="Services\ReportsRecomendations\ReportsRecomendations.cs" />
     <Compile Include="Services\ReportsRecomendations\ReportsRecomendationTypes.cs" />
     <Compile Include="Services\ReportsRecomendations\SzvmReomendation.cs" />
+    <Compile Include="Services\ReportsRecomendations\TransportDeclarationRecomendation.cs" />
     <Compile Include="Services\SessionInfoRecomendationsService.cs" />
     <Compile Include="Services\ReportsService.cs" />
     <Compile Include="Services\SessionInfoRecomendations\CommonSessionInfoRecomedation.cs" />
@@ -367,6 +363,7 @@
     <Compile Include="Services\Validation\Nds\Nds2VosmechenieValidator.cs" />
     <Compile Include="Services\Validation\Nds\Nds3DeductionValidator.cs" />
     <Compile Include="Services\Validation\Nds\Nds3VosmechenieValidator.cs" />
+    <Compile Include="Services\Validation\ValidatorQuarterAttribute.cs" />
     <Compile Include="Services\Validation\ReportsValidator.cs" />
     <Compile Include="Services\RevisionFilerService.cs" />
     <Compile Include="Services\Validation\ValidationStepType.cs" />

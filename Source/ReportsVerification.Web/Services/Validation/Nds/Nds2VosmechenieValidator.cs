@@ -6,6 +6,7 @@ namespace ReportsVerification.Web.Services.Validation.Nds
     /// <summary>
     /// В декларации по НДС за 2 квартал заявлено возмещение. Готовьтесь к камеральной проверке.
     /// </summary>
+    [ValidatorQuarter(2)]
     public class Nds2VosmechenieValidator : CommonNdsVosmechenieValidator
     {
         public Nds2VosmechenieValidator(IValidationContext context) : base(context)

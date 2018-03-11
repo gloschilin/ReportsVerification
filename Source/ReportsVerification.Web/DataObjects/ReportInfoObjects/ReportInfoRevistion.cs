@@ -5,14 +5,14 @@ using ReportsVerification.Web.DataObjects.Dates;
 namespace ReportsVerification.Web.DataObjects.ReportInfoObjects
 {
     public class ReportInfoRevistion<TReportDate> : ReportInfo
-        where TReportDate: IDateType
+        where TReportDate: class, IDateType
     {
         /// <summary>
         /// Номер корректировки
         /// </summary>
         public int RevisionNumber { get; }
 
-        public TReportDate ReportPeriod { get; }
+        public TReportDate ReportPeriod { get; set; }
 
         public ReportInfoRevistion(ReportTypes type, TReportDate reportPeriod, string companyName, string inn, 
             int revisionNumber) 
@@ -32,9 +32,9 @@ namespace ReportsVerification.Web.DataObjects.ReportInfoObjects
             }
         }
 
-        public override DateTime GetStartReportPeriod()
+        public override DateTime? GetStartReportPeriod()
         {
-            return ReportPeriod.GetStartPeriodDate();
+            return ReportPeriod?.GetStartPeriodDate();
         }
     }
 }

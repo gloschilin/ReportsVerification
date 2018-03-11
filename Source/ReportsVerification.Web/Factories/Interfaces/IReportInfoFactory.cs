@@ -13,7 +13,7 @@ namespace ReportsVerification.Web.Factories.Interfaces
             string companyName, string inn, int revisionNumber, int mark);
 
         ReportInfo CreateReportInfoRevision<TReportDate>(ReportTypes type, TReportDate reportPeriod,
-            string companyName, string inn, int revisionNumber) where TReportDate : IDateType;
+            string companyName, string inn, int revisionNumber) where TReportDate : class, IDateType;
 
         ReportInfo CreateSzvMReportInfo(SzvMReportInfoType szvMType, DateOfMonth reportMoth, string companyName, 
             string inn);

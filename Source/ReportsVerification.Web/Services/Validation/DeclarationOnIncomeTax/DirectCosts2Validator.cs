@@ -6,6 +6,7 @@ namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax
     /// <summary>
     /// Соотношение прямых расходов и выручки от реализации 2 квартал
     /// </summary>
+    [ValidatorQuarter(2)]
     public class DirectCosts2Validator : CommonDirectCostsValidator
     {
         public DirectCosts2Validator(IValidationContext context) : base(context)

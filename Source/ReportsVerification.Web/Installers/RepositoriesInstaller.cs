@@ -11,7 +11,6 @@ namespace ReportsVerification.Web.Installers
             Container.RegisterType<ICatalogRepository, CatalogsRepository>();
             Container.RegisterType<ISessionRepository, SessionRepository>();
             Container.RegisterType<IReportRepository, ReportsRepository>();
-            Container.RegisterType<IMessagesRepository, MessagesRepository>();
         }
     }
 }

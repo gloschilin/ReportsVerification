@@ -3,6 +3,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax
 {
+    [ValidatorQuarter(4)]
     public class RevenuesNds4Validator : CommonRevenuesNdsValidator
     {
         public RevenuesNds4Validator(IValidationContext context) : base(context)

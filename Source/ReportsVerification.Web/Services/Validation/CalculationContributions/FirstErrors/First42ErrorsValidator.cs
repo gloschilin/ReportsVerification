@@ -4,6 +4,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.CalculationContributions.FirstErrors
 {
+    [ValidatorQuarter(4)]
     public class First42ErrorsValidator
         : CommonFirstErrorsValidator
     {

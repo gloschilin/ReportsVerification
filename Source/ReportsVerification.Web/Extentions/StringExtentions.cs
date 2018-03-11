@@ -7,6 +7,11 @@ namespace ReportsVerification.Web.Extentions
     {
         public static decimal ToDecimal(this string value)
         {
+            if (string.IsNullOrEmpty(value))
+            {
+                return 0;
+            }
+
             try
             {
                 return decimal.Parse(value);
@@ -20,6 +25,11 @@ namespace ReportsVerification.Web.Extentions
 
         public static int ToInt(this string value)
         {
+            if (string.IsNullOrEmpty(value))
+            {
+                return 0;
+            }
+
             try
             {
                 return int.Parse(value);

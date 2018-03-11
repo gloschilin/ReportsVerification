@@ -14,7 +14,7 @@ namespace ReportsVerification.Web.Factories.ReportInfoObjects
         }
 
         public ReportInfo CreateReportInfoRevision<TReportDate>(ReportTypes type, TReportDate reportPeriod, 
-            string companyName, string inn, int revisionNumber) where TReportDate : IDateType
+            string companyName, string inn, int revisionNumber) where TReportDate : class, IDateType
         {
             return new ReportInfoRevistion<TReportDate>(type, reportPeriod, companyName, inn, revisionNumber);
         }

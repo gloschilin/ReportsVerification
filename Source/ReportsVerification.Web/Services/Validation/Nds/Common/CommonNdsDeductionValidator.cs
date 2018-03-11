@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.DataObjects.Catalogs;
@@ -38,7 +39,7 @@ namespace ReportsVerification.Web.Services.Validation.Nds.Common
             var ndsReportByQuarter = reports.FirstOrDefault(e =>
             {
                 var info = e.GetReportInfo() as ReportInfoRevistion<DateOfQuarter>;
-                return info != null && info.ReportPeriod.Quarter == Quarter;
+                return info != null && info.ReportPeriod.Quarter == Quarter && info.Type == ReportTypes.Nds;
             });
 
             if (ndsReportByQuarter == null)
@@ -54,12 +55,14 @@ namespace ReportsVerification.Web.Services.Validation.Nds.Common
             }
 
             var deduction = _catalogRepository.GetDeduction(
-                ndsReportByQuarter.GetReportInfo().GetStartReportPeriod(),
+                ndsReportByQuarter.GetReportInfo().GetStartReportPeriod() ?? DateTime.MaxValue,
                 sessionInfo.RegionId.Value);
 
+            var deductionValue = GetDeduction(deduction);
+
             var correct = xsd.Документ.НДС.СумУпл164.СумНалВыч.НалВычОбщ.ToDecimal()
-                          / xsd.Документ.НДС.СумУпл164.СумНалОб.СумНалВосст.СумНалВс.ToDecimal() * 100m
-                          >= GetDeduction(deduction);
+                          / xsd.Документ.НДС.СумУпл164.СумНалОб.НалВосстОбщ.ToDecimal() * 100m
+                          <= deductionValue;
 
             return correct;
         }

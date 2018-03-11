@@ -6,7 +6,7 @@ namespace ReportsVerification.Web.DataObjects.Dates
     /// <summary>
     ///     Формат даты в виде Месяц Год
     /// </summary>
-    public struct DateOfMonth
+    public class DateOfMonth
         : IComparable<DateOfMonth>, IDateType
     {
         /// <summary>
@@ -20,13 +20,17 @@ namespace ReportsVerification.Web.DataObjects.Dates
         public int Month { get; }
 
         public DateOfMonth(int year, int month)
-            : this()
         {
             Year = year;
             Month = month;
         }
 
-        public DateOfMonth(DateTime date) : this()
+        public DateOfMonth()
+        {
+            
+        }
+
+        public DateOfMonth(DateTime date) 
         {
             Year = (short)date.Year;
             Month = (byte)date.Month;
@@ -45,7 +49,7 @@ namespace ReportsVerification.Web.DataObjects.Dates
 
         public static bool operator ==(DateOfMonth date1, DateOfMonth date2)
         {
-            return date1.Year == date2.Year && date1.Month == date2.Month;
+            return date1?.Year == date2?.Year && date1?.Month == date2?.Month;
         }
 
         public static bool operator !=(DateOfMonth date1, DateOfMonth date2)

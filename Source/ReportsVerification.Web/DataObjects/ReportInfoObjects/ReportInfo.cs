@@ -30,7 +30,7 @@ namespace ReportsVerification.Web.DataObjects.ReportInfoObjects
 
         public abstract string GetUniq();
 
-        public abstract DateTime GetStartReportPeriod();
+        public abstract DateTime? GetStartReportPeriod();
 
         protected static string GetHash(HashAlgorithm md5Hash, string input)
         {

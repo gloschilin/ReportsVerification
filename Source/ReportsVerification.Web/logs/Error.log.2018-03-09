@@ -1,0 +1,464 @@
+﻿2018-03-09 14:38:02,159  ERROR Application Error:
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network path was not found
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ReportsVerification.Web.Repositories.ReportsRepository.GetList(Guid sessionId) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Repositories\ReportsRepository.cs:line 76
+   at ReportsVerification.Web.Controllers.ValidationController.ValidateReports(Guid sessionId, ValidationType type) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Controllers\ValidationController.cs:line 50
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()
+2018-03-09 14:38:20,507  ERROR Ошибка при валидации Nds4DeductionValidator, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.InvalidCastException: Unable to cast object of type 'ReportsVerification.Web.DataObjects.Xsd.AccountingStatement.Файл' to type 'ReportsVerification.Web.DataObjects.Xsd.Nds.Файл'.
+   at ReportsVerification.Web.Services.Validation.Nds.Common.CommonNdsDeductionValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Nds\Common\CommonNdsDeductionValidator.cs:line 49
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:38:28,943  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:38:28,983  ERROR Ошибка при валидации AccountingStatement13Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement13Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement13Validtor.cs:line 77
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:38:29,029  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:38:29,075  ERROR Ошибка при валидации AccountingStatement14Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement14Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement14Validtor.cs:line 74
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:38:29,122  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:38:29,157  ERROR Ошибка при валидации AccountingStatement15Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement15Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement15Validtor.cs:line 77
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:38:29,197  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:38:29,233  ERROR Ошибка при валидации AccountingStatement16Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement16Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement16Validtor.cs:line 74
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:38:29,273  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:38:29,311  ERROR Ошибка при валидации AccountingStatement17Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement17Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement17Validtor.cs:line 77
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:38:29,352  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:38:29,389  ERROR Ошибка при валидации AccountingStatement18Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement18Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement18Validtor.cs:line 74
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:38:29,436  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:38:29,475  ERROR Ошибка при валидации AccountingStatement26Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement26Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement26Validtor.cs:line 73
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:38:29,521  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:38:29,560  ERROR Ошибка при валидации AccountingStatement30Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement30Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement30Validtor.cs:line 69
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:38:29,604  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:38:29,646  ERROR Ошибка при валидации AccountingStatement31Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement31Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement31Validtor.cs:line 71
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:39:16,363  ERROR Ошибка при валидации Nds4DeductionValidator, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.InvalidCastException: Unable to cast object of type 'ReportsVerification.Web.DataObjects.Xsd.AccountingStatement.Файл' to type 'ReportsVerification.Web.DataObjects.Xsd.Nds.Файл'.
+   at ReportsVerification.Web.Services.Validation.Nds.Common.CommonNdsDeductionValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Nds\Common\CommonNdsDeductionValidator.cs:line 49
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:39:16,488  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:39:16,526  ERROR Ошибка при валидации AccountingStatement13Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement13Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement13Validtor.cs:line 77
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:39:16,570  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:39:16,606  ERROR Ошибка при валидации AccountingStatement14Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement14Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement14Validtor.cs:line 74
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:39:16,645  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:39:16,680  ERROR Ошибка при валидации AccountingStatement15Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement15Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement15Validtor.cs:line 77
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:39:16,719  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:39:16,756  ERROR Ошибка при валидации AccountingStatement16Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement16Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement16Validtor.cs:line 74
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:39:16,797  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:39:16,833  ERROR Ошибка при валидации AccountingStatement17Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement17Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement17Validtor.cs:line 77
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:39:16,873  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:39:16,908  ERROR Ошибка при валидации AccountingStatement18Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement18Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement18Validtor.cs:line 74
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:39:16,953  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:39:16,992  ERROR Ошибка при валидации AccountingStatement26Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement26Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement26Validtor.cs:line 73
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:39:17,034  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:39:17,069  ERROR Ошибка при валидации AccountingStatement30Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement30Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement30Validtor.cs:line 69
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 14:39:17,110  ERROR Неудалось преобразовать значение  в тип decimal
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 12
+2018-03-09 14:39:17,145  ERROR Ошибка при валидации AccountingStatement31Q4Validtor, userId = 923897, sessionId=1c41f816-da77-4844-bf55-e0b19a89cee9
+System.ArgumentNullException: Value cannot be null.
+Parameter name: String
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Decimal.Parse(String s)
+   at ReportsVerification.Web.Extentions.StringExtentions.ToDecimal(String value) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Extentions\StringExtentions.cs:line 17
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.AccountingStatement31Validtor.IsValid(Файл xsdReport, IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\AccountingStatement31Validtor.cs:line 71
+   at ReportsVerification.Web.Services.Validation.AccountingStatement.CommonValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\AccountingStatement\CommonValidator.cs:line 37
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26
+2018-03-09 22:27:32,987  ERROR Application Error:
+System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception: The network path was not found
+   --- End of inner exception stack trace ---
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.<Open>b__36(DbConnection t, DbConnectionInterceptionContext c)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<Open>b__2()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   at System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ReportsVerification.Web.Repositories.ReportsRepository.GetList(Guid sessionId) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Repositories\ReportsRepository.cs:line 76
+   at ReportsVerification.Web.Controllers.ValidationController.ValidateReports(Guid sessionId, ValidationType type) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Controllers\ValidationController.cs:line 47
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()
+2018-03-09 22:27:51,985  ERROR Ошибка при валидации Nds4DeductionValidator, userId = 923897, sessionId=112e06f3-822e-4dbd-aec8-e8cefe21cf24
+System.InvalidCastException: Unable to cast object of type 'ReportsVerification.Web.DataObjects.Xsd.AccountingStatement.Файл' to type 'ReportsVerification.Web.DataObjects.Xsd.Nds.Файл'.
+   at ReportsVerification.Web.Services.Validation.Nds.Common.CommonNdsDeductionValidator.IsValid(IReadOnlyCollection`1 reports, SessionInfo sessionInfo) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Nds\Common\CommonNdsDeductionValidator.cs:line 49
+   at ReportsVerification.Web.Services.Validation.Common.CommonConcreteReportValidator.Validate(IReadOnlyCollection`1 reports, SessionInfo sessionInfo, ValidationType validationType) in C:\Projects\ReportsVerification\Source\ReportsVerification.Web\Services\Validation\Common\CommonConcreteReportValidator.cs:line 26

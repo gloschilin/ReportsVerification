@@ -28,7 +28,7 @@ namespace ReportsVerification.Web.Services.Validation.Ndfl6.Common
             }
 
             return report.Документ.НДФЛ6.ОбобщПоказ.СумСтавка.First().НачислДох
-                   /report.Документ.НДФЛ6.ОбобщПоказ.КолФЛДоход.ToDecimal() > GetMrot(sessionInfo);
+                   /report.Документ.НДФЛ6.ОбобщПоказ.КолФЛДоход.ToDecimal() / (Quarter * 3) > GetMrot(sessionInfo) ;
         }
 
         private decimal GetMrot(SessionInfo sessionInfo)

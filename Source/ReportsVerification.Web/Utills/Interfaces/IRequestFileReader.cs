@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace ReportsVerification.Web.Utills.Interfaces
 {
@@ -14,7 +15,7 @@ namespace ReportsVerification.Web.Utills.Interfaces
         /// <param name="request"></param>
         /// <param name="contentHandler"></param>
         /// <returns></returns>
-        bool Read(HttpRequestMessage request, Action<UploadFileInfo> contentHandler);
+        Task<bool> Read(HttpRequestMessage request, Action<UploadFileInfo> contentHandler);
 
         /// <summary>
         /// Метод читает файлы из папки на сервере

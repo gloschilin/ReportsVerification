@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
+using ReportsVerification.Web.DataObjects;
+using ReportsVerification.Web.DataObjects.Dates;
 using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.Filters;
 using ReportsVerification.Web.Models;
 using ReportsVerification.Web.Services.Interfaces;
+using ReportsVerification.Web.Utills;
 using ReportsVerification.Web.Utills.Attributes;
 using ReportsVerification.Web.Utills.Interfaces;
 
@@ -36,9 +41,9 @@ namespace ReportsVerification.Web.Controllers
         /// <param name="sessionId"></param>
         /// <returns></returns>
         [Route("~/api/sessions/{sessionId}/reports"), HttpPost]
-        public HttpResponseMessage Upload(Guid sessionId)
+        public async Task<HttpResponseMessage> Upload(Guid sessionId)
         {
-            var uploadResult = _requestFileReader.Read(Request,
+            var uploadResult = await _requestFileReader.Read(Request,
                 content =>
                 {
                     if (content?.Content == null)
@@ -65,6 +70,12 @@ namespace ReportsVerification.Web.Controllers
                 : new HttpResponseMessage(HttpStatusCode.BadRequest);
         }
 
+        public ReportTypes[] NullReportDates { get; }
+            = {
+                ReportTypes.PurchasesBookNds,
+                ReportTypes.SalesBookNds
+            };
+
         /// <summary>
         /// Получить загруженные отечты пользвателем
         /// </summary>
@@ -74,9 +85,27 @@ namespace ReportsVerification.Web.Controllers
         [Route("~/api/sessions/{sessionId}/reports"), HttpGet]
         public IEnumerable<ReportInfo> GetReports(Guid sessionId, ReportRequestType type)
         {
-            return type == ReportRequestType.Exists
+            var result = (type == ReportRequestType.Exists
                 ? _reportsService.GetReports(sessionId)
-                : _reportsService.GetMissingReports(sessionId);
+                : _reportsService.GetMissingReports(sessionId)).ToList();
+
+            foreach (var info in result.Where(e=> NullReportDates.Contains(e.Type)))
+            {
+                var i1 = info as ReportInfoRevistion<DateOfMonth>;
+                var i2 = info as ReportInfoRevistion<DateOfQuarter>;
+
+                if (i1 != null)
+                {
+                    i1.ReportPeriod = null;
+                }
+
+                if (i2 != null)
+                {
+                    i2.ReportPeriod = null;
+                }
+            }
+
+            return result;
         }
 
 
@@ -92,7 +121,6 @@ namespace ReportsVerification.Web.Controllers
                 _reportsService.Save(sessionId, fileInfo.FileName, fileInfo.Content);
                 return;
             }
-
             _reportsService.SaveWrongReport(sessionId, fileInfo.FileName, fileInfo.Content, fileInfo.ErrorMessage);
         }
     }

@@ -31,7 +31,7 @@ namespace ReportsVerification.Web.DataObjects.ReportInfoObjects
             }
         }
 
-        public override DateTime GetStartReportPeriod()
+        public override DateTime? GetStartReportPeriod()
         {
             return ReportMoth.GetStartPeriodDate();
         }

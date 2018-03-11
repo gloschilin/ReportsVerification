@@ -6,6 +6,7 @@ namespace ReportsVerification.Web.Services.Validation.Nds
     /// <summary>
     /// В декларации по НДС за 3 квартал заявлено возмещение. Готовьтесь к камеральной проверке
     /// </summary>
+    [ValidatorQuarter(4)]
     public class Nds4VosmechenieValidator : CommonNdsVosmechenieValidator
     {
         public Nds4VosmechenieValidator(IValidationContext context) : base(context)
@@ -13,6 +14,6 @@ namespace ReportsVerification.Web.Services.Validation.Nds
         }
 
         protected override ValidationStepType Type => ValidationStepType.Nds4VosmechenieValidator;
-        protected override int Quarter => 3;
+        protected override int Quarter => 4;
     }
 }

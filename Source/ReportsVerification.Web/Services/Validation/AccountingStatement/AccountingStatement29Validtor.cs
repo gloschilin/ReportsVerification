@@ -6,6 +6,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.AccountingStatement
 {
+    [ValidatorQuarter(1)]
     public class AccountingStatement29Q1Validtor
         : AccountingStatement29Validtor
     {
@@ -16,6 +17,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
         protected override int Quarter => 1;
     }
 
+    [ValidatorQuarter(2)]
     public class AccountingStatement29Q2Validtor
         : AccountingStatement29Validtor
     {
@@ -26,6 +28,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
         protected override int Quarter => 2;
     }
 
+    [ValidatorQuarter(3)]
     public class AccountingStatement29Q3Validtor
         : AccountingStatement29Validtor
     {
@@ -36,6 +39,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
         protected override int Quarter => 3;
     }
 
+    [ValidatorQuarter(4)]
     public class AccountingStatement29Q4Validtor
         : AccountingStatement29Validtor
     {
@@ -60,8 +64,8 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
             IReadOnlyCollection<Report> reports,
             SessionInfo sessionInfo)
         {
-            return xsdReport.Документ.Баланс.Актив.ОбА.ДенежнСр.СумПрдщ.ToDecimal()
-                   == xsdReport.Документ.ДвижениеДен.ОстКонОтч.СумОтч.ToDecimal();
+            return xsdReport.Документ.Баланс.Актив.ОбА.ДенежнСр.СумПрдшв.ToDecimal()
+                   == xsdReport.Документ.ДвижениеДен.ОстНачОтч.СумПред.ToDecimal();
         }
     }
 }

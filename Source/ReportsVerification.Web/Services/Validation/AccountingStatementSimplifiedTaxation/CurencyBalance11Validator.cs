@@ -3,6 +3,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.AccountingStatementSimplifiedTaxation
 {
+    [ValidatorQuarter(1)]
     public class CurencyBalance11Validator
         :Common1Validator
     {

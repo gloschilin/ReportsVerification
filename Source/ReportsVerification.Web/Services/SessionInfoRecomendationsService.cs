@@ -18,7 +18,23 @@ namespace ReportsVerification.Web.Services
         {
             var recomedationReports = _conditions.AsParallel()
                 .SelectMany(e => e.GetRecomendatedReports(sessionInfo)).ToArray();
-            return recomedationReports;
+
+            var result = new List<ReportInfo>();
+
+            foreach (var report in recomedationReports)
+            {
+                if (result.All(e => !EqualsInfo(report, e)))
+                {
+                    result.Add(report);
+                }
+            }
+
+            return result;
+        }
+
+        private static bool EqualsInfo(ReportInfo report, ReportInfo reportInfo)
+        {
+            return report.GetUniq() == reportInfo.GetUniq();
         }
     }
 }

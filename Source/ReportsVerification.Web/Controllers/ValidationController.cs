@@ -21,20 +21,17 @@ namespace ReportsVerification.Web.Controllers
         private readonly IReportRepository _reportRepository;
         private readonly ISessionRepository _sessionRepository;
         private readonly IValidationContext _validationContext;
-        private readonly IMessagesRepository _messagesRepository;
 
         public ValidationController(
             IReportsValidator reportsValidator,
             IReportRepository reportRepository,
             ISessionRepository sessionRepository,
-            IValidationContext validationContext,
-            IMessagesRepository messagesRepository)
+            IValidationContext validationContext)
         {
             _reportsValidator = reportsValidator;
             _reportRepository = reportRepository;
             _sessionRepository = sessionRepository;
             _validationContext = validationContext;
-            _messagesRepository = messagesRepository;
         }
 
         /// <summary>
@@ -57,15 +54,11 @@ namespace ReportsVerification.Web.Controllers
 
             _reportsValidator.Validate(reports, session, type);
             var validationResult = _validationContext.GetWrongMessages(sessionId);
-            var allMessages = _messagesRepository.GetMessages();
-            //var messages = _messagesRepository.GetMessages()
-            //    .Where(e => validationResult.Contains(e.Message))
-            //    .Select(e => new { Message = e.Message, Quarter = e.Quarter });
 
             var messages = validationResult.Select(e=> new
             {
-                Message = e.ToString(),
-                Quarter = allMessages.FirstOrDefault(m=>m.Message == e)?.Quarter
+                Message = e.StepType,
+                e.Quarter
             });
 
             return Ok(messages);

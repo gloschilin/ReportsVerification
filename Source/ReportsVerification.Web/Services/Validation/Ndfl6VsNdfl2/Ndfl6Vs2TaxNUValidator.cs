@@ -6,6 +6,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
 {
+    [ValidatorQuarter(4)]
     public class Ndfl6Vs2PersonsAmountValidator : CommonValidator
     {
         public Ndfl6Vs2PersonsAmountValidator(IValidationContext context) : base(context)
@@ -22,6 +23,7 @@ namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
         }
     }
 
+    [ValidatorQuarter(4)]
     public class Ndfl6Vs2TaxNuValidator: CommonValidator
     {
         public Ndfl6Vs2TaxNuValidator(IValidationContext context) : base(context)

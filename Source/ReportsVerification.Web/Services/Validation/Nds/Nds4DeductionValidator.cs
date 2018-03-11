@@ -9,6 +9,7 @@ namespace ReportsVerification.Web.Services.Validation.Nds
     /// В декларации по НДС за 3 квартал доля вычетов превышает 
     /// безопасную (в скобках указываем  значение безопасной доли в %).
     /// </summary>
+    [ValidatorQuarter(4)]
     public class Nds4DeductionValidator : CommonNdsDeductionValidator
     {
 
@@ -21,7 +22,7 @@ namespace ReportsVerification.Web.Services.Validation.Nds
         protected override int Quarter => 4;
         protected override decimal GetDeduction(Deduction deduction)
         {
-            return deduction.ThirdQuaterAmount;
+            return deduction.ForthQuaterAmount;
         }
     }
 }

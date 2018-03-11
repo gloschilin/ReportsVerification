@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\ReportsVertificationPublish</_PublishTargetUrl>
+    <_PublishTargetUrl>c:\ReportsVertificationPublish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/EntityFramework.dll">
@@ -34,16 +34,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/05/2015 09:37:20</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>04/23/2012 16:23:58</publishTime>
+      <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>06/18/2017 13:57:10</publishTime>
     </File>
     <File Include="bin/ReportsVerification.Web.dll">
-      <publishTime>02/27/2018 20:46:37</publishTime>
+      <publishTime>03/12/2018 00:50:50</publishTime>
     </File>
     <File Include="bin/ReportsVerification.Web.pdb">
-      <publishTime>02/27/2018 20:46:37</publishTime>
+      <publishTime>03/12/2018 00:50:50</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>06/18/2015 20:19:46</publishTime>
@@ -115,16 +115,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/29/2015 01:52:30</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>10/27/2017 16:31:37</publishTime>
+      <publishTime>02/22/2018 21:37:29</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>11/20/2017 17:40:43</publishTime>
+      <publishTime>02/23/2018 12:24:37</publishTime>
     </File>
     <File Include="Repositories/EF/DataModel.edmx.diagram">
-      <publishTime>02/21/2018 19:51:05</publishTime>
+      <publishTime>03/11/2018 18:26:57</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/27/2018 20:13:02</publishTime>
+      <publishTime>02/25/2018 21:25:36</publishTime>
     </File>
   </ItemGroup>
 </Project>

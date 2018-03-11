@@ -3,13 +3,14 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using ReportsVerification.Web.Utills.Interfaces;
 
 namespace ReportsVerification.Web.Utills
 {
     public class RequestFileReader : IRequestFileReader
     {
-        public bool Read(HttpRequestMessage request, 
+        public async Task<bool> Read(HttpRequestMessage request, 
             Action<UploadFileInfo> contentHandler)
         {
             var result = true;
@@ -17,9 +18,13 @@ namespace ReportsVerification.Web.Utills
             {
                 return false;
             }
-
             var provider = new MultipartMemoryStreamProvider();
-            request.Content.ReadAsMultipartAsync(provider);
+            await request.Content.ReadAsMultipartAsync(provider);
+            if (provider.Contents.Count == 0)
+            {
+                throw new ApplicationException("Отсутствуют файлы");
+            }
+
             foreach (var contentInfo in provider.Contents)
             {
                 if (contentInfo == null)

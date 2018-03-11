@@ -3,6 +3,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax
 {
+    [ValidatorQuarter(1)]
     public class Loss1Validator : CommonLossValidator
     {
         public Loss1Validator(IValidationContext context) : base(context)

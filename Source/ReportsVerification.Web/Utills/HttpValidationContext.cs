@@ -9,13 +9,14 @@ namespace ReportsVerification.Web.Utills
 {
     public class HttpValidationContext : IValidationContext
     {
-        private class ValidationResult
+        public class ValidationResult
         {
             public ValidationResultType ResultType { get; set; }
             public ValidationStepType StepType { get; set; }
+            public int Quarter { get; set; }
         }
 
-        private enum ValidationResultType
+        public enum ValidationResultType
         {
             Success,
             Error
@@ -24,16 +25,22 @@ namespace ReportsVerification.Web.Utills
         private static readonly ConcurrentDictionary<Guid, List<ValidationResult>> ValidationResultContent
             = new ConcurrentDictionary<Guid, List<ValidationResult>>();
 
-        public void Wrong(Guid sessionId, ValidationStepType type)
+        public void Wrong(Guid sessionId, ValidationStepType type, int quarter)
         {
-            var result = new ValidationResult { ResultType = ValidationResultType.Error, StepType = type };
+            var result = new ValidationResult
+            {
+                ResultType = ValidationResultType.Error,
+                StepType = type,
+                Quarter = quarter
+            };
             Add(sessionId, result);
         }
 
         private static void Add(Guid sessionId, ValidationResult validationResult)
         {
             List<ValidationResult> validationResultCollection;
-            if (!ValidationResultContent.TryGetValue(sessionId, out validationResultCollection))
+            if (!ValidationResultContent.TryGetValue(sessionId, 
+                out validationResultCollection))
             {
                 validationResultCollection = new List<ValidationResult>();
             }
@@ -43,7 +50,11 @@ namespace ReportsVerification.Web.Utills
 
         public void Success(Guid sessionId, ValidationStepType type)
         {
-            var result = new ValidationResult { ResultType = ValidationResultType.Success, StepType = type };
+            var result = new ValidationResult
+            {
+                ResultType = ValidationResultType.Success,
+                StepType = type
+            };
             Add(sessionId, result);
         }
 
@@ -52,15 +63,15 @@ namespace ReportsVerification.Web.Utills
             ValidationResultContent[sessionId] = new List<ValidationResult>();
         }
 
-        public IEnumerable<ValidationStepType> GetWrongMessages(Guid sessionId)
+        public IEnumerable<ValidationResult> GetWrongMessages(Guid sessionId)
         {
             List<ValidationResult> validationResultCollection;
             if (!ValidationResultContent.TryGetValue(sessionId, out validationResultCollection))
             {
-                return new List<ValidationStepType>();
+                return new List<ValidationResult>();
             }
-            var result = validationResultCollection.Where(e => e.ResultType == ValidationResultType.Error)
-                .Select(e => e.StepType).ToList();
+            var result = validationResultCollection
+                .Where(e => e.ResultType == ValidationResultType.Error).ToList();
             return result;
         }
 

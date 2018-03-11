@@ -20,16 +20,30 @@ namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Com
         {
             var file = (Файл)report.XsdReport;
             var ndsForQuarterReports = 0m;
-            if (!Enumerable.Range(1, Quarter).All(quarter =>
+
+            var existsNds = Enumerable.Range(1, Quarter).All(quarter =>
             {
                 decimal amount;
                 var result = TryGetNdsSums(allReports, quarter, out amount);
                 ndsForQuarterReports += amount;
                 return result;
-            }))
+            });
+
+            if (!existsNds)
             {
-                return true;
+                return false;
             }
+
+            //if (!Enumerable.Range(1, Quarter).All(quarter =>
+            //{
+            //    decimal amount;
+            //    var result = TryGetNdsSums(allReports, quarter, out amount);
+            //    ndsForQuarterReports += amount;
+            //    return result;
+            //}))
+            //{
+            //    return true;
+            //}
 
             var fileRevenues = file.Документ.Прибыль.Items.OfType<ФайлДокументПрибыльРасчНал>()
                 .Select(e => e.ДохРеалВнеРеал.ДохРеал.ВырРеалИтог.ToDecimal()).First();
@@ -55,7 +69,8 @@ namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Com
                        + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов10.НалБаза.ToDecimal()
                        + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов118.НалБаза.ToDecimal()
                        + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов110.НалБаза.ToDecimal()
-                       + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалСрок1511_118.НалБаза.ToDecimal();
+                       + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалСрок1511_118.НалБаза.ToDecimal()
+                       + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалСрок1511_110.НалБаза.ToDecimal();
 
             return true;
 

@@ -5,7 +5,7 @@ namespace ReportsVerification.Web.DataObjects.Dates
     /// <summary>
     ///     Формат даты в виде Год, Квартал
     /// </summary>
-    public struct DateOfQuarter: IDateType
+    public class DateOfQuarter: IDateType
     {
         public bool Equals(DateOfQuarter other)
         {
@@ -44,14 +44,18 @@ namespace ReportsVerification.Web.DataObjects.Dates
         /// </summary>
         public int Quarter { get; }
 
-        public DateOfQuarter(int year, int quarter) : this()
+        public DateOfQuarter()
+        {
+            
+        }
+
+        public DateOfQuarter(int year, int quarter)
         {
             Year = year;
             Quarter = quarter;
         }
 
         public DateOfQuarter(DateTime date)
-            : this()
         {
             var year = date.Year;
             var quarter = (date.Month - 1) / 3 + 1;
@@ -108,7 +112,7 @@ namespace ReportsVerification.Web.DataObjects.Dates
 
         public static bool operator ==(DateOfQuarter value1, DateOfQuarter value2)
         {
-            return value1.Year == value2.Year && value1.Quarter == value2.Quarter;
+            return value1?.Year == value2?.Year && value1?.Quarter == value2?.Quarter;
         }
 
         public static bool operator !=(DateOfQuarter value1, DateOfQuarter value2)

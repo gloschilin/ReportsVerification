@@ -8,6 +8,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.PrimaryValidation
 {
+    [ValidatorQuarter(1)]
     public class ByYearNdfl2ReportValidator : CommonConcretePrimaryReportValidator
     {
 

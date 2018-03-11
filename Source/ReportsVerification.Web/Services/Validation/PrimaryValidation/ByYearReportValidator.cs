@@ -8,6 +8,7 @@ using ReportsVerification.Web.Specifications;
 
 namespace ReportsVerification.Web.Services.Validation.PrimaryValidation
 {
+    [ValidatorQuarter(1)]
     public class ByYearReportValidator: CommonConcretePrimaryReportValidator
     {
         public override ReportTypes[] ReportTypesSupport => new ReportTypes[0];
@@ -24,7 +25,7 @@ namespace ReportsVerification.Web.Services.Validation.PrimaryValidation
         {
             return reports.Select(e => e.GetReportInfo())
                 .Where(e => _reportHasDateSpecidication.IsSpecificatedBy(e))
-                .Select(e => e.GetStartReportPeriod()).Select(e => e.Year).Distinct().Count() <= 1;
+                .Select(e => e.GetStartReportPeriod()).Select(e => e?.Year).Distinct().Count() <= 1;
         }
     }
 }

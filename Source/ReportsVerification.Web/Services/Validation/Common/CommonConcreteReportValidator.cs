@@ -39,7 +39,8 @@ namespace ReportsVerification.Web.Services.Validation.Common
             }
             else
             {
-                _context.Wrong(sessionInfo.Id, Type);
+                var qtr = ValidatorQuarterHelper.GetQuarter(this.GetType());
+                _context.Wrong(sessionInfo.Id, Type, qtr);
             }
         }
 

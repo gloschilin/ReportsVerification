@@ -8,6 +8,7 @@ namespace ReportsVerification.Web.Services.Validation.Nds
     /// <summary>
     /// В декларации по НДС за 2 квартал доля вычетов превышает безопасную (нужна ссылка на сайт, где есть таблица с долями).
     /// </summary>
+    [ValidatorQuarter(2)]
     public class Nds2DeductionValidator : CommonNdsDeductionValidator
     {
         public Nds2DeductionValidator(IValidationContext context, ICatalogRepository catalogRepository) 

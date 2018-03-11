@@ -11,6 +11,20 @@ using ReportsVerification.Web.Services.ReportsRecomendations;
 
 namespace ReportsVerification.Web.Services
 {
+    public class ReportInfoComparrer: IEqualityComparer<ReportInfo>
+    {
+        public bool Equals(ReportInfo x, ReportInfo y)
+        {
+            return x?.GetUniq() == y?.GetUniq();
+        }
+
+        public int GetHashCode(ReportInfo obj)
+        {
+            return obj.GetHashCode();
+        }
+
+    }
+
     public class ReportsService : IReportsService
     {
         private readonly IReportRepository _reportRepository;
@@ -38,7 +52,7 @@ namespace ReportsVerification.Web.Services
             var existsReports = GetReports(sessionId);
             var result = _sessionInfoRecomendationsService.GetRecomendatedReports(session).ToList();
             result.RemoveAll(e => existsReports.ContainsReportInfo(e));
-            return result;
+            return result.Distinct(new ReportInfoComparrer());
         }
 
         public IEnumerable<ReportInfo> GetReports(Guid sessionId)

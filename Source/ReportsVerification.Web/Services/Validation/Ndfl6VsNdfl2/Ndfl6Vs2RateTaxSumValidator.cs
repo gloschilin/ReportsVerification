@@ -8,6 +8,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
 {
+    [ValidatorQuarter(4)]
     public class Ndfl6Vs2Rate13TaxSumValidator
         : Ndfl6Vs2RateTaxSumValidator
     {
@@ -19,6 +20,7 @@ namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
         protected override int Rate => 13;
     }
 
+    [ValidatorQuarter(4)]
     public class Ndfl6Vs2Rate9TaxSumValidator
         : Ndfl6Vs2RateTaxSumValidator
     {
@@ -30,6 +32,7 @@ namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
         protected override int Rate => 9;
     }
 
+    [ValidatorQuarter(4)]
     public class Ndfl6Vs2Rate15TaxSumValidator
         : Ndfl6Vs2RateTaxSumValidator
     {
@@ -41,6 +44,7 @@ namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
         protected override int Rate => 15;
     }
 
+    [ValidatorQuarter(4)]
     public class Ndfl6Vs2Rate35TaxSumValidator
         : Ndfl6Vs2RateTaxSumValidator
     {
@@ -52,6 +56,7 @@ namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
         protected override int Rate => 35;
     }
 
+    [ValidatorQuarter(4)]
     public abstract class Ndfl6Vs2RateTaxSumValidator : CommonValidator
     {
         protected abstract int Rate { get; }

@@ -4,6 +4,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.CalculationContributions.SecondErrors
 {
+    [ValidatorQuarter(1)]
     public class SecondErrors13Validator
         : CommonSecondErrorsValidator
     {

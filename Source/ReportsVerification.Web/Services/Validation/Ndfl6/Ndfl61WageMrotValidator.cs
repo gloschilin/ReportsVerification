@@ -4,6 +4,7 @@ using ReportsVerification.Web.Services.Validation.Ndfl6.Common;
 
 namespace ReportsVerification.Web.Services.Validation.Ndfl6
 {
+    [ValidatorQuarter(1)]
     public class Ndfl61WageMrotValidator : NdflWageMrotValidator
     {
         public Ndfl61WageMrotValidator(IValidationContext context, ICatalogRepository catalogRepository)

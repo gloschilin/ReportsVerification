@@ -6,6 +6,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.PrimaryValidation
 {
+    [ValidatorQuarter(1)]
     public class IsUniqueReportValidator: CommonConcretePrimaryReportValidator
     {
         public override ReportTypes[] ReportTypesSupport => new ReportTypes[0];

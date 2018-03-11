@@ -26,6 +26,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
             => ValidationStepType.AccountingStatement4Validtor;
     }
 
+    [ValidatorQuarter(1)]
     public class AccountingStatement4Q1Validtor: AccountingStatement4Validtor
     {
         public AccountingStatement4Q1Validtor(IValidationContext context) : base(context)
@@ -35,6 +36,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
         protected override int Quarter => 1;
     }
 
+    [ValidatorQuarter(2)]
     public class AccountingStatement4Q2Validtor : AccountingStatement4Validtor
     {
         public AccountingStatement4Q2Validtor(IValidationContext context) : base(context)
@@ -44,6 +46,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
         protected override int Quarter => 2;
     }
 
+    [ValidatorQuarter(3)]
     public class AccountingStatement4Q3Validtor : AccountingStatement4Validtor
     {
         public AccountingStatement4Q3Validtor(IValidationContext context) : base(context)
@@ -53,6 +56,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
         protected override int Quarter => 3;
     }
 
+    [ValidatorQuarter(4)]
     public class AccountingStatement4Q4Validtor : AccountingStatement4Validtor
     {
         public AccountingStatement4Q4Validtor(IValidationContext context) : base(context)

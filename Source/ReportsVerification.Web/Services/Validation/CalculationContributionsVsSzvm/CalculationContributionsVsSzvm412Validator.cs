@@ -5,6 +5,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.CalculationContributionsVsSzvm
 {
+    [ValidatorQuarter(4)]
     public class CalculationContributionsVsSzvm412Validator
         : CommonCalculationContributionsVsSzvmValidator
     {

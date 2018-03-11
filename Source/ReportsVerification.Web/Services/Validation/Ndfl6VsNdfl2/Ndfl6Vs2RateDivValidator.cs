@@ -5,6 +5,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
 {
+    [ValidatorQuarter(4)]
     public class Ndfl6Vs2Rate13DivValidator: Ndfl6Vs2RateDivValidator
     {
         public Ndfl6Vs2Rate13DivValidator(IValidationContext context) : base(context)
@@ -15,6 +16,7 @@ namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
         protected override int Rate => 13;
     }
 
+    [ValidatorQuarter(4)]
     public class Ndfl6Vs2Rate15DivValidator : Ndfl6Vs2RateDivValidator
     {
         public Ndfl6Vs2Rate15DivValidator(IValidationContext context) : base(context)
@@ -25,6 +27,7 @@ namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
         protected override int Rate => 15;
     }
 
+    [ValidatorQuarter(4)]
     public abstract class Ndfl6Vs2RateDivValidator : CommonValidator
     {
         protected abstract int Rate { get; }

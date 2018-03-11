@@ -95,6 +95,7 @@ namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
         }
     }
 
+    [ValidatorQuarter(4)]
     public class Ndfl6Vs2Rate13Validator : Ndfl6Vs2RateValidator
     {
         public Ndfl6Vs2Rate13Validator(IValidationContext context) : base(context)
@@ -105,6 +106,7 @@ namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
         protected override ValidationStepType Type => ValidationStepType.Ndfl6Vs2Rate13Validator;
     }
 
+    [ValidatorQuarter(4)]
     public class Ndfl6Vs2Rate9Validator : Ndfl6Vs2RateValidator
     {
         public Ndfl6Vs2Rate9Validator(IValidationContext context) : base(context)
@@ -115,6 +117,7 @@ namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
         protected override ValidationStepType Type => ValidationStepType.Ndfl6Vs2Rate9Validator;
     }
 
+    [ValidatorQuarter(4)]
     public class Ndfl6Vs2Rate15Validator : Ndfl6Vs2RateValidator
     {
         public Ndfl6Vs2Rate15Validator(IValidationContext context) : base(context)
@@ -125,6 +128,7 @@ namespace ReportsVerification.Web.Services.Validation.Ndfl6VsNdfl2
         protected override ValidationStepType Type => ValidationStepType.Ndfl6Vs2Rate15Validator;
     }
 
+    [ValidatorQuarter(4)]
     public class Ndfl6Vs2Rate35Validator : Ndfl6Vs2RateValidator
     {
         public Ndfl6Vs2Rate35Validator(IValidationContext context) : base(context)

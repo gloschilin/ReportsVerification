@@ -16,7 +16,7 @@ namespace ReportsVerification.Web.Services.ReportsRecomendations
 
         public IEnumerable<ReportsRecomendationTypes> GetRecomendations(IEnumerable<ReportInfo> reports)
         {
-            return _recomendations.SelectMany(e => e.GetRecomendations(reports));
+            return _recomendations.SelectMany(e => e.GetRecomendations(reports)).Distinct();
         }
     }
 }

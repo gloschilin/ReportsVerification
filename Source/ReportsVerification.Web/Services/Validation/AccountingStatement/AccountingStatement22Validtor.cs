@@ -6,6 +6,7 @@ using ReportsVerification.Web.Services.Validation.Interfaces;
 
 namespace ReportsVerification.Web.Services.Validation.AccountingStatement
 {
+    [ValidatorQuarter(1)]
     public class AccountingStatement22Q1Validtor
         : AccountingStatement22Validtor
     {
@@ -16,6 +17,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
         protected override int Quarter => 1;
     }
 
+    [ValidatorQuarter(2)]
     public class AccountingStatement22Q2Validtor
         : AccountingStatement22Validtor
     {
@@ -26,6 +28,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
         protected override int Quarter => 2;
     }
 
+    [ValidatorQuarter(3)]
     public class AccountingStatement22Q3Validtor
         : AccountingStatement22Validtor
     {
@@ -36,6 +39,7 @@ namespace ReportsVerification.Web.Services.Validation.AccountingStatement
         protected override int Quarter => 3;
     }
 
+    [ValidatorQuarter(4)]
     public class AccountingStatement22Q4Validtor
         : AccountingStatement22Validtor
     {

@@ -7,6 +7,7 @@ using ReportsVerification.Web.Specifications;
 
 namespace ReportsVerification.Web.Services.Validation.PrimaryValidation
 {
+    [ValidatorQuarter(1)]
     public class ByInnReportValidator: CommonConcretePrimaryReportValidator
     {
         public override ReportTypes[] ReportTypesSupport => new ReportTypes[0];
