@@ -65,7 +65,6 @@ namespace ReportsVerification.Web.Services.Validation.DeclarationOnIncomeTax.Com
             }
 
             sum = ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов18.НалБаза.ToDecimal()
-                       + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов18.НалБаза.ToDecimal()
                        + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов10.НалБаза.ToDecimal()
                        + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов118.НалБаза.ToDecimal()
                        + ndsByQuarter.Документ.НДС.СумУпл164.СумНалОб.РеалТов110.НалБаза.ToDecimal()
