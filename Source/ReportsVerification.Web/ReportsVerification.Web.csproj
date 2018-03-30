@@ -153,6 +153,7 @@
     <Compile Include="Builders\Fss4Builder.cs" />
     <Compile Include="Builders\PurchasesBookNdsInfoBuilder.cs" />
     <Compile Include="Builders\SalesBookNdsInfoBuilder.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CatalogsController.cs" />
     <Compile Include="Controllers\RecomendationsController.cs" />
     <Compile Include="DataObjects\Xsd\СЗВ-СТАЖ_2017-01-01.designer.cs" />

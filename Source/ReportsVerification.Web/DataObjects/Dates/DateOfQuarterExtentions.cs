@@ -24,7 +24,12 @@ namespace ReportsVerification.Web.DataObjects.Dates
                 { 23, 3 },
                 { 33, 3 },
                 { 24, 4 },
-                { 34, 4 }
+                { 34, 4 },
+
+                { 51, 1 },
+                { 52, 2 },
+                { 53, 3 },
+                { 90, 4 }
             };
         }
 
@@ -54,7 +59,7 @@ namespace ReportsVerification.Web.DataObjects.Dates
         public static DateOfQuarter ReadFssDate(this DateOfQuarter date, TitleType titleTypeNode)
         {
             var year = int.Parse(titleTypeNode.YEAR_NUM);
-            var quarter = int.Parse(titleTypeNode.QUART_NUM);
+            var quarter = int.Parse(titleTypeNode.QUART_NUM) / 3;
             return new DateOfQuarter(year, quarter);
         }
     }
