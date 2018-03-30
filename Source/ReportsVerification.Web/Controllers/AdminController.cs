@@ -35,16 +35,16 @@ namespace ReportsVerification.Web.Controllers
 
                     foreach (var report in session.Reports)
                     {
-                        //var fromEncode = Encoding.Default;
-                        //var toEncode = fromEncode;// Encoding.GetEncoding("Windows-1251");
+                        var fromEncode = Encoding.UTF8;
+                        var toEncode = Encoding.GetEncoding("Windows-1251");
 
-                        //var fromBytes = fromEncode.GetBytes(report.Content);
-                        //var toBytes = Encoding.Convert(fromEncode, toEncode, fromBytes);
+                        var fromBytes = fromEncode.GetBytes(report.Content);
+                        var toBytes = Encoding.Convert(fromEncode, toEncode, fromBytes);
 
                         File.AppendAllText(
                             $"c:/userreports/{session.UserId}/{ind}/{report.FileName}",
-                            report.Content
-                            //toEncode.GetString(toBytes), toEncode
+                            //report.Content
+                            toEncode.GetString(toBytes), toEncode
                             );
                     }
 
