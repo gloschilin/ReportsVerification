@@ -3,21 +3,39 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web.Http;
+using ReportsVerification.Web.DataObjects;
 using ReportsVerification.Web.Repositories.EF;
 
 namespace ReportsVerification.Web.Controllers
 {
     public class AdminController : ApiController
     {
+        static byte[] Utf8ToWin1251(string sourceStr)
+        {
+            var utf8 = Encoding.UTF8;
+            var win1251 = Encoding.GetEncoding("windows-1251");
+            var utf8Bytes = utf8.GetBytes(sourceStr);
+            var win1251Bytes = Encoding.Convert(utf8, win1251, utf8Bytes);
+            return win1251Bytes;
+        }
+
         [HttpGet]
         [Route("import")]
         public void Import()
         {
             using (var context = new ReportsVertification())
             {
+                //6119535
+
+                var usersids = context.Reports
+                    .Include(e => e.Session)
+                    .Where(e => e.Alias == ReportTypes.SzvM.ToString())
+                    .Select(e => e.Session.UserId)
+                    .Take(5);
+
                 var sessions = context.Sessions
                     .Include(e=>e.Reports)
-                    .Where(e => e.UserId == 6119535).ToArray();
+                    .Where(e => usersids.Contains(e.UserId)).ToArray();
 
                 var ind = 1;
 
@@ -35,17 +53,19 @@ namespace ReportsVerification.Web.Controllers
 
                     foreach (var report in session.Reports)
                     {
-                        var fromEncode = Encoding.UTF8;
-                        var toEncode = Encoding.GetEncoding("Windows-1251");
+                        var bytes = Utf8ToWin1251(report.Content);
+                        var win = Encoding.GetEncoding("windows-1251");
+                        var content = win.GetString(bytes);
+                        using (var sw = new StreamWriter(
+                            File.Open($"c:/userreports/{session.UserId}/{ind}/{report.FileName}", 
+                                FileMode.CreateNew), win))
+                        {
+                            sw.WriteLine(content);
+                        }
 
-                        var fromBytes = fromEncode.GetBytes(report.Content);
-                        var toBytes = Encoding.Convert(fromEncode, toEncode, fromBytes);
-
-                        File.AppendAllText(
-                            $"c:/userreports/{session.UserId}/{ind}/{report.FileName}",
-                            //report.Content
-                            toEncode.GetString(toBytes), toEncode
-                            );
+                        //File.WriteAllBytes(
+                        //    $"c:/userreports/{session.UserId}/{ind}/{report.FileName}",
+                        //    bytes);
                     }
 
                     ind++;

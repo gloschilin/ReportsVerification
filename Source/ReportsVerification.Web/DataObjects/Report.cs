@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using ReportsVerification.Web.DataObjects.Interfaces;
@@ -6,6 +8,14 @@ using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 
 namespace ReportsVerification.Web.DataObjects
 {
+
+    public class NamespaceIgnorantXmlTextReader : XmlTextReader
+    {
+        public NamespaceIgnorantXmlTextReader(System.IO.TextReader reader) : base(reader) { }
+
+        public override string NamespaceURI => "";
+    }
+
     /// <summary>
     /// Отчет
     /// </summary>
@@ -33,14 +43,17 @@ namespace ReportsVerification.Web.DataObjects
             try
             {
                 var serializer = new XmlSerializer(xsdReportType);
+
+                using (var textReader = new StringReader(reportContent.ToString()))
                 
-                using (var reader = reportContent.CreateReader())
+                //using (var reader = reportContent.CreateReader())
                 {
-                    if (!serializer.CanDeserialize(reader))
+                    var nsreader = new NamespaceIgnorantXmlTextReader(textReader);
+                    if (!serializer.CanDeserialize(nsreader))
                     {
                         return false;
                     }
-                    xsdReport = serializer.Deserialize(reader) as IXsdReport;
+                    xsdReport = serializer.Deserialize(nsreader) as IXsdReport;
                     return true;
                 }
             }

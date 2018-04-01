@@ -24,8 +24,8 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://пф.рф/ВС/СЗВ-М/2017-01-01")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="http://пф.рф/ВС/СЗВ-М/2017-01-01", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
     public partial class ЭДПФР : IXsdReport
     {
         
@@ -86,7 +86,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://пф.рф/ВС/СЗВ-М/2017-01-01")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="")]
     public partial class ЭДПФРСЗВМ
     {
         
@@ -176,7 +176,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://пф.рф/ВС/СЗВ-М/2017-01-01")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="")]
     public partial class ЭДПФРСЗВМСтрахователь
     {
         
@@ -298,7 +298,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="ТипСлужебнаяИнформация", Namespace="http://пф.рф/АФ/2017-01-01")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="ТипСлужебнаяИнформация", Namespace="")]
     public partial class ТипСлужебнаяИнформация1 : ТипСлужебнаяИнформация
     {
         
@@ -1492,7 +1492,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://пф.рф/ВС/СЗВ-М/2017-01-01")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="")]
     public partial class ЭДПФРСЗВМОтчетныйПериод
     {
         
@@ -1533,7 +1533,7 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Szvm
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://пф.рф/ВС/СЗВ-М/2017-01-01")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="")]
     public partial class ЭДПФРСЗВМЗЛ
     {
         
