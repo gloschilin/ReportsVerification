@@ -24,8 +24,8 @@ namespace ReportsVerification.Web.DataObjects.Xsd.Fss4
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://fz122.fss.ru")]
-    [System.Xml.Serialization.XmlRootAttribute("F4REPORT", Namespace="http://fz122.fss.ru", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="")]
+    [System.Xml.Serialization.XmlRootAttribute("F4REPORT", Namespace="", IsNullable=true)]
     public partial class F4ReportType : IXsdReport
     {
         
