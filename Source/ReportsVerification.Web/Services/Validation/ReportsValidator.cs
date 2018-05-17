@@ -55,8 +55,8 @@ namespace ReportsVerification.Web.Services.Validation
 
             if (servicesLen == 0)
             {
-                _validationContext.Wrong(sessionInfo.Id, 
-                    ValidationStepType.EmptyServicesValidator, 4);
+                //_validationContext.Wrong(sessionInfo.Id, 
+                //    ValidationStepType.EmptyServicesValidator, 4);
                 return;
             }
 

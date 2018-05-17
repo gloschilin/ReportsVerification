@@ -15,7 +15,7 @@ namespace ReportsVerification.Web.Builders
         {
             var info = ReportInfoFactory.CreateReportInfoRevision(ReportType, new DateOfQuarter(DateTime.Now),
                 "", "", int.Parse(xsdReport.Документ.НомКорр ?? "0"));
-
+            info.Version = xsdReport.ВерсПрог;
             return info;
         }
 

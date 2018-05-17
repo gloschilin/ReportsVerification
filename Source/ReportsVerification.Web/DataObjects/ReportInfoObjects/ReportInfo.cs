@@ -27,6 +27,7 @@ namespace ReportsVerification.Web.DataObjects.ReportInfoObjects
         public ReportTypes Type { get; }
 
         public string Inn { get; }
+        public string Version { get; set; }
 
         public abstract string GetUniq();
 

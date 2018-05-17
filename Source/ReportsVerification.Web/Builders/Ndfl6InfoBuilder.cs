@@ -59,7 +59,7 @@ namespace ReportsVerification.Web.Builders
 
             var info = ReportInfoFactory.CreateReportInfoRevision(ReportType, period, companyName,
                 inn, int.Parse(xsdReport.Документ.НомКорр ?? "0"));
-
+            info.Version = xsdReport.ВерсПрог;
             return info;
         }
 

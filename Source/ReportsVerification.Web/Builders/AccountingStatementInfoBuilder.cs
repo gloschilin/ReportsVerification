@@ -23,6 +23,8 @@ namespace ReportsVerification.Web.Builders
                 xsdReport.Документ.СвНП.НПЮЛ.ИННЮЛ, 
                 int.Parse(xsdReport.Документ.НомКорр ?? "0"));
 
+            info.Version = xsdReport.ВерсПрог;
+
             return info;
         }
 

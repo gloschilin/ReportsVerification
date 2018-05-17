@@ -41,6 +41,7 @@ namespace ReportsVerification.Web.Builders
             if (resultBuild.Count == 1)
             {
                 reportInfo = resultBuild.First();
+
                 return true;
             }
 

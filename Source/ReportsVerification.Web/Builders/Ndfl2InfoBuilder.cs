@@ -59,7 +59,7 @@ namespace ReportsVerification.Web.Builders
 
             var info = ReportInfoFactory.Create2NdflReportInfo(period, companyName, inn,
                 int.Parse(document.НомКорр ?? "0"), int.Parse(document.Признак));
-
+            info.Version = xsdReport.ВерсПрог;
             return info;
         }
 

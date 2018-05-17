@@ -11,7 +11,6 @@ using ReportsVerification.Web.DataObjects.ReportInfoObjects;
 using ReportsVerification.Web.Filters;
 using ReportsVerification.Web.Models;
 using ReportsVerification.Web.Services.Interfaces;
-using ReportsVerification.Web.Utills;
 using ReportsVerification.Web.Utills.Attributes;
 using ReportsVerification.Web.Utills.Interfaces;
 
@@ -73,7 +72,9 @@ namespace ReportsVerification.Web.Controllers
         public ReportTypes[] NullReportDates { get; }
             = {
                 ReportTypes.PurchasesBookNds,
-                ReportTypes.SalesBookNds
+                ReportTypes.SalesBookNds,
+                ReportTypes.AccountingStatement,
+                ReportTypes.AccountingStatementSimplifiedTaxation
             };
 
         /// <summary>

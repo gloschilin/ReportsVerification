@@ -37,7 +37,6 @@ namespace ReportsVerification.Web.Builders
             var info = ReportInfoFactory.CreateSzvMReportInfo(type, month,
                 xsdReport.СЗВМ.Страхователь.НаименованиеКраткое,
                 xsdReport.СЗВМ.Страхователь.ИНН);
-
             return info;
         }
 
